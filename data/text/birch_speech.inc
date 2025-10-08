@@ -1,5 +1,7 @@
 gText_Birch_Welcome::
-	.string "Hi! Sorry to keep you waiting!\p"
+	.string "Pfoe! Ik ben kanker get maat\p"
+	.string "....\p"
+	.string "Oh fuck, jullie zijn er al!\p"
 	.string "Welcome to the world of POKéMON!\p"
 	.string "My name is BIRCH.\p"
 	.string "But everyone calls me the POKéMON\n"
@@ -7,7 +9,7 @@ gText_Birch_Welcome::
 	.string "$"
 
 gText_Birch_Pokemon::
-	.string "This is what we call a “POKéMON.”\p"
+	.string "this is a POKéMON\p"
 	.string "\n"
 	.string "$"
 
@@ -54,8 +56,11 @@ gText_Birch_AreYouReady::
 	.string "Your very own adventure is about\n"
 	.string "to unfold.\p"
 	.string "Take courage, and leap into the\n"
-	.string "world of POKéMON where dreams,\l"
-	.string "adventure, and friendships await!\p"
+	.string "world of NUZLOCKES where dreams,\l"
+	.string "adventure, and explosions await!\p"
+	.string "And probably die..\p"
 	.string "Well, I'll be expecting you later.\n"
 	.string "Come see me in my POKéMON LAB.\p"
+	.string "Birch, out.\p"
+	.string "Peaceeeeeeeeeeeeeeeeee!!!!!\p"
 	.string "$"

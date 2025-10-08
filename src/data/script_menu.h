@@ -949,6 +949,7 @@ static const u8 *const sPCNameStrings[] =
     gText_SomeonesPC,
     gText_LanettesPC,
     gText_PlayersPC,
+    //dus hier iets toevoegen?
     gText_LogOff,
 };
 
