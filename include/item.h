@@ -75,6 +75,7 @@ ItemUseFunc GetItemFieldFunc(u16 itemId);
 u8 GetItemBattleUsage(u16 itemId);
 ItemUseFunc GetItemBattleFunc(u16 itemId);
 u8 GetItemSecondaryId(u16 itemId);
+void ItemID_GetHoldEffectParam_Script();//reprompt_repel
 
 /* Expands to:
  * enum
