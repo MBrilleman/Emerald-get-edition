@@ -242,8 +242,30 @@ LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeFemale::
 	end
 
 LittlerootTown_EventScript_FatMan::
-	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
+    lock
+    faceplayer
+	msgbox LittleRoot_Text_DenizVraagFocusPunch, MSGBOX_YESNO
+    goto_if_eq VAR_RESULT, YES, LittleRootTown_EventScript_GiveFocusPunch
+    goto_if_eq VAR_RESULT, NO, LittleRootTown_EventScript_AfgewezenDenizFocusPunch
+    release
 	end
+
+LittleRootTown_EventScript_GiveFocusPunch::
+    call_if_unset FLAG_DENIZ_FOCUS_PUNCHGEKREGEN LittleRootTown_EventScript_GiveFocusPunchTM
+    msgbox LittleRootTown_Text_AcceptedDenizFocusPunch
+    release
+    end
+
+LittleRootTown_EventScript_GiveFocusPunchTM::
+    giveitem ITEM_TM_FOCUS_PUNCH
+    setflag FLAG_DENIZ_FOCUS_PUNCHGEKREGEN 
+    return
+
+LittleRootTown_EventScript_AfgewezenDenizFocusPunch::
+    msgbox LittleRootTown_Text_AfgewezenDenizFocusPunch
+    release
+    end
+
 
 LittlerootTown_EventScript_Boy::
 	msgbox LittlerootTown_Text_BirchSpendsDaysInLab, MSGBOX_NPC
@@ -951,6 +973,15 @@ LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "…But please be careful.\n"
 	.string "If anything happens, you can come home.\p"
 	.string "Go on, go get them, honey!$"
+
+LittleRoot_Text_DenizVraagFocusPunch:
+    .string "Deniz: Moet je kanker stoot?$"
+
+LittleRootTown_Text_AfgewezenDenizFocusPunch:
+    .string "Ibne, waarom stoor je mij!$"
+
+LittleRootTown_Text_AcceptedDenizFocusPunch:
+    .string "Kanker mongool, geef terug!$"
 
 LittlerootTown_Text_CanUsePCToStoreItems:
 	.string "If you use a PC, you can store items\n"
