@@ -25,6 +25,8 @@
 #include "trainer_hill.h"
 #include "constants/rgb.h"
 
+#define BUGFIX
+
 static void VBlankIntr(void);
 static void HBlankIntr(void);
 static void VCountIntr(void);

@@ -1,3 +1,4 @@
+#define BUGFIX
 LittlerootTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_OnFrame
@@ -244,7 +245,11 @@ LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeFemale::
 LittlerootTown_EventScript_FatMan::
     lock
     faceplayer
+	#ifdef BUGFIX
 	msgbox LittleRoot_Text_DenizVraagFocusPunch, MSGBOX_YESNO
+	#else
+	msgbox LittleRoot_Text_DenizVraagFocusPunchnobug, MSGBOX_YESNO
+	#endif
     goto_if_eq VAR_RESULT, YES, LittleRootTown_EventScript_GiveFocusPunch
     goto_if_eq VAR_RESULT, NO, LittleRootTown_EventScript_AfgewezenDenizFocusPunch
     release
@@ -976,6 +981,9 @@ LittlerootTown_Text_ComeHomeIfAnythingHappens:
 
 LittleRoot_Text_DenizVraagFocusPunch:
     .string "Deniz: Moet je kanker stoot?$"
+
+LittleRoot_Text_DenizVraagFocusPunchnobug:
+	.string "Deniz: De bug fix staat uit bledder?$"
 
 LittleRootTown_Text_AfgewezenDenizFocusPunch:
     .string "Ibne, waarom stoor je mij!$"
