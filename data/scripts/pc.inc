@@ -34,12 +34,14 @@ EventScript_AccessPlayersPC::
 
 EventScript_AccessPokemonStorage::
 	playse SE_PC_LOGIN
+    setflag FLAG_POKEMONPCMENU
 	call_if_unset FLAG_SYS_PC_LANETTE, EventScript_AccessSomeonesPC
 	call_if_set FLAG_SYS_PC_LANETTE, EventScript_AccessLanettesPC
 	msgbox gText_StorageSystemOpened, MSGBOX_DEFAULT
 	special ShowPokemonStorageSystemPC
 	waitstate
 	goto EventScript_PCMainMenu
+    clearflag FLAG_POKEMONPCMENU
 	end
 
 EventScript_AccessSomeonesPC::
@@ -51,11 +53,9 @@ EventScript_AccessLanettesPC::
 	return
 
 EventScript_TurnOffPC::
-	setvar VAR_0x8004, PC_LOCATION_OTHER
 	playse SE_PC_OFF
-	special DoPCTurnOffEffect
 	releaseall
-	end
+	end  
 
 EventScript_AccessHallOfFame::
 	goto_if_unset FLAG_SYS_GAME_CLEAR, EventScript_TurnOffPC
@@ -64,3 +64,5 @@ EventScript_AccessHallOfFame::
 	waitstate
 	goto EventScript_AccessPC
 	end
+
+
