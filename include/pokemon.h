@@ -174,6 +174,7 @@ struct PokemonSubstruct3
  // Not to be confused with METLOC_FATEFUL_ENCOUNTER.
  /* 0x0B */ u32 modernFatefulEncounter:1;
 };
+#define MAX_LEVEL_DIFF_PRE_EV 5
 
 // Number of bytes in the largest Pokémon substruct.
 // They are assumed to be the same size, and will be padded to
