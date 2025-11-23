@@ -855,6 +855,10 @@ gText_SandstormIsVicious::
 	.string "The sandstorm is vicious.\n"
 	.string "It's impossible to keep going.$"
 
+gText_SelectWithoutRegisteredLongItem::
+	.string "A second item in the BAG can be\n"
+	.string "registered to holding SELECT.$"
+
 gText_SelectWithoutRegisteredItem::
 	.string "An item in the BAG can be\n"
 	.string "registered to SELECT for easy use.$"
@@ -867,6 +871,10 @@ gText_PokemonTrainerSchoolEmail::
 	.string "A TRAINER's expertise is tested on the\n"
 	.string "move sets chosen for POKéMON.\p"
 	.string "… … … … … …$"
+
+EventScript_SelectWithoutRegisteredLongItem::
+	msgbox gText_SelectWithoutRegisteredLongItem, MSGBOX_SIGN
+	end
 
 gText_PlayerHouseBootPC::
 	.string "{PLAYER} booted up the PC.$"

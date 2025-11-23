@@ -38,6 +38,7 @@
 
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
 static EWRAM_DATA u16 sPrevMetatileBehavior = 0;
+static EWRAM_DATA u8 sPlayerSelectHoldFrames = 0;
 
 COMMON_DATA u8 gSelectedObjectEvent = 0;
 
@@ -84,6 +85,8 @@ void FieldClearPlayerInput(struct FieldInput *input)
     input->input_field_1_1 = FALSE;
     input->input_field_1_2 = FALSE;
     input->input_field_1_3 = FALSE;
+    input->input_field_1_6 = FALSE;
+    input->input_field_1_7 = FALSE;
     input->dpadDirection = 0;
 }
 
@@ -112,6 +115,21 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
             input->heldDirection = TRUE;
             input->heldDirection2 = TRUE;
         }
+
+        if (JOY_HELD(SELECT_BUTTON))
+        {
+            sPlayerSelectHoldFrames = sPlayerSelectHoldFrames < 255 ? sPlayerSelectHoldFrames + 1 : 255;
+        }
+        else if (sPlayerSelectHoldFrames != 0) 
+        {
+            if (sPlayerSelectHoldFrames < 20)
+                input->input_field_1_6 = TRUE;
+            else if (sPlayerSelectHoldFrames > 20)
+                input->input_field_1_7 = TRUE; 
+            sPlayerSelectHoldFrames = 0;
+        }
+        else
+            sPlayerSelectHoldFrames = 0;   
     }
 
     if (forcedMove == FALSE)
@@ -186,7 +204,14 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         ShowStartMenu();
         return TRUE;
     }
+    /*
     if (input->pressedSelectButton && UseRegisteredKeyItemOnField() == TRUE)
+        return TRUE;
+    */
+    if (input->input_field_1_6 && UseRegisteredKeyItemOnField(FALSE) == TRUE)
+        return TRUE;
+    
+    if (input->input_field_1_7 && UseRegisteredKeyItemOnField(TRUE) == TRUE)
         return TRUE;
 
     return FALSE;
