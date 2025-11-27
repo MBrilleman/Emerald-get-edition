@@ -1,7 +1,8 @@
 Route117_EventScript_DaycareMan::
 	lock
 	faceplayer
-	special GetDaycareMonNicknames
+    call_if_set FLAG_BADGE03_GET, Route117_EventScript_CheckEggMove  
+    special GetDaycareMonNicknames
 	specialvar VAR_RESULT, GetDaycareState
 	goto_if_eq VAR_RESULT, DAYCARE_EGG_WAITING, Route117_EventScript_DaycareEggWaiting
 	goto_if_eq VAR_RESULT, DAYCARE_ONE_MON, Route117_EventScript_CheckOnOneMon
@@ -9,6 +10,20 @@ Route117_EventScript_DaycareMan::
 	msgbox Route117_Text_SeeWifeIfYoudLikeMeToRaiseMon, MSGBOX_DEFAULT
 	release
 	end
+
+Route117_EventScript_CheckEggMove::
+    goto_if_unset FLAG_EGG_MOVE_OPTION_GIVEN, Route117_EventScript_GiveEggMoveOptions
+    return
+
+Route117_EventScript_GiveEggMoveOptions::
+    msgbox Route117_EventScript_GiveEggMoveOptionsText, MSGBOX_DEFAULT
+    setflag FLAG_EGG_MOVE_OPTION_GIVEN
+    release
+    end
+
+Route117_EventScript_GiveEggMoveOptionsText:
+    .string "You like breeding don't you?\p"
+    .string "Here have egg moves on the go!$"
 
 Route117_EventScript_DaycareEggWaiting::
 	msgbox Route117_Text_DoYouWantEgg, MSGBOX_YESNO

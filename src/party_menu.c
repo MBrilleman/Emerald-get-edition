@@ -95,7 +95,8 @@ enum {
     MENU_TRADE2,
     MENU_TOSS,
     MENU_MOVES,//Summary screen move relearner
-    MENU_FIELD_MOVES
+    EGG_MOVES,//summary screen egg moves
+    MENU_FIELD_MOVES,
 };
 
 // IDs for the action lists that appear when a party mon is selected
@@ -460,6 +461,7 @@ static void BlitBitmapToPartyWindow_LeftColumn(u8, u8, u8, u8, u8, bool8);
 static void BlitBitmapToPartyWindow_RightColumn(u8, u8, u8, u8, u8, bool8);
 static void CursorCb_Summary(u8);
 static void CursorCb_Moves(u8);
+static void CursorCb_Egg_Moves(u8);
 static void CursorCb_Switch(u8);
 static void CursorCb_Cancel1(u8);
 static void CursorCb_Item(u8);
@@ -2645,6 +2647,9 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
         if (GetNumberOfRelearnableMoves(&mons[slotId]) != 0) {
 			AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_MOVES);
 		}
+        if (FlagGet(FLAG_EGG_MOVE_OPTION_GIVEN)){
+            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, EGG_MOVES);
+        }
         if (ItemIsMail(GetMonData(&mons[slotId], MON_DATA_HELD_ITEM)))
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_MAIL);
         else
@@ -2794,6 +2799,7 @@ static void CursorCb_Summary(u8 taskId)
 static void CursorCb_Moves(u8 taskId)
 {
     PlaySE(SE_SELECT);
+    FlagClear(FLAG_PARTY_EGG_MOVES);
 	FlagSet(FLAG_PARTY_MOVES);
     gSpecialVar_0x8004 = gPartyMenu.slotId;
 	gSpecialVar_0x8005 = GetNumberOfRelearnableMoves(&gPlayerParty[gSpecialVar_0x8004]);
@@ -2801,6 +2807,19 @@ static void CursorCb_Moves(u8 taskId)
 	TeachMoveRelearnerMove();
     sPartyMenuInternal->exitCallback = TeachMoveRelearnerMove;
     Task_ClosePartyMenu(taskId);
+}
+
+static void CursorCb_Egg_Moves(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    FlagClear(FLAG_PARTY_MOVES);
+	FlagSet(FLAG_PARTY_EGG_MOVES);
+    gSpecialVar_0x8004 = gPartyMenu.slotId;
+	gSpecialVar_0x8005 = GetNumberOfRelearnableMoves(&gPlayerParty[gSpecialVar_0x8004]);
+	DisplayPartyPokemonDataForRelearner(gSpecialVar_0x8004);
+	TeachMoveRelearnerMove();
+    sPartyMenuInternal->exitCallback = TeachMoveRelearnerMove;
+    Task_ClosePartyMenu(taskId); 
 }
 
 static void CB2_ShowPokemonSummaryScreen(void)
