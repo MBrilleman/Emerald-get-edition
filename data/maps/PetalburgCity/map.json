@@ -134,6 +134,20 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_PETALBURG_RIVAL",
+      "graphics_id": "OBJ_EVENT_GFX_LUCY",
+      "x": 13,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_EventScript_eRival_Battle",
+      "flag": "0"
+    },
+    {
       "local_id": "LOCALID_PETALBURG_SCOTT",
       "graphics_id": "OBJ_EVENT_GFX_SCOTT",
       "x": 13,
@@ -255,6 +269,42 @@
       "var": "VAR_SCOTT_PETALBURG_ENCOUNTER",
       "var_value": "0",
       "script": "PetalburgCity_EventScript_Scott2"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 12,
+      "elevation": 3,
+      "var": "VAR_PETALBURG_eRIVAL",
+      "var_value": "0",
+      "script": "PetalburgCity_EventScript_eRival0"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 13,
+      "elevation": 3,
+      "var": "VAR_PETALBURG_eRIVAL",
+      "var_value": "0",
+      "script": "PetalburgCity_EventScript_eRival1"
+    },
+      {
+      "type": "trigger",
+      "x": 0,
+      "y": 12,
+      "elevation": 3,
+      "var": "VAR_PETALBURG_eRIVAL",
+      "var_value": "1",
+      "script": "PetalburgCity_EventScript_eRival_shove0"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 13,
+      "elevation": 3,
+      "var": "VAR_PETALBURG_eRIVAL",
+      "var_value": "1",
+      "script": "PetalburgCity_EventScript_eRival_shove1"
     },
     {
       "type": "trigger",

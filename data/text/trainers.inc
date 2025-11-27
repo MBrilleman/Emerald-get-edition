@@ -4779,3 +4779,12 @@ Route134_Text_HudsonPostBattle:
 	.string "Our boat drifted out to sea.\p"
 	.string "My buddy's a timid fellow, so I'm\n"
 	.string "worried about him.$"
+
+testNPC_intro:
+	.string "Faka nigger!$"
+
+testNPC_Defeated:
+	.string "Kanker get!$"
+
+testNPC_postbattle:
+	.string "Je moeder$"

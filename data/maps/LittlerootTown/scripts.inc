@@ -271,6 +271,10 @@ LittleRootTown_EventScript_AfgewezenDenizFocusPunch::
     release
     end
 
+LittlerootTown_testNPC::
+	trainerbattle_single TRAINER_TEST, testNPC_intro, testNPC_Defeated
+	msgbox testNPC_postbattle, MSGBOX_AUTOCLOSE
+	end
 
 LittlerootTown_EventScript_Boy::
 	msgbox LittlerootTown_Text_BirchSpendsDaysInLab, MSGBOX_NPC

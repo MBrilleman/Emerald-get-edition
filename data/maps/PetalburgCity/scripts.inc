@@ -524,7 +524,7 @@ PetalburgCity_EventScript_Scott3::
 	lockall
 	addobject LOCALID_PETALBURG_SCOTT
 	setvar VAR_0x8008, 3
-	setobjectxy LOCALID_PETALBURG_SCOTT, 13, 13
+	setobjectxy LOCALID_PETALBURG_SCOTT, 13, 12
 	goto PetalburgCity_EventScript_Scott
 	end
 
@@ -698,6 +698,123 @@ PetalburgCity_EventScript_GymBoy::
 	msgbox PetalburgCity_Text_AreYouRookieTrainer, MSGBOX_NPC
 	end
 
+PetalburgCity_EventScript_eRival0::
+	lockall
+	addobject LOCALID_PETALBURG_RIVAL
+	setvar VAR_0x8008, 0
+	setobjectxy LOCALID_PETALBURG_RIVAL, 13, 13
+	goto PetalburgCity_EventScript_eRival
+	end
+
+PetalburgCity_EventScript_eRival1::
+	lockall
+	addobject LOCALID_PETALBURG_RIVAL
+	setvar VAR_0x8008, 1
+	setobjectxy LOCALID_PETALBURG_RIVAL, 13, 12
+	goto PetalburgCity_EventScript_eRival
+	end
+
+PetalburgCity_EventScript_eRival::
+	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_Movement_ScottStartWalkLeft
+	waitmovement 0
+	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_Movement_ScottStartWalkLeft
+	waitmovement 0
+	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_Movement_ScottStartWalkLeft
+	waitmovement 0
+	call_if_eq VAR_0x8008, 0, PetalburgCity_EventScript_eRivalblock0
+	call_if_eq VAR_0x8008, 1, PetalburgCity_EventScript_eRivalblock1
+	faceplayer
+	msgbox PetalburgCity_Text_eRival_entrance, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_PETALBURG_eRIVAL, 1
+	releaseall
+	end    
+
+PetalburgCity_EventScript_eRival_Battle::
+	lock
+	faceplayer
+	msgbox PetalburgCity_Text_eRival_vraag_battle, MSGBOX_YESNO
+    goto_if_eq VAR_RESULT, YES, PetalburgCity_Text_eRival_Battle_Start
+    goto_if_eq VAR_RESULT, NO, PetalburgCity_Text_eRival_Battle_No
+	faceplayer
+    release
+	end
+
+PetalburgCity_Text_eRival_Battle_Start::
+	msgbox PetalburgCity_Text_eRival_Battle_Starttext, MSGBOX_DEFAULT
+	closemessage
+	end
+
+PetalburgCity_Text_eRival_Battle_No::
+	msgbox PetalburgCity_Text_eRival_Battle_Notext, MSGBOX_DEFAULT
+	closemessage
+	end
+
+PetalburgCity_EventScript_eRivalblock0::
+	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_EventScript_eRivalblockmove0
+	waitmovement 0
+	return
+
+PetalburgCity_EventScript_eRivalblock1::
+	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_EventScript_eRivalblockmove1
+	waitmovement 0
+	return
+
+PetalburgCity_EventScript_eRival_shove0::
+	playse SE_PIN
+	applymovement LOCALID_PETALBURG_RIVAL, Common_Movement_QuestionMark
+	waitmovement 0
+	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_EventScript_eRival0_shoveblock
+	waitmovement 0
+	goto PetalburgCity_EventScript_eRival_shove
+	end
+
+PetalburgCity_EventScript_eRival_shove1::
+	playse SE_PIN
+	applymovement LOCALID_PETALBURG_RIVAL, Common_Movement_QuestionMark
+	waitmovement 0
+	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_EventScript_eRival1_shoveblock
+	waitmovement 0
+	goto PetalburgCity_EventScript_eRival_shove
+	end
+	
+PetalburgCity_EventScript_eRival_shove::
+	playse SE_WALL_HIT
+	applymovement LOCALID_PLAYER PetalburgCity_EventScript_eRival_getshoved
+	applymovement LOCALID_PETALBURG_RIVAL,PetalburgCity_EventScript_eRivalshoving
+	waitmovement 0
+	msgbox PetalburgCity_Text_eRival_shove, MSGBOX_DEFAULT
+	closemessage
+	end
+
+PetalburgCity_EventScript_eRivalblockmove0:
+	walk_left
+	walk_up
+	step_end
+
+PetalburgCity_EventScript_eRivalblockmove1:
+	walk_left
+	walk_down
+	step_end
+
+PetalburgCity_EventScript_eRival0_shoveblock:
+	walk_fast_left
+	walk_fast_up
+	step_end
+
+PetalburgCity_EventScript_eRival1_shoveblock:
+	walk_fast_left
+	walk_fast_down
+	step_end
+
+PetalburgCity_EventScript_eRival_getshoved:
+	walk_fast_right
+	step_end
+
+PetalburgCity_EventScript_eRivalshoving:
+	walk_fast_right
+	step_end
+
 PetalburgCity_Text_WhereIsWally:
 	.string "Where has our WALLY gone?\p"
 	.string "We have to leave for VERDANTURF TOWN\n"
@@ -759,3 +876,18 @@ PetalburgCity_Text_ImLookingForTalentedTrainers:
 	.string "I'm roaming the land in search of\n"
 	.string "talented TRAINERS.\p"
 	.string "I'm sorry to have taken your time.$"
+
+PetalburgCity_Text_eRival_entrance:
+	.string "Hallo.$"
+
+PetalburgCity_Text_eRival_vraag_battle:
+	.string "Moet je stoot?$"
+
+PetalburgCity_Text_eRival_Battle_Starttext:
+	.string "Ik ga je slopen.$"
+
+PetalburgCity_Text_eRival_Battle_Notext:
+	.string "Helaas!$"
+
+PetalburgCity_Text_eRival_shove:
+	.string "Eerst vechten!$"
