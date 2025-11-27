@@ -464,7 +464,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Birch::
 	lock
 	faceplayer
 	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 5, LittlerootTown_ProfessorBirchsLab_EventScript_CanHaveAnyOneOfRarePokemon
-	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_GrassyPatchWaiting
+	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_GrassyPatchWaiting 
 	goto_if_unset FLAG_HAS_MATCH_CALL, LittlerootTown_ProfessorBirchsLab_EventScript_TryRatePokedexOrRegister
 	goto_if_unset FLAG_ENABLE_PROF_BIRCH_MATCH_CALL, EventScript_RegisterProfBirch
 	goto LittlerootTown_ProfessorBirchsLab_EventScript_TryRatePokedexOrRegister
@@ -515,6 +515,9 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayGivePokeBalls
 	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanGivePokeBalls
+
+    call LittlerootTown_ProfessorBirchsLab_EventScript_GiveEXPShare
+
 	setvar VAR_BIRCH_LAB_STATE, 5
 	setflag FLAG_ADVENTURE_STARTED
 	setvar VAR_OLDALE_TOWN_STATE, 1
@@ -522,6 +525,19 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
 	setvar VAR_LITTLEROOT_TOWN_STATE, 3
 	releaseall
 	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiveEXPShare::
+    msgBox LittlerootTown_ProfessorBirchsLab_Text_GiveEXPShare, MSGBOX_DEFAULT
+    giveitem ITEM_EXP_SHARE
+    msgBox LittlerootTown_ProfessorBirchsLab_Text_AfterEXPShare, MSGBOX_DEFAULT
+    return
+
+LittlerootTown_ProfessorBirchsLab_Text_GiveEXPShare:
+	.string "I also want you to have this!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_AfterEXPShare:
+    .string "That is an EXP.SHARE!\p"
+    .string "Use it to level up ALL of POKEMON!$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_MayGivePokeBalls::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayGotPokedexTooTakeThese, MSGBOX_DEFAULT
@@ -772,6 +788,7 @@ LittlerootTown_ProfessorBirchsLab_Text_CatchCutePokemonWithPokeBalls:
 	.string "because I want different POKéMON.\p"
 	.string "If I find any cute POKéMON, I'll catch\n"
 	.string "them with POKé BALLS!$"
+
 
 LittlerootTown_ProfessorBirchsLab_Text_OhYourBagsFull:
 	.string "Oh? Your BAG's full.$"
