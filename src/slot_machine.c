@@ -741,6 +741,8 @@ static const struct SubspriteTable sSubspriteTable_ReelTimeMachineAntennae[];
 static const struct SubspriteTable sSubspriteTable_ReelTimeMachine[];
 static const struct SubspriteTable sSubspriteTable_ReelBackground[];
 
+const u8 MauvilleCity_GameCorner_EventScript_SlotMachine7;
+
 static const struct BgTemplate sBgTemplates[] =
 {
     {

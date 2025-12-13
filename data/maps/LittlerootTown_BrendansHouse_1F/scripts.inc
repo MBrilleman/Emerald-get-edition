@@ -317,7 +317,12 @@ PlayersHouse_1F_Text_MaybeDadWillBeOn:
 PlayersHouse_1F_Text_ItsOverWeMissedHim:
 	.string "MOM: Oh… It's over.\p"
 	.string "I think DAD was on, but we missed him.\n"
-	.string "Too bad.$"
+	.string "Too bad.\p"
+    .string "As a consolation you can have this.$"
+
+PlayersHouse_1F_Text_GamblingUpdate:
+    .string "There has been an update and you can\n"
+    .string "now gamble on the go! have fun!$"
 
 PlayersHouse_1F_Text_GoIntroduceYourselfNextDoor:
 	.string "Oh, yes.\n"

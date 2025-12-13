@@ -63,7 +63,8 @@ enum
     MENU_ACTION_REST_FRONTIER,
     MENU_ACTION_RETIRE_FRONTIER,
     MENU_ACTION_PYRAMID_BAG,
-    MENU_ACTION_POKEDEX
+    MENU_ACTION_POKEDEX,
+    MENU_ACTION_CASINO
 };
 
 // Save status
@@ -100,6 +101,7 @@ static bool8 StartMenuPokeNavCallback(void);
 static bool8 StartMenuPlayerNameCallback(void);
 static bool8 StartMenuSaveCallback(void);
 static bool8 StartMenuOptionCallback(void);
+static bool8 StartMenuCasinoCallback(void);
 static bool8 StartMenuExitCallback(void);
 static bool8 StartMenuSafariZoneRetireCallback(void);
 static bool8 StartMenuLinkModePlayerNameCallback(void);
@@ -196,7 +198,8 @@ static const struct MenuAction sStartMenuItems[] =
     [MENU_ACTION_REST_FRONTIER]   = {gText_MenuRest,    {.u8_void = StartMenuSaveCallback}},
     [MENU_ACTION_RETIRE_FRONTIER] = {gText_MenuRetire,  {.u8_void = StartMenuBattlePyramidRetireCallback}},
     [MENU_ACTION_PYRAMID_BAG]     = {gText_MenuBag,     {.u8_void = StartMenuBattlePyramidBagCallback}},
-    [MENU_ACTION_POKEDEX]         = {gText_MenuPokedex, {.u8_void = StartMenuPokedexCallback}}
+    [MENU_ACTION_POKEDEX]         = {gText_MenuPokedex, {.u8_void = StartMenuPokedexCallback}},
+    [MENU_ACTION_CASINO]          = {gText_MenuCasino,  {.u8_void = StartMenuCasinoCallback}},
 };
 
 static const struct BgTemplate sBgTemplates_LinkBattleSave[] =
@@ -317,26 +320,40 @@ static void AddStartMenuAction(u8 action)
 
 static void BuildNormalStartMenu(void)
 {
-    if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
+    if (FlagGet(FLAG_SECONDARY_START_MENU_OPEN))
     {
-        AddStartMenuAction(MENU_ACTION_POKEDEX);
+        if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
+        {
+            AddStartMenuAction(MENU_ACTION_POKEDEX);
+        }
+
+        if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
+        {
+            AddStartMenuAction(MENU_ACTION_POKENAV);
+        }
+
+        AddStartMenuAction(MENU_ACTION_PLAYER);
     }
-    if (FlagGet(FLAG_SYS_POKEMON_GET) == TRUE)
+    //regular menu
+    else 
     {
-        AddStartMenuAction(MENU_ACTION_POKEMON);
-        AddStartMenuAction(MENU_ACTION_PC);
+        if (FlagGet(FLAG_SYS_POKEMON_GET))
+        {
+            AddStartMenuAction(MENU_ACTION_POKEMON);
+            AddStartMenuAction(MENU_ACTION_PC);
+        }
+
+        AddStartMenuAction(MENU_ACTION_BAG);
+        
+        if (FlagGet(FLAG_RECEIVED_COIN_CASE))
+        {
+          AddStartMenuAction(MENU_ACTION_CASINO);  
+        }
+        
+        AddStartMenuAction(MENU_ACTION_SAVE);
+        AddStartMenuAction(MENU_ACTION_OPTION);
     }
-
-    AddStartMenuAction(MENU_ACTION_BAG);
-
-    if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
-    {
-        AddStartMenuAction(MENU_ACTION_POKENAV);
-    }
-
-    AddStartMenuAction(MENU_ACTION_PLAYER);
-    AddStartMenuAction(MENU_ACTION_SAVE);
-    AddStartMenuAction(MENU_ACTION_OPTION);
+    //Add EXIT to both menu's
     AddStartMenuAction(MENU_ACTION_EXIT);
 }
 
@@ -608,6 +625,28 @@ static bool8 HandleStartMenuInput(void)
         sStartMenuCursorPos = Menu_MoveCursor(1);
     }
 
+    if ((JOY_NEW(DPAD_RIGHT)) && !(FlagGet(FLAG_SECONDARY_START_MENU_OPEN))) //if flag secondary menu is false
+    {
+        PlaySE(SE_SELECT);
+        RemoveExtraStartMenuWindows();
+        HideStartMenu();
+
+        FlagSet(FLAG_SECONDARY_START_MENU_OPEN);
+        ShowStartMenu();
+        return TRUE;
+    }   
+
+    if ((JOY_NEW(DPAD_LEFT)) && (FlagGet(FLAG_SECONDARY_START_MENU_OPEN)))// if flag secondary menu is true
+    {
+        PlaySE(SE_SELECT);
+        RemoveExtraStartMenuWindows();
+        HideStartMenu();
+
+        FlagClear(FLAG_SECONDARY_START_MENU_OPEN);
+        ShowStartMenu();
+        return TRUE;
+    }
+
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
@@ -635,6 +674,7 @@ static bool8 HandleStartMenuInput(void)
     {
         RemoveExtraStartMenuWindows();
         HideStartMenu();
+        FlagClear(FLAG_SECONDARY_START_MENU_OPEN);
         return TRUE;
     }
 
@@ -669,6 +709,23 @@ static bool8 StartMenuPokemonCallback(void)
         return TRUE;
     }
 
+    return FALSE;
+}
+
+extern const u8 MauvilleCity_GameCorner_EventScript_SlotMachine7[];
+static bool8 StartMenuCasinoCallback(void)
+{
+	u8 taskId;
+
+    if (!gPaletteFade.active)
+    {
+        PlayRainStoppingSoundEffect();
+        PlaySE(SE_SELECT);
+        RemoveExtraStartMenuWindows();
+        HideStartMenu();
+		ScriptContext_SetupScript(MauvilleCity_GameCorner_EventScript_SlotMachine7);
+        return TRUE;
+    }
     return FALSE;
 }
 
@@ -771,7 +828,7 @@ static bool8 StartMenuExitCallback(void)
 {
     RemoveExtraStartMenuWindows();
     HideStartMenu(); // Hide start menu
-
+    FlagClear(FLAG_SECONDARY_START_MENU_OPEN);
     return TRUE;
 }
 

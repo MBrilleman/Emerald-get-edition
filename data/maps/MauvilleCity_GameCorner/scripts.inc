@@ -571,6 +571,8 @@ MauvilleCity_GameCorner_EventScript_SlotMachine6::
 	releaseall
 	end
 
+@came a error about alignment discrepencies probably because this is ow also called from c, .align 2 fixes it -> GPT
+.align 2
 MauvilleCity_GameCorner_EventScript_SlotMachine7::
 	lockall
 	checkitem ITEM_COIN_CASE

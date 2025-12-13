@@ -1225,7 +1225,7 @@
 #define FLAG_RECEIVED_METAL_COAT                                    0x493 // Flag voor metal coat van MR STONE
 #define FLAG_EGG_MOVE_OPTION_GIVEN                                  0x494 // Flag for egg move option in pc
 #define FLAG_PARTY_EGG_MOVES                                        0x495 // Flag for actually using egg moves instead of regular move relearner
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
+#define FLAG_SECONDARY_START_MENU_OPEN                              0x496 // Flag used for secondary menu option by pressing right
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
