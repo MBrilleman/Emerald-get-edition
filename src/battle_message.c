@@ -380,6 +380,7 @@ static const u8 sText_ThrewPokeblockAtPkmn[] = _("{B_PLAYER_NAME} threw a {POKEB
 static const u8 sText_OutOfSafariBalls[] = _("{PLAY_SE SE_DING_DONG}ANNOUNCER: You're out of\nSAFARI BALLS! Game over!\p");
 static const u8 sText_OpponentMon1Appeared[] = _("{B_OPPONENT_MON1_NAME} appeared!\p");
 static const u8 sText_WildPkmnAppeared[] = _("Wild {B_OPPONENT_MON1_NAME} appeared!\p");
+static const u8 sText_WildPkmnAppearedWithItem[] = _("Wild {B_OPPONENT_MON1_NAME} appeared\nand seems to be holding something!\p");
 static const u8 sText_LegendaryPkmnAppeared[] = _("Wild {B_OPPONENT_MON1_NAME} appeared!\p");
 static const u8 sText_WildPkmnAppearedPause[] = _("Wild {B_OPPONENT_MON1_NAME} appeared!{PAUSE 127}");
 static const u8 sText_TwoWildPkmnAppeared[] = _("Wild {B_OPPONENT_MON1_NAME} and\n{B_OPPONENT_MON2_NAME} appeared!\p");
@@ -431,6 +432,10 @@ static const u8 sText_SpAtk2[] = _("SP. ATK");
 static const u8 sText_SpDef2[] = _("SP. DEF");
 static const u8 sText_Accuracy[] = _("accuracy");
 static const u8 sText_Evasiveness[] = _("evasiveness");
+static const u8 sText_PkmnDroppedItem[] = _("Wild {B_OPPONENT_MON1_NAME} dropped an item!\p");
+static const u8 sText_AddedToBag[] = _("{B_PLAYER_NAME} put away the {B_BUFF1}\nin the {B_BUFF2} POCKET.\p");
+static const u8 sText_AddedToPC[] = _("{B_PLAYER_NAME} put away the {B_BUFF1}\nin the PC.\p");
+static const u8 sText_BagIsFull[] = _("Too bad! The BAG is full…\p");
 
 const u8 *const gStatNamesTable[NUM_BATTLE_STATS] =
 {
@@ -887,6 +892,10 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_TRAINER1WINTEXT - BATTLESTRINGS_TABLE_START] = sText_Trainer1WinText,
     [STRINGID_TRAINER2WINTEXT - BATTLESTRINGS_TABLE_START] = sText_Trainer2WinText,
     [STRINGID_PKMNGAINEDEXPALL - BATTLESTRINGS_TABLE_START] = sText_PkmnGainedEXPAll,
+    [STRINGID_PKMNDROPPEDITEM - BATTLESTRINGS_TABLE_START] = sText_PkmnDroppedItem,
+    [STRINGID_ADDEDTOBAG - BATTLESTRINGS_TABLE_START] = sText_AddedToBag,
+    [STRINGID_ADDEDTOPC - BATTLESTRINGS_TABLE_START] = sText_AddedToPC,
+    [STRINGID_BAGISFULL - BATTLESTRINGS_TABLE_START] = sText_BagIsFull,
 };
 
 const u16 gMissStringIds[] =
@@ -2030,7 +2039,12 @@ void BufferStringBattle(u16 stringID)
             else if (gBattleTypeFlags & BATTLE_TYPE_WALLY_TUTORIAL)
                 stringPtr = sText_WildPkmnAppearedPause;
             else
-                stringPtr = sText_WildPkmnAppeared;
+            {
+                if (gBattleMons[B_POSITION_OPPONENT_LEFT].item != ITEM_NONE)
+                    stringPtr = sText_WildPkmnAppearedWithItem;
+                else
+                    stringPtr = sText_WildPkmnAppeared;
+            }
         }
         break;
     case STRINGID_INTROSENDOUT: // poke first send-out
@@ -2871,6 +2885,11 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
             {
                 CopyItemName(hword, dst);
             }
+            srcID += 3;
+            break;
+        case B_BUFF_POCKET:
+            hword = T1_READ_16(&src[srcID + 1]);
+            CopyPocketName(hword, dst);
             srcID += 3;
             break;
         }

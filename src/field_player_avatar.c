@@ -1337,6 +1337,20 @@ bool8 PartyHasMonWithSurf(void)
     return FALSE;
 }
 
+bool8 PartyHasMonWithThiefOrCovet(void)
+{
+    u8 i;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
+            break;
+        if ((MonKnowsMove(&gPlayerParty[i], MOVE_THIEF)) || (MonKnowsMove(&gPlayerParty[i], MOVE_COVET)))
+            return TRUE;
+    }
+    return FALSE;
+}
+
 bool8 IsPlayerSurfingNorth(void)
 {
     if (GetPlayerMovementDirection() == DIR_NORTH && TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))

@@ -10,7 +10,7 @@ gText_PutItemInPocket::
 
 gText_PutItemInPC::
 	.string "{PLAYER} put away the {STR_VAR_2}\n"
-	.string "in the PC since bag is full.$"
+	.string "in the PC.$"
 
 gText_PlayerFoundOneItem::
 	.string "{PLAYER} found one {STR_VAR_2}!$"

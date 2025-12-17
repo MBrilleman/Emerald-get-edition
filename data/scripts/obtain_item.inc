@@ -112,8 +112,11 @@ Std_FindItem::
 	waitse
 	copyvar VAR_0x8004, ITEMID
 	copyvar VAR_0x8005, AMOUNT
-    checkitemspace ITEMID, AMOUNT
-	copyvar VAR_0x8007, VAR_RESULT
+    checkpcitem ITEMID, AMOUNT 
+    copyvar VAR_0x8008, VAR_RESULT
+    setvar VAR_0x8007, 2 
+    
+    call_if_eq VAR_0x8008, FALSE, EventScript_CheckBagSpace
     call_if_eq VAR_0x8007, FALSE, EventScript_CheckPCSpace
 	bufferitemnameplural STR_VAR_2, ITEMID, AMOUNT
 	checkitemtype ITEMID
@@ -122,6 +125,10 @@ Std_FindItem::
 	call_if_eq VAR_0x8007, FALSE, EventScript_NoRoomToPickUpItem
 	release
 	return
+
+EventScript_CheckBagSpace::
+    checkitemspace VAR_0x8004, VAR_0x8005
+    copyvar VAR_0x8007, VAR_RESULT
 
 EventScript_CheckPCSpace::
 	checkitemtype VAR_0x8004 @ Don't add if it's a key item

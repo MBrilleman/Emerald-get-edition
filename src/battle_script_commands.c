@@ -51,6 +51,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
+#include "field_player_avatar.h"
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 
@@ -3556,7 +3557,41 @@ static void Cmd_getexp(void)
             }
         }
         break;
-    case 6: // increment instruction
+    case 6: // check if wild Pokémon has a hold item after fainting
+        if ((!(gBattleTypeFlags & BATTLE_TYPE_TRAINER)) && gBattleMons[gBattlerFainted].item != ITEM_NONE && PartyHasMonWithThiefOrCovet())
+        {
+            PrepareStringBattle(STRINGID_PKMNDROPPEDITEM, gBattleStruct->expGetterBattlerId);
+            gBattleScripting.getexpState = 7; // add item to bag
+        }
+        else
+        {
+            gBattleScripting.getexpState = 8; // no hold item, end battle
+        }
+        break;
+    case 7: // add dropped item to bag if space available
+        if (CheckPCHasItem(gBattleMons[gBattlerFainted].item, 1))
+        {
+            AddPCItem(gBattleMons[gBattlerFainted].item, 1);
+            PREPARE_ITEM_BUFFER(gBattleTextBuff1, gBattleMons[gBattlerFainted].item);
+            PREPARE_POCKET_BUFFER(gBattleTextBuff2, gBattleMons[gBattlerFainted].item);
+            PrepareStringBattle(STRINGID_ADDEDTOPC, gBattleStruct->expGetterBattlerId);
+            gBattleScripting.getexpState = 8;
+        }
+        else if (CheckBagHasSpace(gBattleMons[gBattlerFainted].item, 1) == TRUE)
+        {
+            AddBagItem(gBattleMons[gBattlerFainted].item, 1);
+            PREPARE_ITEM_BUFFER(gBattleTextBuff1, gBattleMons[gBattlerFainted].item);
+            PrepareStringBattle(STRINGID_ADDEDTOBAG, gBattleStruct->expGetterBattlerId);
+            gBattleScripting.getexpState = 8;
+        }
+        else
+        {
+            PrepareStringBattle(STRINGID_BAGISFULL, gBattleStruct->expGetterBattlerId);
+            gBattleScripting.getexpState = 8;
+        }
+        break;    
+
+    case 8: // increment instruction
         if (gBattleControllerExecFlags == 0)
         {
             // not sure why gf clears the item and ability here
