@@ -1345,7 +1345,7 @@ bool8 PartyHasMonWithThiefOrCovet(void)
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
             break;
-        if ((MonKnowsMove(&gPlayerParty[i], MOVE_THIEF)) || (MonKnowsMove(&gPlayerParty[i], MOVE_COVET)))
+        if ((MonKnowsMove(&gPlayerParty[i], MOVE_THIEF)) || (MonKnowsMove(&gPlayerParty[i], MOVE_COVET)) || (GetMonAbility(&gPlayerParty[i]) == ABILITY_PICKUP))
             return TRUE;
     }
     return FALSE;
