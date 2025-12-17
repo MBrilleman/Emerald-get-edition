@@ -4,18 +4,25 @@
 Std_ObtainItem::
 	copyvar VAR_0x8004, ITEMID
 	copyvar VAR_0x8005, AMOUNT
-	additem ITEMID, AMOUNT
-	copyvar VAR_0x8007, VAR_RESULT
+    checkpcitem ITEMID, 1              @give 1 as the function checks if you have more than x in pc 
+    copyvar VAR_0x8008, VAR_RESULT
+    call_if_eq VAR_0x8008, FALSE, EventScript_TryAddItemToBagObtain
+    call_if_eq VAR_0x8008, TRUE, EventScript_TryAddItemToPCObtain
     call_if_eq VAR_0x8007, FALSE, EventScript_TryAddItemToPCObtain
 	call EventScript_ObtainItemMessage
 	return
+
+EventScript_TryAddItemToBagObtain::
+    additem ITEMID, AMOUNT
+    copyvar VAR_0x8007, VAR_RESULT
+
 
 EventScript_TryAddItemToPCObtain::
 	checkitemtype VAR_0x8004 @ Don't add if it's a key item
 	goto_if_eq VAR_RESULT, POCKET_KEY_ITEMS, EventScript_TryAddItemToPCObtainContinue
 	addpcitem VAR_0x8004, VAR_0x8005
 	goto_if_eq VAR_RESULT, FALSE, EventScript_TryAddItemToPCObtainContinue
-	setvar VAR_0x8007, 2  @ (0= full, 1= in pocket, 2=in PC) 
+	setvar VAR_0x8007, 2  @ (0= full, 1= in pocket, 2=in PC) only used for text later
 
 EventScript_TryAddItemToPCObtainContinue::
 	return
@@ -24,7 +31,7 @@ EventScript_ObtainItemMessage::
 	bufferitemnameplural STR_VAR_2, ITEMID, AMOUNT
 	checkitemtype ITEMID
 	call EventScript_BufferPocketNameAndTryFanfare
-	call_if_eq VAR_0x8007, TRUE, EventScript_ObtainedItem
+	call_if_ne VAR_0x8007, FALSE, EventScript_ObtainedItem
 	call_if_eq VAR_0x8007, FALSE, EventScript_NoRoomForItem
 	return
 
@@ -112,10 +119,9 @@ Std_FindItem::
 	waitse
 	copyvar VAR_0x8004, ITEMID
 	copyvar VAR_0x8005, AMOUNT
-    checkpcitem ITEMID, AMOUNT 
+    checkpcitem ITEMID, 1               @give 1 as the function checks if you have more than x in pc 
     copyvar VAR_0x8008, VAR_RESULT
     setvar VAR_0x8007, 2 
-    
     call_if_eq VAR_0x8008, FALSE, EventScript_CheckBagSpace
     call_if_eq VAR_0x8007, FALSE, EventScript_CheckPCSpace
 	bufferitemnameplural STR_VAR_2, ITEMID, AMOUNT
