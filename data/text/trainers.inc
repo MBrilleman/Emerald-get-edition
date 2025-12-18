@@ -4781,7 +4781,7 @@ Route134_Text_HudsonPostBattle:
 	.string "worried about him.$"
 
 testNPC_intro:
-	.string "Faka nigger!$"
+	.string "Faka, Bitch!$"
 
 testNPC_Defeated:
 	.string "Kanker get!$"
