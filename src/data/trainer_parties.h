@@ -12438,7 +12438,22 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_testNPC[] = {
     {
     .iv = 0,
-    .lvl = 5,
-    .species = SPECIES_KYOGRE,
+    .lvl = 2,
+    .species = SPECIES_WOBBUFFET,
+    }
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_eRival1[] = {
+    {
+    .iv = 0,
+    .lvl = 100,
+    .species = SPECIES_MAGIKARP,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 0,
+    .lvl = 100,
+    .species = SPECIES_MAGIKARP,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };

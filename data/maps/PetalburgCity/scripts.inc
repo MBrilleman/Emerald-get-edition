@@ -5,10 +5,12 @@ PetalburgCity_MapScripts::
 
 PetalburgCity_OnTransition:
 	setflag FLAG_VISITED_PETALBURG_CITY
+	setflag FLAG_HIDE_eRIVAL1
 	call_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
 	call_if_eq VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_DisableMapNameAndMusic
 	call_if_eq VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_DisableMapNameAndMusic
 	call_if_eq VAR_PETALBURG_GYM_STATE, 8, PetalburgCity_EventScript_SetGymDoorsUnlocked
+	call_if_eq VAR_PETALBURG_eRIVAL, 1, PetalburgCity_EventScript_eRival_Spawn
 	end
 
 PetalburgCity_EventScript_MoveGymBoyToWestEntrance::
@@ -698,6 +700,10 @@ PetalburgCity_EventScript_GymBoy::
 	msgbox PetalburgCity_Text_AreYouRookieTrainer, MSGBOX_NPC
 	end
 
+PetalburgCity_EventScript_eRival_Spawn::
+    clearflag FLAG_HIDE_eRIVAL1
+	return
+
 PetalburgCity_EventScript_eRival0::
 	lockall
 	addobject LOCALID_PETALBURG_RIVAL
@@ -715,6 +721,7 @@ PetalburgCity_EventScript_eRival1::
 	end
 
 PetalburgCity_EventScript_eRival::
+	playbgm MUS_RG_ENCOUNTER_RIVAL, FALSE
 	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_Movement_ScottStartWalkLeft
 	waitmovement 0
 	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_Movement_ScottStartWalkLeft
@@ -723,10 +730,11 @@ PetalburgCity_EventScript_eRival::
 	waitmovement 0
 	call_if_eq VAR_0x8008, 0, PetalburgCity_EventScript_eRivalblock0
 	call_if_eq VAR_0x8008, 1, PetalburgCity_EventScript_eRivalblock1
-	faceplayer
+	waitmovement 0
 	msgbox PetalburgCity_Text_eRival_entrance, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_PETALBURG_eRIVAL, 1
+	fadedefaultbgm
 	releaseall
 	end    
 
@@ -741,8 +749,19 @@ PetalburgCity_EventScript_eRival_Battle::
 	end
 
 PetalburgCity_Text_eRival_Battle_Start::
+	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
 	msgbox PetalburgCity_Text_eRival_Battle_Starttext, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_eRIVAL1, PetalburgCity_eRival1_Text_Defeat
 	closemessage
+	msgbox PetalburgCity_eRival1_Text_jemoeder, MSGBOX_DEFAULT
+	playbgm MUS_RG_RIVAL_EXIT, FALSE
+	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_eRival1_Runaway
+	waitmovement 0
+	setvar VAR_PETALBURG_eRIVAL, 2
+	fadedefaultbgm
+	removeobject LOCALID_PETALBURG_RIVAL
+	release
+	releaseall
 	end
 
 PetalburgCity_Text_eRival_Battle_No::
@@ -753,11 +772,15 @@ PetalburgCity_Text_eRival_Battle_No::
 PetalburgCity_EventScript_eRivalblock0::
 	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_EventScript_eRivalblockmove0
 	waitmovement 0
+	setobjectxy LOCALID_PETALBURG_RIVAL, 0, 12
+	faceplayer
 	return
 
 PetalburgCity_EventScript_eRivalblock1::
 	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_EventScript_eRivalblockmove1
 	waitmovement 0
+	setobjectxy LOCALID_PETALBURG_RIVAL, 0, 13
+	faceplayer
 	return
 
 PetalburgCity_EventScript_eRival_shove0::
@@ -790,11 +813,13 @@ PetalburgCity_EventScript_eRival_shove::
 PetalburgCity_EventScript_eRivalblockmove0:
 	walk_left
 	walk_up
+	walk_in_place_faster_right
 	step_end
 
 PetalburgCity_EventScript_eRivalblockmove1:
 	walk_left
 	walk_down
+	walk_in_place_faster_right
 	step_end
 
 PetalburgCity_EventScript_eRival0_shoveblock:
@@ -813,6 +838,17 @@ PetalburgCity_EventScript_eRival_getshoved:
 
 PetalburgCity_EventScript_eRivalshoving:
 	walk_fast_right
+	step_end
+
+PetalburgCity_eRival1_Runaway:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
 	step_end
 
 PetalburgCity_Text_WhereIsWally:
@@ -878,16 +914,30 @@ PetalburgCity_Text_ImLookingForTalentedTrainers:
 	.string "I'm sorry to have taken your time.$"
 
 PetalburgCity_Text_eRival_entrance:
-	.string "Hallo.$"
+	.string "Hallo.\n"
+	.string "Ik laat je er pas langs als\p"
+	.string "jij mij in een gevecht kan verslaan.\n"
+	.string "Durf je het aan?$"
 
 PetalburgCity_Text_eRival_vraag_battle:
-	.string "Moet je stoot?$"
+	.string "Dus.\n" 
+	.string "Je moet stoot?$"
 
 PetalburgCity_Text_eRival_Battle_Starttext:
-	.string "Ik ga je slopen.$"
+	.string "Ik ga je hele kanker team slopen.$"
 
 PetalburgCity_Text_eRival_Battle_Notext:
 	.string "Helaas!$"
 
 PetalburgCity_Text_eRival_shove:
-	.string "Eerst vechten!$"
+	.string "Ho! Niet zo snel.\n"
+	.string "Eerst vechten!!!$"
+
+PetalburgCity_eRival1_Text_Defeat:
+	.string "…\p"
+	.string "… …\p"
+	.string "KANKER ZOOI!!!!\n"
+	.string "…$"
+
+PetalburgCity_eRival1_Text_jemoeder:
+	.string "Je moeder.$"
