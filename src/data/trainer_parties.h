@@ -12439,9 +12439,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_testNPC[] = {
     {
     .iv = 0,
     .lvl = 2,
-    .species = SPECIES_WOBBUFFET,
+    .species = SPECIES_DEOXYS,
     }
 };
+static const struct TrainerMonNoItemDefaultMoves sParty_placeholder[] = {
+    {
+    .iv = 0,
+    .lvl = 2,
+    .species = SPECIES_DEOXYS,
+    }
+};
+
 
 static const struct TrainerMonNoItemCustomMoves sParty_eRival1[] = {
     {

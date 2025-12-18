@@ -4788,3 +4788,104 @@ testNPC_Defeated:
 
 testNPC_postbattle:
 	.string "Je moeder$"
+
+STRESSTEST1_intro:
+	.string "Hoi$"
+
+STRESSTEST1_Defeated:
+	.string "Oei$"
+
+STRESSTEST1_postbattle:
+	.string "Doei$"
+
+STRESSTEST2_intro:
+	.string "Hoi$"
+
+STRESSTEST2_Defeated:
+	.string "Oei$"
+
+STRESSTEST2_postbattle:
+	.string "Doei$"
+
+STRESSTEST3_intro:
+	.string "Hoi$"
+
+STRESSTEST3_Defeated:
+	.string "Oei$"
+
+STRESSTEST3_postbattle:
+	.string "Doei$"
+
+STRESSTEST4_intro:
+	.string "Hoi$"
+
+STRESSTEST4_Defeated:
+	.string "Oei$"
+
+STRESSTEST4_postbattle:
+	.string "Doei$"
+
+STRESSTEST5_intro:
+	.string "Hoi$"
+
+STRESSTEST5_Defeated:
+	.string "Oei$"
+
+STRESSTEST5_postbattle:
+	.string "Doei$"
+
+STRESSTEST6_intro:
+	.string "Hoi$"
+
+STRESSTEST6_Defeated:
+	.string "Oei$"
+
+STRESSTEST6_postbattle:
+	.string "Doei$"
+
+STRESSTEST7_intro:
+	.string "Hoi$"
+
+STRESSTEST7_Defeated:
+	.string "Oei$"
+
+STRESSTEST7_postbattle:
+	.string "Doei$"
+
+STRESSTEST8_intro:
+	.string "Hoi$"
+
+STRESSTEST8_Defeated:
+	.string "Oei$"
+
+STRESSTEST8_postbattle:
+	.string "Doei$"
+
+STRESSTEST9_intro:
+	.string "Hoi$"
+
+STRESSTEST9_Defeated:
+	.string "Oei$"
+
+STRESSTEST9_postbattle:
+	.string "Doei$"
+
+STRESSTEST10_intro:
+	.string "Hoi$"
+
+STRESSTEST10_Defeated:
+	.string "Oei$"
+
+STRESSTEST10_postbattle:
+	.string "Doei$"
+
+STRESSTEST11_intro:
+	.string "Hoi$"
+
+STRESSTEST11_Defeated:
+	.string "Oei$"
+
+STRESSTEST11_postbattle:
+	.string "Doei$"
+
+
