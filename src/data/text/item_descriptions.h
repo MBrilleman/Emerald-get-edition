@@ -1,6 +1,10 @@
 static const u8 sDummyDesc[] = _(
     "?????");
 
+static const u8 sGamblingCoinsDesc[] = _(
+    "Coins for instant\n"
+    "gratification.");
+
 // Pokeballs
 static const u8 sMasterBallDesc[] = _(
     "The best BALL that\n"

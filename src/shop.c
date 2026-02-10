@@ -39,6 +39,7 @@
 #include "constants/metatile_behaviors.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "coins.h"
 
 #define TAG_SCROLL_ARROW   2100
 #define TAG_ITEM_ICON_BASE 2110
@@ -166,6 +167,7 @@ static const u16 sShopInventory_ZeroBadges[] = {
     ITEM_AWAKENING,
     ITEM_PARALYZE_HEAL,
     ITEM_REVIVE,
+    ITEM_GAME_CORNER_COINS,
     ITEM_NONE
 };
 
@@ -181,6 +183,7 @@ static const u16 sShopInventory_OneBadge[] = {
     ITEM_AWAKENING,
     ITEM_PARALYZE_HEAL,
     ITEM_REVIVE,
+    ITEM_GAME_CORNER_COINS,
     ITEM_NONE
 };
 
@@ -196,6 +199,7 @@ static const u16 sShopInventory_TwoBadges[] = {
     ITEM_PARALYZE_HEAL,
     ITEM_REVIVE,
     ITEM_POKE_DOLL,
+    ITEM_GAME_CORNER_COINS,
     ITEM_NONE
 };
 
@@ -212,6 +216,7 @@ static const u16 sShopInventory_ThreeBadges[] = {
     ITEM_REVIVE,
     ITEM_REPEL,
     ITEM_POKE_DOLL,
+    ITEM_GAME_CORNER_COINS,
     ITEM_NONE
 };
 
@@ -229,6 +234,7 @@ static const u16 sShopInventory_FourBadges[] = {
     ITEM_REVIVE,
     ITEM_REPEL,
     ITEM_POKE_DOLL,
+    ITEM_GAME_CORNER_COINS,
     ITEM_NONE
 };
 
@@ -248,6 +254,7 @@ static const u16 sShopInventory_FiveBadges[] = {
     ITEM_REPEL,
     ITEM_SUPER_REPEL,
     ITEM_POKE_DOLL,
+    ITEM_GAME_CORNER_COINS,
     ITEM_NONE
 };
 
@@ -268,6 +275,7 @@ static const u16 sShopInventory_SixBadges[] = {
     ITEM_REPEL,
     ITEM_SUPER_REPEL,
     ITEM_POKE_DOLL,
+    ITEM_GAME_CORNER_COINS,
     ITEM_NONE
 };
 
@@ -290,6 +298,7 @@ static const u16 sShopInventory_SevenBadges[] = {
     ITEM_SUPER_REPEL,
     ITEM_MAX_REPEL,
     ITEM_POKE_DOLL,
+    ITEM_GAME_CORNER_COINS,
     ITEM_NONE
 };
 
@@ -313,6 +322,7 @@ static const u16 sShopInventory_EightBadges[] = {
     ITEM_SUPER_REPEL,
     ITEM_MAX_REPEL,
     ITEM_POKE_DOLL,
+    ITEM_GAME_CORNER_COINS,
     ITEM_NONE
 };
 
@@ -1301,7 +1311,28 @@ static void BuyMenuTryMakePurchase(u8 taskId)
 
     if (sMartInfo.martType == MART_TYPE_NORMAL)
     {
-        if (AddBagItem(tItemId, tItemCount) == TRUE)
+        if (tItemId == ITEM_GAME_CORNER_COINS)
+        {
+            u16 quantity = tItemCount;
+            u32 totalCost = GetItemPrice(tItemId) * quantity;
+            
+            if (gSaveBlock1Ptr->money < totalCost)
+            {
+                BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, BuyMenuReturnToItemList);
+                return;
+            }
+            else 
+            {
+                sShopData->totalCost = totalCost;
+                
+                AddCoins(quantity);
+                
+                BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyMenuSubtractMoney);
+                RecordItemPurchase(taskId);
+                return;
+            }
+        }
+        else if (AddBagItem(tItemId, tItemCount) == TRUE)
         {
             BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyMenuSubtractMoney);
             RecordItemPurchase(taskId);

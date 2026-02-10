@@ -2776,13 +2776,14 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_0E2] =
+    [ITEM_GAME_CORNER_COINS] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
-        .pocket = POCKET_ITEMS,
+        .name = _("COINS"),
+        .itemId = ITEM_GAME_CORNER_COINS,
+        .price = 10,
+        .description = sGamblingCoinsDesc,
+        .importance = 0,
+        .pocket = POCKET_ITEMS, // doesn’t really matter
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
@@ -4270,7 +4271,6 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
-
     [ITEM_BIKE_VOUCHER] =
     {
         .name = _("BIKE VOUCHER"),
@@ -4282,7 +4282,6 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
-
     [ITEM_GOLD_TEETH] =
     {
         .name = _("GOLD TEETH"),
