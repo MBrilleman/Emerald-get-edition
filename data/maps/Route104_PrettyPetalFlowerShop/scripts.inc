@@ -78,17 +78,25 @@ Route104_PrettyPetalFlowerShop_EventScript_GiveWailmerPail::
 Route104_PrettyPetalFlowerShop_EventScript_RandomBerryGirl::
 	lock
 	faceplayer
-	dotimebasedevents
-	goto_if_set FLAG_DAILY_FLOWER_SHOP_RECEIVED_BERRY, Route104_PrettyPetalFlowerShop_EventScript_AlreadyReceivedBerry
-	msgbox Route104_PrettyPetalFlowerShop_Text_ImGrowingFlowers, MSGBOX_DEFAULT
-	random 8
-	addvar VAR_RESULT, FIRST_BERRY_INDEX
-	giveitem VAR_RESULT
-	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
-	setflag FLAG_DAILY_FLOWER_SHOP_RECEIVED_BERRY
-	msgbox Route104_PrettyPetalFlowerShop_Text_MachineMixesBerries, MSGBOX_DEFAULT
+	message gText_HowMayIServeYou
+    waitmessage
+    pokemart Route104_PrettyPetalFlowerShop_Shop
+    msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
+
+Route104_PrettyPetalFlowerShop_Shop:
+    .2byte ITEM_ORAN_BERRY
+    .2byte ITEM_CHERI_BERRY 
+    .2byte ITEM_CHESTO_BERRY
+    .2byte ITEM_PECHA_BERRY 
+    .2byte ITEM_RAWST_BERRY 
+    .2byte ITEM_ASPEAR_BERRY
+    .2byte ITEM_LEPPA_BERRY 
+    .2byte ITEM_PERSIM_BERRY
+    .2byte ITEM_LUM_BERRY
+    .2byte ITEM_SITRUS_BERRY
+    pokemartlistend
 
 Route104_PrettyPetalFlowerShop_EventScript_AlreadyReceivedBerry::
 	msgbox Route104_PrettyPetalFlowerShop_Text_MachineMixesBerries, MSGBOX_DEFAULT
