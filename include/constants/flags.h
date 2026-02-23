@@ -518,9 +518,9 @@
 
 #define FLAG_DENIZ_FOCUS_PUNCHGEKREGEN       0x1DE 
 #define FLAG_POKEMONPCMENU                   0x1DF 
-#define FLAG_UNUSED_0x1E0                    0x1E0 // Unused Flag
-#define FLAG_UNUSED_0x1E1                    0x1E1 // Unused Flag
-#define FLAG_UNUSED_0x1E2                    0x1E2 // Unused Flag
+#define FLAG_BLISSEY_1                       0x1E0 // Blissey
+#define FLAG_BLISSEY_2                       0x1E1 // Blissey
+#define FLAG_BLISSEY_3                       0x1E2 // Blissey
 #define FLAG_UNUSED_0x1E3                    0x1E3 // Unused Flag
 
 // Mystery Gift Flags (Unknown)

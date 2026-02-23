@@ -1001,6 +1001,18 @@ Common_EventScript_RemoveStaticPokemon::
 	release
 	end
 
+Common_EventScript_Blissey_1::
+	call CableClub_EventScript_Blissey_1
+	end
+
+Common_EventScript_Blissey_2::
+	call CableClub_EventScript_Blissey_2
+	end
+
+Common_EventScript_Blissey_3::
+	call CableClub_EventScript_Blissey_3
+	end
+
 Common_EventScript_LegendaryFlewAway::
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED

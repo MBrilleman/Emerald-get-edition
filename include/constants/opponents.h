@@ -771,38 +771,38 @@
 #define TRAINER_CRISTIN_1                   767
 #define TRAINER_MAY_RUSTBORO_TREECKO        768
 #define TRAINER_MAY_RUSTBORO_TORCHIC        769
-#define TRAINER_ROXANNE_2                   770
-#define TRAINER_ROXANNE_3                   771
-#define TRAINER_ROXANNE_4                   772
-#define TRAINER_ROXANNE_5                   773
-#define TRAINER_BRAWLY_2                    774
-#define TRAINER_BRAWLY_3                    775
-#define TRAINER_BRAWLY_4                    776
-#define TRAINER_BRAWLY_5                    777
-#define TRAINER_WATTSON_2                   778
-#define TRAINER_WATTSON_3                   779
-#define TRAINER_WATTSON_4                   780
-#define TRAINER_WATTSON_5                   781
-#define TRAINER_FLANNERY_2                  782
-#define TRAINER_FLANNERY_3                  783
-#define TRAINER_FLANNERY_4                  784
-#define TRAINER_FLANNERY_5                  785
-#define TRAINER_NORMAN_2                    786
-#define TRAINER_NORMAN_3                    787
-#define TRAINER_NORMAN_4                    788
-#define TRAINER_NORMAN_5                    789
-#define TRAINER_WINONA_2                    790
-#define TRAINER_WINONA_3                    791
-#define TRAINER_WINONA_4                    792
-#define TRAINER_WINONA_5                    793
-#define TRAINER_TATE_AND_LIZA_2             794
-#define TRAINER_TATE_AND_LIZA_3             795
-#define TRAINER_TATE_AND_LIZA_4             796
-#define TRAINER_TATE_AND_LIZA_5             797
-#define TRAINER_JUAN_2                      798
-#define TRAINER_JUAN_3                      799
-#define TRAINER_JUAN_4                      800
-#define TRAINER_JUAN_5                      801
+#define TRAINER_BLISSEY_1                   770 
+#define TRAINER_BLISSEY_2                   771 
+#define TRAINER_BLISSEY_3                   772 
+#define TRAINER_BLISSEY_4                   773 
+#define TRAINER_BRAWLY_2                    774 // Ongebruikt
+#define TRAINER_BRAWLY_3                    775 // Ongebruikt
+#define TRAINER_BRAWLY_4                    776 // Ongebruikt
+#define TRAINER_BRAWLY_5                    777 // Ongebruikt
+#define TRAINER_WATTSON_2                   778 // Ongebruikt
+#define TRAINER_WATTSON_3                   779 // Ongebruikt
+#define TRAINER_WATTSON_4                   780 // Ongebruikt
+#define TRAINER_WATTSON_5                   781 // Ongebruikt
+#define TRAINER_FLANNERY_2                  782 // Ongebruikt
+#define TRAINER_FLANNERY_3                  783 // Ongebruikt
+#define TRAINER_FLANNERY_4                  784 // Ongebruikt
+#define TRAINER_FLANNERY_5                  785 // Ongebruikt
+#define TRAINER_NORMAN_2                    786 // Ongebruikt
+#define TRAINER_NORMAN_3                    787 // Ongebruikt
+#define TRAINER_NORMAN_4                    788 // Ongebruikt
+#define TRAINER_NORMAN_5                    789 // Ongebruikt
+#define TRAINER_WINONA_2                    790 // Ongebruikt
+#define TRAINER_WINONA_3                    791 // Ongebruikt
+#define TRAINER_WINONA_4                    792 // Ongebruikt
+#define TRAINER_WINONA_5                    793 // Ongebruikt
+#define TRAINER_TATE_AND_LIZA_2             794 // Ongebruikt
+#define TRAINER_TATE_AND_LIZA_3             795 // Ongebruikt
+#define TRAINER_TATE_AND_LIZA_4             796 // Ongebruikt
+#define TRAINER_TATE_AND_LIZA_5             797 // Ongebruikt
+#define TRAINER_JUAN_2                      798 // Ongebruikt
+#define TRAINER_JUAN_3                      799 // Ongebruikt
+#define TRAINER_JUAN_4                      800 // Ongebruikt
+#define TRAINER_JUAN_5                      801 // Ongebruikt
 #define TRAINER_ANGELO                      802
 #define TRAINER_DARIUS                      803
 #define TRAINER_STEVEN                      804
@@ -852,13 +852,13 @@
 #define TRAINER_MARIELA                     848
 #define TRAINER_ALVARO                      849
 #define TRAINER_EVERETT                     850
-#define TRAINER_RED                         851
-#define TRAINER_LEAF                        852
-#define TRAINER_BRENDAN_PLACEHOLDER         853
-#define TRAINER_MAY_PLACEHOLDER             854
-#define TRAINER_TEST                        855
-#define TRAINER_eRIVAL1                     856
-#define TRAINER_placeholder                 857
+#define TRAINER_RED                         851 // Unused
+#define TRAINER_LEAF                        852 // Unused
+#define TRAINER_BRENDAN_PLACEHOLDER         853 // Unused
+#define TRAINER_MAY_PLACEHOLDER             854 // Unused
+#define TRAINER_TEST                        855 // Unused
+#define TRAINER_eRIVAL1                     856 // Unused
+#define TRAINER_placeholder                 857 // Unused
 
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
@@ -866,6 +866,6 @@
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
 #define TRAINERS_COUNT                      858
-#define MAX_TRAINERS_COUNT                  868
+#define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

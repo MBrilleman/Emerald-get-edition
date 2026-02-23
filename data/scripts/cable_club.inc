@@ -2,13 +2,14 @@ CableClub_OnTransition:
 	call CableClub_EventScript_HideOrShowMysteryGiftMan
 	end
 
+
 CableClub_EventScript_HideOrShowMysteryGiftMan::
 	specialvar VAR_RESULT, ShouldDistributeEonTicket
 	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_ShowMysteryGiftMan
 	specialvar VAR_RESULT, ValidateSavedWonderCard
 	goto_if_eq VAR_RESULT, FALSE, CableClub_EventScript_HideMysteryGiftMan
 	goto CableClub_EventScript_ShowMysteryGiftMan
-	end
+	return
 
 CableClub_EventScript_ShowMysteryGiftMan::
 	clearflag FLAG_HIDE_POKEMON_CENTER_2F_MYSTERY_GIFT_MAN
@@ -41,6 +42,54 @@ CableClub_EventScript_DistributeEonTicket::
 	msgbox MysteryGift_Text_TryUsingItAtLilycovePort, MSGBOX_DEFAULT
 	release
 	end
+
+CableClub_EventScript_Blissey_1::
+	goto_if_unset FLAG_BADGE01_GET, CableClub_EventScript_Blissey_Not_Ready
+	msgbox Blissey_text, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_BLISSEY_1, Blissey_defeat
+	closemessage
+	goto CableClub_EventScript_BlisseyCounter
+	end
+
+CableClub_EventScript_Blissey_2::
+	goto_if_unset FLAG_BADGE04_GET, CableClub_EventScript_Blissey_Not_Ready
+	msgbox Blissey_text, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_BLISSEY_2, Blissey_defeat
+	closemessage
+	goto CableClub_EventScript_BlisseyCounter
+	end
+
+CableClub_EventScript_Blissey_3::
+	goto_if_unset FLAG_BADGE07_GET, CableClub_EventScript_Blissey_Not_Ready
+	msgbox Blissey_text, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_BLISSEY_3, Blissey_defeat
+	closemessage
+	goto CableClub_EventScript_BlisseyCounter
+	end
+
+CableClub_EventScript_Blissey_Not_Ready::
+	msgbox Blissey_defeat, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CableClub_EventScript_BlisseyCounter::
+	addvar VAR_BLISSEY_COUNTER, 1
+	goto_if_eq VAR_BLISSEY_COUNTER, 10, CableClub_EventScript_BlisseyEgg
+	goto_if_eq VAR_BLISSEY_COUNTER, 20, CableClub_EventScript_BlisseyEgg
+	goto_if_eq VAR_BLISSEY_COUNTER, 30, CableClub_EventScript_BlisseyEgg
+	goto_if_eq VAR_BLISSEY_COUNTER, 40, CableClub_EventScript_BlisseyEgg
+	goto_if_eq VAR_BLISSEY_COUNTER, 50, CableClub_EventScript_BlisseyEgg
+	release
+	end
+
+CableClub_EventScript_BlisseyEgg::
+	msgbox Blissey_Egg, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_LUCKY_EGG
+	release
+	end
+
 
 @ Unused?
 CableClub_EventScript_MysteryGiftThankYou2::
@@ -1420,3 +1469,13 @@ MossdeepCity_GameCorner_1F_EventScript_DodrioBerryPickingRecords::
 	waitstate
 	releaseall
 	end
+
+Blissey_text::
+	.string "Look at me belly!$"
+
+Blissey_defeat::
+	.string "Get$"
+
+Blissey_Egg::
+	.string "The bellies grant you their Egg$"
+

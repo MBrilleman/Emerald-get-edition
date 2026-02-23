@@ -10298,114 +10298,61 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayRustboroTorchic[] = {
     }
 };
 
-static const struct TrainerMonItemCustomMoves sParty_Roxanne2[] = {
+static const struct TrainerMonItemCustomMoves sParty_Blissey1[] = {
     {
     .iv = 255,
-    .lvl = 32,
-    .species = SPECIES_GOLEM,
+    .lvl = 15,
+    .species = SPECIES_BLISSEY,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_PROTECT, MOVE_ROLLOUT, MOVE_MAGNITUDE, MOVE_EXPLOSION}
-    },
+    .moves = {MOVE_BELLY_DRUM, MOVE_BELLY_DRUM, MOVE_BELLY_DRUM, MOVE_BELLY_DRUM}
+    }
+
+};
+
+static const struct TrainerMonItemCustomMoves sParty_Blissey2[] = {
     {
     .iv = 255,
-    .lvl = 35,
-    .species = SPECIES_KABUTO,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_SWORDS_DANCE, MOVE_ICE_BEAM, MOVE_SURF, MOVE_ROCK_SLIDE}
-    },
-    {
-    .iv = 255,
-    .lvl = 35,
-    .species = SPECIES_ONIX,
+    .lvl = 30,
+    .species = SPECIES_BLISSEY,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_IRON_TAIL, MOVE_EXPLOSION, MOVE_ROAR, MOVE_ROCK_SLIDE}
+    .moves = {MOVE_BELLY_DRUM, MOVE_BELLY_DRUM, MOVE_BELLY_DRUM, MOVE_BELLY_DRUM}
     },
     {
     .iv = 255,
-    .lvl = 37,
-    .species = SPECIES_NOSEPASS,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_DOUBLE_TEAM, MOVE_EXPLOSION, MOVE_PROTECT, MOVE_ROCK_SLIDE}
+    .lvl = 30,
+    .species = SPECIES_BLISSEY,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_BELLY_DRUM, MOVE_BELLY_DRUM, MOVE_BELLY_DRUM, MOVE_BELLY_DRUM}
     }
 };
 
-static const struct TrainerMonItemCustomMoves sParty_Roxanne3[] = {
-    {
-    .iv = 255,
-    .lvl = 37,
-    .species = SPECIES_OMANYTE,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_PROTECT, MOVE_ICE_BEAM, MOVE_ROCK_SLIDE, MOVE_SURF}
-    },
-    {
-    .iv = 255,
-    .lvl = 37,
-    .species = SPECIES_GOLEM,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_PROTECT, MOVE_ROLLOUT, MOVE_MAGNITUDE, MOVE_EXPLOSION}
-    },
-    {
-    .iv = 255,
-    .lvl = 40,
-    .species = SPECIES_KABUTOPS,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_SWORDS_DANCE, MOVE_ICE_BEAM, MOVE_SURF, MOVE_ROCK_SLIDE}
-    },
-    {
-    .iv = 255,
-    .lvl = 40,
-    .species = SPECIES_ONIX,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_IRON_TAIL, MOVE_EXPLOSION, MOVE_ROAR, MOVE_ROCK_SLIDE}
-    },
-    {
-    .iv = 255,
-    .lvl = 42,
-    .species = SPECIES_NOSEPASS,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_DOUBLE_TEAM, MOVE_EXPLOSION, MOVE_PROTECT, MOVE_ROCK_SLIDE}
-    }
-};
-
-static const struct TrainerMonItemCustomMoves sParty_Roxanne4[] = {
-    {
-    .iv = 255,
-    .lvl = 42,
-    .species = SPECIES_OMASTAR,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_PROTECT, MOVE_ICE_BEAM, MOVE_ROCK_SLIDE, MOVE_SURF}
-    },
-    {
-    .iv = 255,
-    .lvl = 42,
-    .species = SPECIES_GOLEM,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_PROTECT, MOVE_ROLLOUT, MOVE_EARTHQUAKE, MOVE_EXPLOSION}
-    },
+static const struct TrainerMonItemCustomMoves sParty_Blissey3[] = {
     {
     .iv = 255,
     .lvl = 45,
-    .species = SPECIES_KABUTOPS,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_SWORDS_DANCE, MOVE_ICE_BEAM, MOVE_SURF, MOVE_ROCK_SLIDE}
+    .species = SPECIES_BLISSEY,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_BELLY_DRUM, MOVE_BELLY_DRUM, MOVE_BELLY_DRUM, MOVE_BELLY_DRUM}
     },
+
     {
     .iv = 255,
     .lvl = 45,
-    .species = SPECIES_ONIX,
+    .species = SPECIES_BLISSEY,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_IRON_TAIL, MOVE_EXPLOSION, MOVE_ROAR, MOVE_ROCK_SLIDE}
+    .moves = {MOVE_BELLY_DRUM, MOVE_BELLY_DRUM, MOVE_BELLY_DRUM, MOVE_BELLY_DRUM}
     },
+
     {
     .iv = 255,
-    .lvl = 47,
-    .species = SPECIES_NOSEPASS,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_DOUBLE_TEAM, MOVE_EXPLOSION, MOVE_PROTECT, MOVE_ROCK_SLIDE}
+    .lvl = 45,
+    .species = SPECIES_BLISSEY,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_BELLY_DRUM, MOVE_BELLY_DRUM, MOVE_BELLY_DRUM, MOVE_BELLY_DRUM}
     }
 };
 
-static const struct TrainerMonItemCustomMoves sParty_Roxanne5[] = {
+static const struct TrainerMonItemCustomMoves sParty_Blissey4[] = {
     {
     .iv = 255,
     .lvl = 47,
