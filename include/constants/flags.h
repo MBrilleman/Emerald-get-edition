@@ -44,7 +44,7 @@
 #define NUM_TEMP_FLAGS   (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
 #define FLAG_HIDE_eRIVAL1    0x20 // Flag to hide eRival in petalburg
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
+#define FLAG_BLISSEY_EGG     0x21 // Flag to stop counting bellies
 #define FLAG_UNUSED_0x022    0x22 // Unused Flag
 #define FLAG_UNUSED_0x023    0x23 // Unused Flag
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag

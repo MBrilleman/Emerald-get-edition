@@ -14,8 +14,8 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [
-     {
-      "graphics_id": "OBJ_EVENT_GFX_BRANDON",
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPENSER",
       "x": 3,
       "y": 9,
       "elevation": 0,
@@ -29,7 +29,7 @@
     },
 
       {
-      "graphics_id": "OBJ_EVENT_GFX_BRANDON",
+      "graphics_id": "OBJ_EVENT_GFX_SPENSER",
       "x": 7,
       "y": 9,
       "elevation": 0,
@@ -43,7 +43,7 @@
     },
 
       {
-      "graphics_id": "OBJ_EVENT_GFX_BRANDON",
+      "graphics_id": "OBJ_EVENT_GFX_SPENSER",
       "x": 8,
       "y": 9,
       "elevation": 0,

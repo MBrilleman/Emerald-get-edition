@@ -44,27 +44,30 @@ CableClub_EventScript_DistributeEonTicket::
 	end
 
 CableClub_EventScript_Blissey_1::
+	faceplayer
 	goto_if_unset FLAG_BADGE01_GET, CableClub_EventScript_Blissey_Not_Ready
 	msgbox Blissey_text, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_BLISSEY_1, Blissey_defeat
 	closemessage
-	goto CableClub_EventScript_BlisseyCounter
+	goto_if_unset FLAG_BLISSEY_EGG, CableClub_EventScript_BlisseyCounter
 	end
 
 CableClub_EventScript_Blissey_2::
+	faceplayer
 	goto_if_unset FLAG_BADGE04_GET, CableClub_EventScript_Blissey_Not_Ready
 	msgbox Blissey_text, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_BLISSEY_2, Blissey_defeat
 	closemessage
-	goto CableClub_EventScript_BlisseyCounter
+	goto_if_unset FLAG_BLISSEY_EGG, CableClub_EventScript_BlisseyCounter
 	end
 
 CableClub_EventScript_Blissey_3::
+	faceplayer
 	goto_if_unset FLAG_BADGE07_GET, CableClub_EventScript_Blissey_Not_Ready
 	msgbox Blissey_text, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_BLISSEY_3, Blissey_defeat
 	closemessage
-	goto CableClub_EventScript_BlisseyCounter
+	goto_if_unset FLAG_BLISSEY_EGG, CableClub_EventScript_BlisseyCounter
 	end
 
 CableClub_EventScript_Blissey_Not_Ready::
@@ -79,7 +82,7 @@ CableClub_EventScript_BlisseyCounter::
 	goto_if_eq VAR_BLISSEY_COUNTER, 20, CableClub_EventScript_BlisseyEgg
 	goto_if_eq VAR_BLISSEY_COUNTER, 30, CableClub_EventScript_BlisseyEgg
 	goto_if_eq VAR_BLISSEY_COUNTER, 40, CableClub_EventScript_BlisseyEgg
-	goto_if_eq VAR_BLISSEY_COUNTER, 50, CableClub_EventScript_BlisseyEgg
+	goto_if_eq VAR_BLISSEY_COUNTER, 50, CableClub_EventScript_BlisseyEggF
 	release
 	end
 
@@ -90,6 +93,13 @@ CableClub_EventScript_BlisseyEgg::
 	release
 	end
 
+CableClub_EventScript_BlisseyEggF::
+	msgbox Blissey_EggF, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_LUCKY_EGG
+	setflag FLAG_BLISSEY_EGG
+	release
+	end
 
 @ Unused?
 CableClub_EventScript_MysteryGiftThankYou2::
@@ -1477,5 +1487,7 @@ Blissey_defeat::
 	.string "Get$"
 
 Blissey_Egg::
-	.string "The bellies grant you their Egg$"
+	.string "The bellies grant you their Lucky Egg.$"
 
+Blissey_EggF::
+ 	.string "The bellies grant you their final egg.$" 

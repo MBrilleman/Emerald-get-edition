@@ -10300,7 +10300,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayRustboroTorchic[] = {
 
 static const struct TrainerMonItemCustomMoves sParty_Blissey1[] = {
     {
-    .iv = 255,
+    .iv = 212,
     .lvl = 15,
     .species = SPECIES_BLISSEY,
     .heldItem = ITEM_NONE,
@@ -10311,14 +10311,14 @@ static const struct TrainerMonItemCustomMoves sParty_Blissey1[] = {
 
 static const struct TrainerMonItemCustomMoves sParty_Blissey2[] = {
     {
-    .iv = 255,
+    .iv = 224,
     .lvl = 30,
     .species = SPECIES_BLISSEY,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_BELLY_DRUM, MOVE_BELLY_DRUM, MOVE_BELLY_DRUM, MOVE_BELLY_DRUM}
     },
     {
-    .iv = 255,
+    .iv = 224,
     .lvl = 30,
     .species = SPECIES_BLISSEY,
     .heldItem = ITEM_NONE,
@@ -10328,7 +10328,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blissey2[] = {
 
 static const struct TrainerMonItemCustomMoves sParty_Blissey3[] = {
     {
-    .iv = 255,
+    .iv = 212,
     .lvl = 45,
     .species = SPECIES_BLISSEY,
     .heldItem = ITEM_NONE,
@@ -10336,7 +10336,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blissey3[] = {
     },
 
     {
-    .iv = 255,
+    .iv = 212,
     .lvl = 45,
     .species = SPECIES_BLISSEY,
     .heldItem = ITEM_NONE,
@@ -10344,7 +10344,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blissey3[] = {
     },
 
     {
-    .iv = 255,
+    .iv = 212,
     .lvl = 45,
     .species = SPECIES_BLISSEY,
     .heldItem = ITEM_NONE,
