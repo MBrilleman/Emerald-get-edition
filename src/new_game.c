@@ -171,6 +171,7 @@ void NewGameInitData(void)
     ClearSecretBases();
     ClearBerryTrees();
     SetMoney(&gSaveBlock1Ptr->money, 3000);
+    //amount that is usually in the game_corner
     SetCoins(100);
     ResetLinkContestBoolean();
     ResetGameStats();
