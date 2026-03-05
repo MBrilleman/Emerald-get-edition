@@ -447,11 +447,15 @@ CableClub_Text_ExplainWirelessClubFirstTime:
 	.string "Communication System.$"
 
 CableClub_Text_AskAboutLinking:
+	.string "Is there something you needed to\p"
+	.string "ask me about linking?$"
+
+CableClub_Text_AskAboutWonderTrade:
 	.string "Hello, {PLAYER}!\p"
 	.string "It's me, TEALA, the POKéMON\n"
 	.string "CENTER 2F attendant.\p"
-	.string "Is there something you needed to\n"
-	.string "ask me about linking?$"
+    .string "Do you want to do a\n"
+    .string "WONDER TRADE?$"
 
 CableClub_Text_ExplainWirelessClub:
 	.string "Let me explain how the POKéMON\n"

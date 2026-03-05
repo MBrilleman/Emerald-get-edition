@@ -999,6 +999,8 @@ CableClub_EventScript_WirelessClubAttendant::
 	lock
 	faceplayer
 	goto_if_unset FLAG_SYS_POKEDEX_GET, CableClub_EventScript_WirelessClubAdjustements
+    msgbox CableClub_Text_AskAboutWonderTrade, MSGBOX_YESNO
+    goto_if_eq VAR_RESULT, YES, EventScript_DoWonderTrade
 	msgbox CableClub_Text_AskAboutLinking, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, CableClub_EventScript_DontAskAboutLinking
 	msgbox CableClub_Text_ExplainWirelessClub, MSGBOX_DEFAULT

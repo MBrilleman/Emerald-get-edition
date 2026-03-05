@@ -340,6 +340,7 @@ SECTIONS {
         src/gym_leader_rematch.o(.text);
         src/battle_transition_frontier.o(.text);
         src/international_string_util.o(.text);
+        src/wonder_trade.o(.text);
     } > ROM =0
 
     script_data :
