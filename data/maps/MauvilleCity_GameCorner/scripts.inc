@@ -368,14 +368,6 @@ MauvilleCity_GameCorner_EventScript_CancelTMSelect::
 	release
 	end
 
-MauvilleCity_GameCorner_EventScript_Woman2::
-	msgbox MauvilleCity_GameCorner_Text_CoinsAreNeededToPlay, MSGBOX_NPC
-	end
-
-MauvilleCity_GameCorner_EventScript_Gentleman::
-	msgbox MauvilleCity_GameCorner_Text_RouletteOnlyLuck, MSGBOX_NPC
-	end
-
 MauvilleCity_GameCorner_EventScript_Girl::
 	lock
 	faceplayer
@@ -434,49 +426,10 @@ MauvilleCity_GameCorner_EventScript_ReceivedStarterDoll::
 	release
 	end
 
-MauvilleCity_GameCorner_EventScript_PokefanM::
-	lock
-	faceplayer
-	checkitem ITEM_COIN_CASE
-	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_TryGive20Coins
-	msgbox MauvilleCity_GameCorner_Text_NeedCoinCaseGoNextDoor, MSGBOX_DEFAULT
-	goto MauvilleCity_GameCorner_EventScript_NPCReturnToSlots
-	end
-
-MauvilleCity_GameCorner_EventScript_TryGive20Coins::
-	goto_if_set FLAG_RECEIVED_20_COINS, MauvilleCity_GameCorner_EventScript_PokefanMNormal
-	checkcoins VAR_TEMP_1
-	goto_if_ge VAR_TEMP_1, 1, MauvilleCity_GameCorner_EventScript_PokefanMNormal @ Only give 20 coins if player has no coins
-	setflag FLAG_RECEIVED_20_COINS
-	addcoins 20
-	msgbox MauvilleCity_GameCorner_Text_LuckOnlyLastSoLongTakeCoins, MSGBOX_DEFAULT
-	playse SE_SHOP
-	goto MauvilleCity_GameCorner_EventScript_PokefanMNormal
-	end
-
-MauvilleCity_GameCorner_EventScript_PokefanMNormal::
-	msgbox MauvilleCity_GameCorner_Text_MauvilleSomethingForEveryone, MSGBOX_DEFAULT
-	goto MauvilleCity_GameCorner_EventScript_NPCReturnToSlots
-	end
-
 MauvilleCity_GameCorner_EventScript_OldMan::
 	lock
 	faceplayer
 	msgbox MauvilleCity_GameCorner_Text_RouletteTablesDifferentRates, MSGBOX_DEFAULT
-	goto MauvilleCity_GameCorner_EventScript_NPCReturnToSlots
-	end
-
-MauvilleCity_GameCorner_EventScript_Cook::
-	lock
-	faceplayer
-	msgbox MauvilleCity_GameCorner_Text_EasyToLoseTrackOfTime, MSGBOX_DEFAULT
-	goto MauvilleCity_GameCorner_EventScript_NPCReturnToSlots
-	end
-
-MauvilleCity_GameCorner_EventScript_Man::
-	lock
-	faceplayer
-	msgbox MauvilleCity_GameCorner_Text_UpTo3CoinsCanBeUsed, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_NPCReturnToSlots
 	end
 
@@ -485,20 +438,6 @@ MauvilleCity_GameCorner_EventScript_NPCReturnToSlots::
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	release
-	end
-
-MauvilleCity_GameCorner_EventScript_Maniac::
-	lock
-	faceplayer
-	msgbox MauvilleCity_GameCorner_Text_DifficultToStopOn7, MSGBOX_DEFAULT
-	goto MauvilleCity_GameCorner_EventScript_NPCReturnToSlots
-	end
-
-MauvilleCity_GameCorner_EventScript_Woman::
-	lock
-	faceplayer
-	msgbox MauvilleCity_GameCorner_Text_HeresSomeSlotsInfo, MSGBOX_DEFAULT
-	goto MauvilleCity_GameCorner_EventScript_NPCReturnToSlots
 	end
 
 MauvilleCity_GameCorner_EventScript_SlotMachine0::
@@ -717,50 +656,11 @@ MauvilleCity_GameCorner_Text_CantWinJackpot:
 	.string "There's a prize I want, but I can't win\n"
 	.string "the jackpot.$"
 
-MauvilleCity_GameCorner_Text_NeedCoinCaseGoNextDoor:
-	.string "Hey, kid, if you want to play here,\n"
-	.string "you need a COIN CASE.\p"
-	.string "I think the young lady next door\n"
-	.string "had one. Go see her!$"
-
-MauvilleCity_GameCorner_Text_LuckOnlyLastSoLongTakeCoins:
-	.string "My luck can only last so long.\n"
-	.string "This is too much for me.\l"
-	.string "Here, take some COINS!$"
-
-MauvilleCity_GameCorner_Text_MauvilleSomethingForEveryone:
-	.string "MAUVILLE has something for\n"
-	.string "everyone.\p"
-	.string "For me, it's the GAME CORNER.$"
-
 MauvilleCity_GameCorner_Text_RouletteTablesDifferentRates:
 	.string "The ROULETTE tables have different\n"
 	.string "rates.\p"
 	.string "Check your COINS if you're going to\n"
 	.string "pick a table.$"
-
-MauvilleCity_GameCorner_Text_EasyToLoseTrackOfTime:
-	.string "It's easy to lose track of time in here. \n"
-	.string "I should get back to work.$"
-
-MauvilleCity_GameCorner_Text_CoinsAreNeededToPlay:
-	.string "COINS are needed to play here\n"
-	.string "in the GAME CORNER.$"
-
-MauvilleCity_GameCorner_Text_RouletteOnlyLuck:
-	.string "This ROULETTE thing…\n"
-	.string "It's rather demanding.\p"
-	.string "Win or lose, it's only by luck.$"
-
-MauvilleCity_GameCorner_Text_UpTo3CoinsCanBeUsed:
-	.string "Up to three COINS can be used to play\n"
-	.string "the SLOTS.$"
-
-MauvilleCity_GameCorner_Text_DifficultToStopOn7:
-	.string "It's very difficult to make it stop\n"
-	.string "right on “7.”\p"
-	.string "If it stops on “7” during the REEL TIME\n"
-	.string "bonus game, you'll receive extra COINS.$"
 
 MauvilleCity_GameCorner_Text_HeresSomeSlotsInfo:
 	.string "Here's some information for you\n"
