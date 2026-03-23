@@ -320,8 +320,10 @@ CableClub_EventScript_SelectCableClubRoom::
 	multichoice 0, 0, MULTI_CABLE_CLUB_NO_RECORD_MIX, FALSE
 	switch VAR_RESULT
 	case 0, CableClub_EventScript_TradeCenter
-	case 1, CableClub_EventScript_Colosseum
-	case 2, CableClub_EventScript_AbortLink
+    case 1, EventScript_DoSelfTrade
+    case 2, EventScript_DoWonderTrade
+    case 3, CableClub_EventScript_Colosseum
+	case 4, CableClub_EventScript_AbortLink
 	case MULTI_B_PRESSED, CableClub_EventScript_AbortLink
 	end
 
@@ -329,9 +331,11 @@ CableClub_EventScript_CableClubUnlockedRecordCorner::
 	multichoice 0, 0, MULTI_CABLE_CLUB_WITH_RECORD_MIX, FALSE
 	switch VAR_RESULT
 	case 0, CableClub_EventScript_TradeCenter
-	case 1, CableClub_EventScript_Colosseum
-	case 2, CableClub_EventScript_RecordCorner
-	case 3, CableClub_EventScript_AbortLink
+    case 1, EventScript_DoSelfTrade
+    case 2, EventScript_DoWonderTrade
+	case 3, CableClub_EventScript_Colosseum
+	case 4, CableClub_EventScript_RecordCorner
+	case 5, CableClub_EventScript_AbortLink
 	case MULTI_B_PRESSED, CableClub_EventScript_AbortLink
 	end
 
@@ -999,8 +1003,6 @@ CableClub_EventScript_WirelessClubAttendant::
 	lock
 	faceplayer
 	goto_if_unset FLAG_SYS_POKEDEX_GET, CableClub_EventScript_WirelessClubAdjustements
-    msgbox CableClub_Text_AskAboutWonderTrade, MSGBOX_YESNO
-    goto_if_eq VAR_RESULT, YES, EventScript_DoWonderTrade
 	msgbox CableClub_Text_AskAboutLinking, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, CableClub_EventScript_DontAskAboutLinking
 	msgbox CableClub_Text_ExplainWirelessClub, MSGBOX_DEFAULT

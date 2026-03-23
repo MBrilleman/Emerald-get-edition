@@ -960,6 +960,35 @@ gText_Sudowoodo_Attacked::
 gText_LegendaryFlewAway::
 	.string "The {STR_VAR_1} flew away!$"
 
+EventScript_DoSelfTrade::
+	msgbox EventScript_DoSelfTrade_Text_IllTradeIfYouWant, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq EventScript_DoSelfTrade_Text_DeclineTrade
+    special ChoosePartyMon
+    waitstate
+    compare VAR_0x8004, 255
+    goto_if_eq EventScript_DoSelfTrade_Text_DeclineTrade
+    copyvar VAR_0x8005, VAR_0x8004
+    setvar VAR_0x8004, 6
+    special CreateInGameTradePokemon
+    special DoInGameTradeScene
+    waitstate
+    msgbox EventScript_DoSelfTrade_Text_ComeBack, MSGBOX_DEFAULT
+    closemessage
+    end
+
+EventScript_DoSelfTrade_Text_IllTradeIfYouWant:
+	.string "I will help you to\n"
+	.string "trade a pokemon\p"
+	.string "with yourself!$"
+
+EventScript_DoSelfTrade_Text_DeclineTrade:
+	.string "You dont want to?\n"
+    .string "Okay come back anytime$"
+
+EventScript_DoSelfTrade_Text_ComeBack:
+	.string "Come back anytime.$"    
+
 EventScript_DoWonderTrade::
 	special ChoosePartyMon
 	waitstate
@@ -969,11 +998,9 @@ EventScript_DoWonderTrade::
 	special CreateWonderTradePokemon
 	special DoInGameTradeScene
 	waitstate
-	msgbox EventScript_DoWonderTrade_Text_WannaDoAnotherWonderTrade, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq EventScript_DoWonderTrade
 	msgbox EventScript_DoWonderTrade_Text_Done, MSGBOX_DEFAULT
 	closemessage
+
 EventScript_End:
 	end
 

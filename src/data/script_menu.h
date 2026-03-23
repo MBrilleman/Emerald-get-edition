@@ -456,6 +456,16 @@ static const struct MenuAction MultichoiceList_Tent[] =
     {gText_BlueTent},
 };
 
+static const struct MenuAction MultichoiceList_LinkServicesNoBerryMix[] =
+{
+    {gText_TradeCenter},
+    {gText_SelfTrade},
+    {gText_WonderTrade},
+    {gText_Colosseum},
+    {gText_RecordCorner},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_LinkServicesNoBerry[] =
 {
     {gText_TradeCenter},
@@ -496,6 +506,17 @@ static const struct MenuAction MultichoiceList_LinkServicesAll[] =
     {gText_BerryCrush3},
     {gText_Exit},
 };
+
+
+static const struct MenuAction MultichoiceList_LinkServicesNoRecordMix[] =
+{
+    {gText_TradeCenter},
+    {gText_SelfTrade},
+    {gText_WonderTrade},
+    {gText_Colosseum},
+    {gText_Exit},
+};
+
 
 static const struct MenuAction MultichoiceList_LinkServicesNoRecordBerry[] =
 {
@@ -858,9 +879,9 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SHARDS_YBG]                 = MULTICHOICE(MultichoiceList_ShardsYBG),
     [MULTI_SHARDS_RYBG]                = MULTICHOICE(MultichoiceList_ShardsRYBG),
     [MULTI_TOURNEY_WITH_RECORD]        = MULTICHOICE(MultichoiceList_TourneyWithRecord),
-    [MULTI_CABLE_CLUB_NO_RECORD_MIX]   = MULTICHOICE(MultichoiceList_LinkServicesNoRecordBerry),
+    [MULTI_CABLE_CLUB_NO_RECORD_MIX]   = MULTICHOICE(MultichoiceList_LinkServicesNoRecordMix),
     [MULTI_WIRELESS_NO_RECORD_BERRY]   = MULTICHOICE(MultichoiceList_LinkServicesNoRecordBerry),
-    [MULTI_CABLE_CLUB_WITH_RECORD_MIX] = MULTICHOICE(MultichoiceList_LinkServicesNoBerry),
+    [MULTI_CABLE_CLUB_WITH_RECORD_MIX] = MULTICHOICE(MultichoiceList_LinkServicesNoBerryMix),
     [MULTI_WIRELESS_NO_BERRY]          = MULTICHOICE(MultichoiceList_LinkServicesNoBerry),
     [MULTI_WIRELESS_NO_RECORD]         = MULTICHOICE(MultichoiceList_LinkServicesNoRecord),
     [MULTI_WIRELESS_ALL_SERVICES]      = MULTICHOICE(MultichoiceList_LinkServicesAll),
@@ -968,6 +989,8 @@ static const u8 *const sCableClubOptions_WithRecordMix[] =
 {
     CableClub_Text_TradeUsingLinkCable,
     CableClub_Text_BattleUsingLinkCable,
+    CableClub_Text_TradeWithSelf,
+    CableClub_Text_WonderTrade,
     CableClub_Text_RecordCornerUsingLinkCable,
     CableClub_Text_CancelSelectedItem,
 };
@@ -997,6 +1020,8 @@ static const u8 *const sCableClubOptions_NoRecordMix[] =
 {
     CableClub_Text_TradeUsingLinkCable,
     CableClub_Text_BattleUsingLinkCable,
+    CableClub_Text_TradeWithSelf,
+    CableClub_Text_WonderTrade,
     CableClub_Text_CancelSelectedItem,
 };
 static const u8 *const sWirelessOptions_NoRecordMixBerryCrush[] =

@@ -1225,6 +1225,8 @@ extern const u8 gText_Retire[];
 extern const u8 gText_RedTent[];
 extern const u8 gText_BlueTent[];
 extern const u8 gText_TradeCenter[];
+extern const u8 gText_SelfTrade[];
+extern const u8 gText_WonderTrade[];
 extern const u8 gText_Colosseum[];
 extern const u8 gText_RecordCorner[];
 extern const u8 gText_SingleBattle[];
@@ -1310,6 +1312,8 @@ extern const u8 gText_TrainerHill4F[];
 
 // Cable Club multichoice text
 extern const u8 CableClub_Text_TradeUsingLinkCable[];
+extern const u8 CableClub_Text_TradeWithSelf[];
+extern const u8 CableClub_Text_WonderTrade[];
 extern const u8 CableClub_Text_BattleUsingLinkCable[];
 extern const u8 CableClub_Text_RecordCornerUsingLinkCable[];
 extern const u8 CableClub_Text_CancelSelectedItem[];

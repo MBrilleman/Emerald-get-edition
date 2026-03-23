@@ -12,6 +12,12 @@ CableClub_Text_TradeUsingLinkCable::
 	.string "Trade POKéMON with another player\n"
 	.string "using a GBA Game Link cable.$"
 
+CableClub_Text_TradeWithSelf::
+    .string "Trade a POKéMON with yourself.$"
+
+CableClub_Text_WonderTrade::
+    .string "Trade a POKéMON for a random one.$"
+
 CableClub_Text_BattleUsingLinkCable::
 	.string "You may battle another TRAINER\n"
 	.string "using a GBA Game Link cable.$"
