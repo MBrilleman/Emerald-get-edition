@@ -6508,7 +6508,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_LEFTO: //Leftovers man
             return MUS_CONTEST_LOBBY;
         case TRAINER_CLASS_JOKE_MAN: //Joke mans (geeft choice)
-            return MUS_RG_TEACHY_TV_SHOW;
+            return MUS_RG_TEACHY_TV_MENU;
         default:
             return MUS_VS_TRAINER;
         }

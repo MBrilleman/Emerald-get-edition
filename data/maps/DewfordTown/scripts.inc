@@ -655,6 +655,7 @@ DewfordTown_EventScript_eRivalEntrance::
 	applymovement LOCALID_DEWFORD_EXTRARIVAL, DewfordTown_eRival_exit
 	waitmovement 0
 	setvar VAR_DEWFORD_eRIVAL, 1
+	call DewfordTown_EventScript_eRival_Spawn
 	fadedefaultbgm
 	release
 	releaseall
