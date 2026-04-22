@@ -531,6 +531,10 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_YOUNG_COUPLE, 8},
     {TRAINER_CLASS_WINSTRATE, 10},
     {TRAINER_CLASS_PALACE_MAVEN, 0},
+    {TRAINER_CLASS_LEFTO, 0},
+    {TRAINER_CLASS_PIKE_QUEEN, 0},
+    {TRAINER_CLASS_FACTORY_HEAD , 50},
+    {TRAINER_CLASS_JOKE_MAN, 0},
     {0xFF, 5}, // Any trainer class not listed above uses this
 };
 
@@ -5018,6 +5022,9 @@ static void HandleEndTurn_BattleWon(void)
             break;
         case TRAINER_CLASS_LEADER:
             PlayBGM(MUS_VICTORY_GYM_LEADER);
+            break;
+        case TRAINER_CLASS_LEFTO:
+            PlayBGM(MUS_CONTEST_WINNER);
             break;
         default:
             PlayBGM(MUS_VICTORY_TRAINER);

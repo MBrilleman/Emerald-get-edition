@@ -245,6 +245,20 @@
       "flag": "FLAG_HIDE_MOSSDEEP_CITY_SCOTT"
     },
     {
+      "local_id": "LOCALID_MOSSDEEP_EXTRARIVAL",
+      "graphics_id": "OBJ_EVENT_GFX_LUCY",
+      "x": 79,
+      "y": 0,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_HIDE_PETALBURG_CITY_SCOTT"
+    },
+    {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
       "x": 31,
       "y": 29,
@@ -411,6 +425,15 @@
       "var": "VAR_MOSSDEEP_CITY_STATE",
       "var_value": "1",
       "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
+    },
+    {
+      "type": "trigger",
+      "x": 64,
+      "y": 16,
+      "elevation": 5,
+      "var": "VAR_MOSSDEEP_eRIVAL",
+      "var_value": "1",
+      "script": "MossdeepCity_EventScript_eRival_Encounter"
     },
     {
       "type": "trigger",

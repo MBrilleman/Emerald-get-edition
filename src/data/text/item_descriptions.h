@@ -823,9 +823,9 @@ static const u8 sMetalCoatDesc[] = _(
     "STEEL-type moves.");
 
 static const u8 sLeftoversDesc[] = _(
-    "A hold item that\n"
-    "gradually restores\n"
-    "HP in battle.");
+    "Your adventure\n"
+    "buddy! Gradually\n"
+    "restores HP.");
 
 static const u8 sDragonScaleDesc[] = _(
     "A strange scale\n"

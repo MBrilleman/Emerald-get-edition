@@ -308,6 +308,7 @@ MossdeepCity_SpaceCenter_2F_EventScript_DefeatedMaxieTabitha::
 	setobjectxyperm LOCALID_SPACE_CENTER_2F_SCIENTIST, 5, 6
 	setobjectmovementtype LOCALID_SPACE_CENTER_2F_SCIENTIST, MOVEMENT_TYPE_WANDER_AROUND
 	addobject LOCALID_SPACE_CENTER_2F_SCIENTIST
+	setvar VAR_MOSSDEEP_eRIVAL, 1
 	fadescreen FADE_FROM_BLACK
 #ifdef BUGFIX
 	releaseall

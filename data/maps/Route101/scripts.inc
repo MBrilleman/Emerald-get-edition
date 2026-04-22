@@ -272,14 +272,14 @@ Route101_Text_DontLeaveMe:
 
 Route101_Text_YouSavedMe:
 	.string "PROF. BIRCH: Whew…\p"
-	.string "I was in the tall grass studying wild\n"
-	.string "POKéMON when I was jumped.\p"
+	.string "I was in the tall grass clapping a fat\n"
+	.string "jonko when I was jumped by POKéMON!\p"
 	.string "You saved me.\n"
 	.string "Thanks a lot!\p"
-	.string "Oh?\p"
 	.string "Hi, you're {PLAYER}{KUN}!\p"
 	.string "This is not the place to chat, so come\n"
-	.string "by my POKéMON LAB later, okay?$"
+	.string "by my POKéMON LAB later, okay?\n"
+	.string "$"
 
 Route101_Text_TakeTiredPokemonToPokeCenter:
 	.string "If POKéMON get tired, take them to\n"

@@ -303,6 +303,32 @@ MossdeepCity_Movement_ScottExitEast:
 	walk_left
 	step_end
 
+MossdeepCity_EventScript_eRival_Encounter::
+	lockall
+	playbgm MUS_B_PIKE, FALSE
+	delay 40
+	addobject LOCALID_MOSSDEEP_EXTRARIVAL
+	setobjectxy LOCALID_MOSSDEEP_EXTRARIVAL, 64, 26
+	applymovement LOCALID_MOSSDEEP_EXTRARIVAL, MossdeepCity_Movement_eRival_Entrance
+	waitmovement 0
+	msgbox MossDeepCity_Text_eRival_Entrance, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+MossdeepCity_Movement_eRival_Entrance:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
 MossdeepCity_Text_WantKingsRockStevenGaveMe:
 	.string "I got this from STEVEN, but I don't\n"
 	.string "know what it's good for.\p"
@@ -426,3 +452,5 @@ MossdeepCity_Text_SootopolisNewGymLeader:
 	.string "People tell me the new LEADER once\n"
 	.string "mentored WALLACE.$"
 
+MossDeepCity_Text_eRival_Entrance:
+	.string "yoyo$"

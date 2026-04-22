@@ -225,9 +225,9 @@ OldaleTown_EventScript_Rival::
 
 OldaleTown_EventScript_RivalTrigger1::
 	lockall
-	applymovement LOCALID_OLDALE_RIVAL, OldaleTown_Movement_RivalApproachPlayer1
+	applymovement LOCALID_OLDALE_RIVAL, Common_Movement_WalkInPlaceFasterLeft 
 	waitmovement 0
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_PLAYER, OldaleTown_Movement_PlayerApproachRival1
 	waitmovement 0
 	setvar VAR_0x8009, 1
 	goto OldaleTown_EventScript_ShowRivalMessage
@@ -235,9 +235,9 @@ OldaleTown_EventScript_RivalTrigger1::
 
 OldaleTown_EventScript_RivalTrigger2::
 	lockall
-	applymovement LOCALID_OLDALE_RIVAL, OldaleTown_Movement_RivalApproachPlayer2
+	applymovement LOCALID_OLDALE_RIVAL, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_PLAYER, OldaleTown_Movement_PlayerApproachRival2 
 	waitmovement 0
 	setvar VAR_0x8009, 1
 	goto OldaleTown_EventScript_ShowRivalMessage
@@ -245,9 +245,9 @@ OldaleTown_EventScript_RivalTrigger2::
 
 OldaleTown_EventScript_RivalTrigger3::
 	lockall
-	applymovement LOCALID_OLDALE_RIVAL, OldaleTown_Movement_RivalApproachPlayer3
+	applymovement LOCALID_OLDALE_RIVAL, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_PLAYER, OldaleTown_Movement_PlayerApproachRival3 
 	waitmovement 0
 	setvar VAR_0x8009, 1
 	goto OldaleTown_EventScript_ShowRivalMessage
@@ -270,6 +270,12 @@ OldaleTown_EventScript_ShowBrendanMessage::
 	end
 
 OldaleTown_EventScript_RivalFinish::
+	addobject LOCALID_OLDALE_EXTRARIVAL
+	setobjectxy LOCALID_OLDALE_EXTRARIVAL, 9, 25
+	applymovement LOCALID_OLDALE_EXTRARIVAL OldaleTown_Movement_ExtraRival
+	waitmovement 0
+	removeobject LOCALID_OLDALE_EXTRARIVAL
+	msgbox OldaleTown_Text_WhoWhasThat, MSGBOX_DEFAULT
 	closemessage
 	call_if_eq VAR_0x8009, 0, OldaleTown_EventScript_DoExitMovement1
 	call_if_eq VAR_0x8009, 1, OldaleTown_EventScript_DoExitMovement2
@@ -293,17 +299,18 @@ OldaleTown_EventScript_DoExitMovement2::
 	waitmovement 0
 	return
 
-OldaleTown_Movement_RivalApproachPlayer1:
-	walk_left
-	walk_left
+
+OldaleTown_Movement_PlayerApproachRival1:
+	walk_right
+	walk_right
 	step_end
 
-OldaleTown_Movement_RivalApproachPlayer2:
-	walk_left
+OldaleTown_Movement_PlayerApproachRival2:
+	walk_right
 	step_end
 
-OldaleTown_Movement_RivalApproachPlayer3:
-	face_left
+OldaleTown_Movement_PlayerApproachRival3:
+	face_right
 	step_end
 
 OldaleTown_Movement_RivalExit:
@@ -313,6 +320,21 @@ OldaleTown_Movement_RivalExit:
 	walk_down
 	walk_down
 	walk_down
+	step_end
+
+OldaleTown_Movement_ExtraRival:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
 	step_end
 
 OldaleTown_Movement_WatchRivalExit:
@@ -390,6 +412,10 @@ OldaleTown_Text_BrendanLetsGoBack:
 	.string "BRENDAN: I'm heading back to my dad's\n"
 	.string "LAB now.\l"
 	.string "{PLAYER}, you should hustle back, too.$"
+
+OldaleTown_Text_WhoWhasThat:
+	.string "...\p"
+	.string "Who was that?$"
 
 OldaleTown_Text_TownSign:
 	.string "OLDALE TOWN\n"

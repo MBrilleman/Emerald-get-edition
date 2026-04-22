@@ -3,6 +3,7 @@ MauvilleCity_MapScripts::
 	.byte 0
 
 MauvilleCity_OnTransition:
+	call_if_set FLAG_BADGE05_GET, MauvilleCITY_eRival_spawn
 	setflag FLAG_VISITED_MAUVILLE_CITY
 	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
 	clearflag FLAG_HIDE_SLATEPORT_MUSEUM_POPULATION
@@ -11,6 +12,115 @@ MauvilleCity_OnTransition:
 	setvar VAR_MAUVILLE_GYM_STATE, 0
 	call_if_set FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON, MauvilleCity_EventScript_MoveWattsonBackToGym
 	end
+
+MauvilleCITY_eRival_spawn::
+	call_if_eq VAR_MAUVILLE_eRIVAL, 3, MauvilleCITY_eRival_reappear
+	return
+
+MauvilleCITY_eRival_reappear::
+	clearflag FLAG_HIDE_eRIVAL3
+	return
+
+MauvilleCity_EventScript_FusRoDa1::
+	addobject LOCALID_MAUVILLE_FUSRODA
+	setobjectxy LOCALID_MAUVILLE_FUSRODA, 15, 18
+	goto MauvilleCity_EventScript_FusRoDa
+	end
+
+MauvilleCity_EventScript_FusRoDa2::
+	addobject LOCALID_MAUVILLE_FUSRODA
+	setobjectxy LOCALID_MAUVILLE_FUSRODA, 16, 18
+	goto MauvilleCity_EventScript_FusRoDa
+	end
+
+MauvilleCity_EventScript_FusRoDa3::
+	addobject LOCALID_MAUVILLE_FUSRODA
+	setobjectxy LOCALID_MAUVILLE_FUSRODA, 17, 18
+	goto MauvilleCity_EventScript_FusRoDa
+	end
+
+MauvilleCity_EventScript_FusRoDa4::
+	addobject LOCALID_MAUVILLE_FUSRODA
+	setobjectxy LOCALID_MAUVILLE_FUSRODA, 18, 18
+	goto MauvilleCity_EventScript_FusRoDa
+	end
+
+
+MauvilleCity_EventScript_FusRoDa::
+	playfanfare SE_M_BLIZZARD
+	applymovement LOCALID_MAUVILLE_FUSRODA, FusRoDaFlyIn
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_FUSRODA, Common_Movement_FaceDown
+	waitmovement
+	delay 20
+	msgbox MauvilleCity_FusRoDaTextIntro MSGBOX_DEFAULT
+	closemessage
+	delay 20
+	playse SE_M_YAWN
+	msgbox MauvilleCity_Fus_text
+	closemessage
+	playse SE_THUNDER2
+	msgbox MauvilleCity_RoDa_text
+	closemessage
+	applymovement LOCALID_PLAYER, PlayerFusRoDa
+	waitmovement 0
+	setobjectxyperm LOCALID_DEWFORD_BRINEY, 12, 8
+	addobject LOCALID_DEWFORD_BRINEY
+	clearflag FLAG_HIDE_MR_BRINEY_DEWFORD_TOWN
+	addobject LOCALID_DEWFORD_BOAT
+	clearflag FLAG_HIDE_MR_BRINEY_BOAT_DEWFORD_TOWN
+	setflag FLAG_HIDE_ROUTE_104_MR_BRINEY_BOAT
+	hideobjectat LOCALID_ROUTE104_BOAT, MAP_ROUTE104
+	copyvar VAR_BRINEY_LOCATION, VAR_0x8008
+	copyobjectxytoperm LOCALID_DEWFORD_BRINEY
+	setvar VAR_BOARD_BRINEY_BOAT_STATE, 0
+	warp MAP_DEWFORD_TOWN, 2, 11
+	waitstate
+	fadescreen FADE_FROM_BLACK
+	delay 20
+	applymovement LOCALID_PLAYER, FusRoDaFlyIn
+	waitmovement 0
+	end
+
+FusRoDaFlyIn:
+	fly_down
+	step_end
+
+PlayerFusRoDa:
+	face_up
+	slide_down
+	slide_down
+	slide_down
+	fly_up
+	step_end
+
+MauvilleCity_FusRoDaTextIntro:
+	.string "Courier: I've been looking for you.\n"
+	.string "Got something I'm supposed to deliver -\l"
+	.string "your hands only...\p"
+	.string "Lettss see here...\p"
+	.string "Ah, It's from Whiterun!\n"
+	.string "Adressed from the Cloud District.\p"
+	.string "'Dear {PLAYER}{KUN},\n"
+	.string "I know you don't get here very often,\l"
+	.string "but you should come visit me in the\l"
+	.string "Cloud District very soon.\p"
+	.string "I wish to get a closer look at the edge\n"
+	.string "of your blade or the tip of your hammer.\p"
+	.string "With the vilest and most mean-spirited\n"
+	.string "regards. Your biggest hater,\l"
+	.string "Nazeem.'\p"
+	.string "...\p"
+	.string "Wow! I know I'm just the courier, but\n"
+	.string "that guy made me seethe with anger!\p"
+	.string "And now hearing what he wrote...\n"
+	.string "I can't contain my anger any longer!$"
+
+MauvilleCity_Fus_text:
+	.string "FUSSS...$"
+
+MauvilleCity_RoDa_text:
+	.string "RO DAAAAAAAAHHH!!!!$"
 
 MauvilleCity_EventScript_MoveWattsonBackToGym::
 	clearflag FLAG_HIDE_MAUVILLE_GYM_WATTSON
@@ -32,6 +142,7 @@ MauvilleCity_EventScript_Woman::
 
 MauvilleCity_EventScript_RichBoy::
 	msgbox MauvilleCity_Text_PokemonCanJumpYouOnBike, MSGBOX_NPC
+	setvar VAR_MAUVILLE_eRIVAL, 2
 	end
 
 MauvilleCity_EventScript_CitySign::

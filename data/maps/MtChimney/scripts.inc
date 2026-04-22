@@ -70,6 +70,7 @@ MtChimney_EventScript_Maxie::
 	clearflag FLAG_HIDE_FALLARBOR_HOUSE_PROF_COZMO
 	setflag FLAG_HIDE_METEOR_FALLS_1F_1R_COZMO
 	clearflag FLAG_HIDE_MT_CHIMNEY_LAVA_COOKIE_LADY
+	setvar VAR_MTCHIMNEY_eRIVAL, 1
 	releaseall
 	end
 
@@ -526,6 +527,392 @@ MtChimney_EventScript_SawyerRematch::
 	msgbox MtChimney_Text_SawyerPostRematch, MSGBOX_AUTOCLOSE
 	end
 
+MtChimney_EventScript_Erival::
+	lockall
+	playbgm MUS_B_PIKE, FALSE
+	delay 50
+	addobject LOCALID_MTCHIMNEY_EXTRARIVAL
+	setobjectxy LOCALID_MTCHIMNEY_EXTRARIVAL, 10, 17
+	applymovement LOCALID_MTCHIMNEY_EXTRARIVAL, MtChimney_eRival_entrance
+	waitmovement 0
+	delay 30
+	msgbox MtChimney_eRival_Text_entrance, MSGBOX_DEFAULT
+	closemessage
+	playse SE_WALL_HIT
+	applymovement LOCALID_PLAYER, MtChimney_EventScript_eRival_getshoved
+	applymovement LOCALID_MTCHIMNEY_EXTRARIVAL, MtChimney_EventScript_eRival_shove
+	waitmovement 0
+	applymovement LOCALID_MTCHIMNEY_EXTRARIVAL, MtChimney_EventScript_eRival_walkmeteor
+	waitmovement 0
+	applymovement LOCALID_PLAYER MtChimney_EventScript_eRival_lookup
+	waitmovement 0
+	applymovement LOCALID_MTCHIMNEY_EXTRARIVAL, MtChimney_EventScript_eRival_walkmeteorright
+	waitmovement 0
+	msgbox MtChimney_eRival_Text_ohno, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_MTCHIMNEY_EXTRARIVAL, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	msgbox MtChimney_eRival_Text_nono, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_MTCHIMNEY_EXTRARIVAL, MtChimney_EventScript_eRival_walktoplayer
+	waitmovement 0
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	msgbox MtChimney_eRival_Text_ruok, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, MtChimney_EventScript_eRival_Yes
+    goto_if_eq VAR_RESULT, NO, MtChimney_EventScript_eRival_No
+	goto MtChimney_EventScript_eRival_Whathappend
+	releaseall
+	end
+
+MtChimney_EventScript_eRival_Yes::
+	msgbox MtChimney_eRival_Text_yes, MSGBOX_DEFAULT
+	closemessage
+	goto MtChimney_EventScript_eRival_Whathappend
+	release
+	end
+
+MtChimney_EventScript_eRival_No::
+	msgbox MtChimney_eRival_Text_no1, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_MTCHIMNEY_EXTRARIVAL, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	delay 20
+	msgbox MtChimney_eRival_Text_no2, 
+	closemessage
+	applymovement LOCALID_MTCHIMNEY_EXTRARIVAL, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	goto MtChimney_EventScript_eRival_Whathappend
+	release
+	end
+
+MtChimney_EventScript_eRival_Whathappend::
+	msgbox MtChimney_eRival_Text_whathappend, MSGBOX_DEFAULT
+	playbgm MUS_RG_ENCOUNTER_DEOXYS, FALSE
+	delay 10
+	msgbox MtChimney_eRival_Text_exposition, MSGBOX_DEFAULT
+	closemessage
+	fadeoutbgm 0
+	msgbox MtChimney_eRival_Text_expositionJoke, MSGBOX_DEFAULT
+	playse MUS_TOO_BAD
+	waitse
+	delay 20
+	closemessage
+	playbgm MUS_B_PIKE, FALSE
+	delay 40
+	applymovement LOCALID_MTCHIMNEY_EXTRARIVAL, MtChimney_eRival_exit
+	waitmovement 0
+	setvar VAR_MTCHIMNEY_eRIVAL, 2
+	fadedefaultbgm
+	removeobject LOCALID_MTCHIMNEY_EXTRARIVAL
+	releaseall
+	end
+
+MtChimney_eRival_entrance:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+MtChimney_EventScript_eRival_getshoved:
+	walk_fast_right
+	walk_in_place_faster_left
+	step_end
+
+MtChimney_EventScript_eRival_shove:
+	walk_fast_up
+	step_end
+
+MtChimney_EventScript_eRival_walkmeteor:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+MtChimney_EventScript_eRival_lookup:
+	walk_in_place_faster_up
+	step_end
+
+MtChimney_EventScript_eRival_walkmeteorright:
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_in_place_faster_up
+	step_end
+
+MtChimney_EventScript_eRival_walktoplayer:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_in_place_faster_right
+	step_end
+
+MtChimney_eRival_exit:
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_in_place_slow_left
+	delay_8
+	walk_fast_right
+	walk_fast_right
+	walk_in_place_slow_up
+	delay_8
+	face_left
+	delay_16
+	face_down
+	delay_16
+	face_right
+	delay_16
+	face_up
+	delay_16
+	face_left
+	delay_16
+	face_down
+	delay_8
+	face_right
+	delay_8
+	face_up
+	delay_8
+	face_left
+	delay_8
+	face_down
+	delay_4
+	face_right
+	delay_4
+	face_up
+	delay_4
+	face_left
+	delay_4
+	face_down
+	delay_2
+	face_right
+	delay_2
+	face_up
+	delay_2
+	face_left
+	delay_1
+	face_down
+	delay_1
+	face_right
+	delay_1
+	face_up
+	delay_1
+	face_left
+	delay_1
+	face_down
+	delay_1
+	face_right
+	delay_1
+	face_up
+	delay_1
+	face_left
+	delay_1
+	face_down
+	delay_1
+	face_right
+	delay_1
+	face_up
+	delay_1
+	face_left
+	delay_1
+	face_down
+	delay_1
+	face_right
+	delay_1
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	delay_1
+	face_left
+	delay_1
+	face_down
+	delay_1
+	face_right
+	delay_1
+	face_up
+	delay_2
+	face_left
+	delay_2
+	face_down
+	delay_4
+	face_right
+	delay_4
+	face_up
+	delay_8
+	face_left
+	delay_8
+	face_down
+	walk_slow_diag_southeast
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	walk_slow_diag_southwest
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	delay_16
+	walk_slow_diag_southeast
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	delay_16
+	walk_slow_diag_southwest
+	step_end
+
 MtChimney_Text_MeteoriteWillActivateVolcano:
 	.string "The power contained in the METEORITE…\p"
 	.string "By amplifying its power with this\n"
@@ -836,4 +1223,66 @@ MtChimney_Text_SawyerRematchDefeat:
 MtChimney_Text_SawyerPostRematch:
 	.string "Actually, it really is hot here.\n"
 	.string "I'm overdressed for these parts.$"
+
+MtChimney_eRival_Text_entrance:
+	.string "MOVE!$"
+
+MtChimney_eRival_Text_ohno:
+	.string "Am I too late?\p"
+	.string "Oh no...$"
+
+MtChimney_eRival_Text_nono:
+	.string "No... no no!\n"
+	.string "No this cannot be happening.\p"
+	.string "Not now... Not already!\p"
+	.string "I... I-\l"
+	.string "I'm not ready yet!$"
+
+MtChimney_eRival_Text_ruok:
+	.string "Are you OK?$"
+
+MtChimney_eRival_Text_yes:
+	.string "Good.$"
+
+MtChimney_eRival_Text_no1:
+	.string "Oh no!!!$"
+
+MtChimney_eRival_Text_no2:
+	.string "Anyway...$"
+
+MtChimney_eRival_Text_whathappend:
+	.string "What happend here?\p"
+	.string "...\p"
+	.string "They are looking for the ORBs?\p"
+	.string "Oh I was afraid you'd say something like\n"
+	.string "that...$"
+
+MtChimney_eRival_Text_exposition:
+	.string "They have set in motion a chain of\n"
+	.string "events that will unfold into the\l"	
+	.string "destruction of the world as we know it.\p"
+	.string "This is what the prophecy from my\n"
+	.string "village elders told us about.\p"
+	.string "If they are successful in their IDIOTIC\n"
+	.string "pipedream, they will reignite the\l"
+	.string "ancient War of the Earth itself...\p"
+	.string "When ONE of the dormant powers is\n"
+	.string "reanimated from any of the two ORBs.\p"
+	.string "Its power to reshape the Earth will\n"
+	.string "soon be challanged by the other\l"
+	.string "reawakened geological Titan.\p"
+	.string "Using their equally matched, yet\n"
+	.string "inmense, powers to reshape the entire\l"
+	.string "planet according to their opposites of\l"
+	.string "wills.\p"
+	.string "Resulting in a never-ending war of\n"
+	.string "destruction and creation.\p"
+	.string "Constantly reforming the world around\n"
+	.string "them, destroying everything and\l"
+	.string "everyone that was once there.\p"
+	.string "...$"
+
+MtChimney_eRival_Text_expositionJoke:
+	.string "Kkr get, {PLAYER}{KUN}.$"
+
 

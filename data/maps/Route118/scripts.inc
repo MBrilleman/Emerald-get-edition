@@ -5,6 +5,8 @@ Route118_MapScripts::
 	.byte 0
 
 Route118_OnTransition:
+	setflag FLAG_HIDE_eRIVAL3
+	call_if_set FLAG_BADGE05_GET, Mauville_eRival_Try_spawn
 	call GabbyAndTy_EventScript_UpdateLocation
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_EAST, AbnormalWeather_StartGroudonWeather
@@ -120,6 +122,118 @@ Route118_EventScript_StevenExit2::
 	waitmovement 0
 	return
 
+Mauville_eRival_Try_spawn::
+	call_if_eq VAR_MAUVILLE_eRIVAL, 3, Mauville_eRival_reappear
+	return
+
+Mauville_eRival_reappear::
+	clearflag FLAG_HIDE_eRIVAL3
+	return	
+
+
+Mauville_EventScript_eRival0::
+	lock
+	setvar VAR_0x8008, 0
+	goto Mauville_EventScript_eRival_entrance
+	end
+	
+Mauville_EventScript_eRival1::
+	lock
+	setvar VAR_0x8008, 1
+	goto Mauville_EventScript_eRival_entrance
+	end
+
+Mauville_EventScript_eRival_entrance::
+	setvar VAR_MAUVILLE_eRIVAL, 3
+	playbgm MUS_B_PIKE, FALSE
+	delay 50
+	addobject LOCALID_MAUVILLE_EXTRARIVAL
+	setobjectxy LOCALID_MAUVILLE_EXTRARIVAL, 13, 8
+	applymovement LOCALID_MAUVILLE_EXTRARIVAL, Mauville_eRival_entrance
+	waitmovement 0
+	call_if_eq VAR_0x8008, 0, Mauville_EventScript_eRival_entrance0
+	call_if_eq VAR_0x8008, 1, Mauville_EventScript_eRival_entrance1
+	msgbox Mauville_eRival_Text_hello, MSGBOX_DEFAULT
+	closemessage
+	fadedefaultbgm
+	release
+	end
+
+Mauville_EventScript_eRival_entrance0::
+	applymovement LOCALID_MAUVILLE_EXTRARIVAL, Mauville_eRival_entrance0
+	waitmovement 0
+	setobjectxy LOCALID_MAUVILLE_EXTRARIVAL, 6, 7
+	return
+
+Mauville_EventScript_eRival_entrance1::
+	setobjectxy LOCALID_MAUVILLE_EXTRARIVAL, 6, 8
+	return
+
+Mauville_EventScript_eRivalShove0::
+	playse SE_PIN
+	applymovement LOCALID_MAUVILLE_EXTRARIVAL, Common_Movement_ExclamationMark
+	waitse
+	playse SE_WALL_HIT
+	applymovement LOCALID_MAUVILLE_EXTRARIVAL, Mauville_eRival_Shove_Up
+	applymovement LOCALID_PLAYER, Mauville_eRival_Shove_player
+	waitmovement 0
+	setobjectxyperm LOCALID_MAUVILLE_EXTRARIVAL, 6, 7
+	release
+	end
+
+Mauville_EventScript_eRivalShove1::
+	playse SE_PIN
+	applymovement LOCALID_MAUVILLE_EXTRARIVAL, Common_Movement_ExclamationMark
+	waitse
+	playse SE_WALL_HIT
+	applymovement LOCALID_MAUVILLE_EXTRARIVAL, Mauville_eRival_Shove_Down
+	applymovement LOCALID_PLAYER, Mauville_eRival_Shove_player
+	waitmovement 0
+	setobjectxyperm LOCALID_MAUVILLE_EXTRARIVAL, 6, 8
+	release
+	end
+
+Mauville_EventScript_eRival_Ask_Battle::
+	faceplayer
+	lock
+	applymovement LOCALID_MAUVILLE_EXTRARIVAL, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox Mauville_Text_eRival_vraag_battle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Mauville_eRival_yes
+	goto_if_eq VAR_RESULT, NO, Mauville_eRival_no
+	release
+	end
+
+Mauville_eRival_no::
+	msgbox Mauville_eRival_Text_no, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PLAYER, Common_Movement_FaceDown
+	msgbox Mauville_eRival_Text_clown, MSGBOX_GETPOINTS
+	delay 20
+	waitmovement 0
+	release
+	end
+
+Mauville_eRival_yes::
+	msgbox Mauville_eRival_text_battle, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_eRIVAL3, Mauville_eRival_Text_defeat
+	closemessage
+	faceplayer
+	playbgm MUS_B_PIKE, FALSE
+	msgbox Mauville_eRival_PostBattle, MSGBOX_DEFAULT
+	giveitem ITEM_OLD_SEA_MAP
+	setflag FLAG_RECEIVED_OLD_SEA_MAP
+	closemessage
+	msgbox Mauville_eRival_exit, MSGBOX_DEFAULT
+	applymovement LOCALID_MAUVILLE_EXTRARIVAL, Mauville_eRival_exitmovement
+	playse SE_WARP_OUT
+	waitmovement 0
+	removeobject LOCALID_MAUVILLE_EXTRARIVAL
+	setvar VAR_MAUVILLE_eRIVAL, 4
+	fadedefaultbgm
+	releaseall
+	end 
+
 Route118_Movement_PlayerWatchStevenExit:
 	delay_16
 	walk_in_place_faster_right
@@ -173,6 +287,51 @@ Route118_Movement_StevenExit2:
 	walk_right
 	walk_right
 	walk_right
+	step_end
+
+Mauville_eRival_entrance:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+	
+Mauville_eRival_entrance0:
+	walk_up
+	face_left
+	step_end
+
+Mauville_eRival_Shove_Up:
+	jump_up
+	face_left
+	step_end
+
+Mauville_eRival_Shove_Down:
+	jump_down
+	face_left
+	step_end
+
+Mauville_eRival_Shove_player:
+	walk_fast_left
+	step_end
+
+Mauville_eRival_exitmovement:
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	fly_up
+	face_left
+	face_up
+	face_right
+	face_down
 	step_end
 
 Route118_EventScript_Rose::
@@ -297,3 +456,78 @@ Route118_Text_RouteSign119:
 	.string "ROUTE 118\n"
 	.string "{UP_ARROW} ROUTE 119$"
 
+Mauville_eRival_Text_hello:
+	.string "Hi, {PLAYER}{KUN}!\n"
+	.string "How ya doin?\p"
+	.string "I am cooked!\n"
+	.string "I don't know where to get surf...\p"
+	.string "Do you know where to get HM:03 SURF?\n"
+	.string "...\p"
+	.string "Petalburg City you say?\n"
+	.string "But that's where we first met!\p"
+	.string "And you didn't say anything!?!?\n"
+	.string "That sucks. Big time!\l"
+	.string "You could've been like: 'Oh Zinnia wait!'\l"
+	.string "'I long to be with you!' 'Please don't\l"
+	.string "leave me alone!' 'I'll miss you too much!'\p"
+	.string "'And by the waysies don't forget HM:03\n"
+	.string "SURF from Wally's helicopter parent!'\p"
+	.string "But no.\p"
+	.string "All I got was: a-a-a-a-a-a-a-a-a-a-a-\n"
+	.string "a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a\p"
+	.string "Why? Because I talk too much?\n"
+	.string "Well the time for talking is over. The\p"
+	.string "time for battle has begun! Speak only\l"
+	.string "to me for battle! If you dare...$"
+
+Mauville_Text_eRival_vraag_battle:
+	.string "No more talking. Battle?$"
+
+Mauville_eRival_Text_no:
+	.string "Then why did you talk to me?$"
+
+Mauville_eRival_Text_clown:
+	.string "Congratulations!\n"
+	.string "You are CLOWN Number 1 !!!$"
+
+Mauville_eRival_text_battle:
+	.string "You got it!$"
+
+Mauville_eRival_Text_defeat:
+	.string "You win!\p"
+	.string "Again.\p"
+	.string "...$"
+
+Mauville_eRival_PostBattle:
+	.string "Well...\n"
+	.string "It seems I may have overreacted a tiny\l"
+	.string "bit.\p"
+	.string "As for an apology: take this ticket.\n"
+	.string "The village elders bestowed this item\l"
+	.string "upon my quest.\p"
+	.string "They said to give this to the one that\n"
+	.string "helps me cross the oceans.\p"
+	.string "You told me where Surf is, so here!\n"
+	.string "Take it.$"
+
+Mauville_eRival_exit:
+	.string "But I still lost.\p"
+	.string "again...\p"
+	.string "...\n"
+	.string "Uuuhh...\p"
+	.string "...\p"
+	.string "Am I not get enough?\p"
+	.string "Last time I just flew off, pretty\n"
+	.string "convenient actually.\p"
+	.string "I hoped I'd go blasting off again to\n"
+	.string "skip having to walk back to PETALBURG.\p"
+	.string "Can you help me to become more get?\l"
+	.string "... Uh-huh... Yeah...\p"
+	.string "What do you mean 'Have you smoked?'\l"
+	.string "Yes.\p"
+	.string "'But am I get?'\l"
+	.string "No.\p"
+	.string "Aiiiii nooooooooooooooooooooooooooo-\n"
+	.string "ooooooooooooooooooooooooooooooooo-\l"
+	.string "ooooooooooooooooooooooooooooooooo-\l"
+	.string "o$"

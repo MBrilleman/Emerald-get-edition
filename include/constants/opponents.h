@@ -774,11 +774,11 @@
 #define TRAINER_BLISSEY_1                   770 
 #define TRAINER_BLISSEY_2                   771 
 #define TRAINER_BLISSEY_3                   772 
-#define TRAINER_BLISSEY_4                   773 
-#define TRAINER_BRAWLY_2                    774 // Ongebruikt
-#define TRAINER_BRAWLY_3                    775 // Ongebruikt
-#define TRAINER_BRAWLY_4                    776 // Ongebruikt
-#define TRAINER_BRAWLY_5                    777 // Ongebruikt
+#define TRAINER_YELLOW                      773 
+#define TRAINER_CRYSTAL                     774 
+#define TRAINER_eRIVAL2                     775 
+#define TRAINER_eRIVAL3                     776 
+#define TRAINER_LEFTO                       777 
 #define TRAINER_WATTSON_2                   778 // Ongebruikt
 #define TRAINER_WATTSON_3                   779 // Ongebruikt
 #define TRAINER_WATTSON_4                   780 // Ongebruikt
@@ -857,7 +857,7 @@
 #define TRAINER_BRENDAN_PLACEHOLDER         853 // Unused
 #define TRAINER_MAY_PLACEHOLDER             854 // Unused
 #define TRAINER_TEST                        855 // Unused
-#define TRAINER_eRIVAL1                     856 // Unused
+#define TRAINER_eRIVAL1                     856 
 #define TRAINER_placeholder                 857 // Unused
 
 

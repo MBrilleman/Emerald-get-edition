@@ -706,27 +706,29 @@ PetalburgCity_EventScript_eRival_Spawn::
 
 PetalburgCity_EventScript_eRival0::
 	lockall
-	addobject LOCALID_PETALBURG_RIVAL
+	addobject LOCALID_PETALBURG_EXTRARIVAL
 	setvar VAR_0x8008, 0
-	setobjectxy LOCALID_PETALBURG_RIVAL, 13, 13
+	setobjectxy LOCALID_PETALBURG_EXTRARIVAL, 13, 13
 	goto PetalburgCity_EventScript_eRival
 	end
 
 PetalburgCity_EventScript_eRival1::
 	lockall
-	addobject LOCALID_PETALBURG_RIVAL
+	addobject LOCALID_PETALBURG_EXTRARIVAL
 	setvar VAR_0x8008, 1
-	setobjectxy LOCALID_PETALBURG_RIVAL, 13, 12
+	setobjectxy LOCALID_PETALBURG_EXTRARIVAL, 13, 12
 	goto PetalburgCity_EventScript_eRival
 	end
 
 PetalburgCity_EventScript_eRival::
-	playbgm MUS_RG_ENCOUNTER_RIVAL, FALSE
-	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_Movement_ScottStartWalkLeft
+	playbgm MUS_B_PIKE, FALSE
+	msgbox PetalburgCity_Text_eRival_entrancehi, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PETALBURG_EXTRARIVAL, PetalburgCity_Movement_ScottStartWalkLeft
 	waitmovement 0
-	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_Movement_ScottStartWalkLeft
+	applymovement LOCALID_PETALBURG_EXTRARIVAL, PetalburgCity_Movement_ScottStartWalkLeft
 	waitmovement 0
-	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_Movement_ScottStartWalkLeft
+	applymovement LOCALID_PETALBURG_EXTRARIVAL, PetalburgCity_Movement_ScottStartWalkLeft
 	waitmovement 0
 	call_if_eq VAR_0x8008, 0, PetalburgCity_EventScript_eRivalblock0
 	call_if_eq VAR_0x8008, 1, PetalburgCity_EventScript_eRivalblock1
@@ -754,12 +756,12 @@ PetalburgCity_Text_eRival_Battle_Start::
 	trainerbattle_no_intro TRAINER_eRIVAL1, PetalburgCity_eRival1_Text_Defeat
 	closemessage
 	msgbox PetalburgCity_eRival1_Text_jemoeder, MSGBOX_DEFAULT
-	playbgm MUS_RG_RIVAL_EXIT, FALSE
-	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_eRival1_Runaway
+	playbgm MUS_B_PIKE, FALSE
+	applymovement LOCALID_PETALBURG_EXTRARIVAL, PetalburgCity_eRival1_Runaway
 	waitmovement 0
 	setvar VAR_PETALBURG_eRIVAL, 2
 	fadedefaultbgm
-	removeobject LOCALID_PETALBURG_RIVAL
+	removeobject LOCALID_PETALBURG_EXTRARIVAL
 	release
 	releaseall
 	end
@@ -770,33 +772,33 @@ PetalburgCity_Text_eRival_Battle_No::
 	end
 
 PetalburgCity_EventScript_eRivalblock0::
-	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_EventScript_eRivalblockmove0
+	applymovement LOCALID_PETALBURG_EXTRARIVAL, PetalburgCity_EventScript_eRivalblockmove0
 	waitmovement 0
-	setobjectxy LOCALID_PETALBURG_RIVAL, 0, 12
+	setobjectxy LOCALID_PETALBURG_EXTRARIVAL, 0, 12
 	faceplayer
 	return
 
 PetalburgCity_EventScript_eRivalblock1::
-	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_EventScript_eRivalblockmove1
+	applymovement LOCALID_PETALBURG_EXTRARIVAL, PetalburgCity_EventScript_eRivalblockmove1
 	waitmovement 0
-	setobjectxy LOCALID_PETALBURG_RIVAL, 0, 13
+	setobjectxy LOCALID_PETALBURG_EXTRARIVAL, 0, 13
 	faceplayer
 	return
 
 PetalburgCity_EventScript_eRival_shove0::
 	playse SE_PIN
-	applymovement LOCALID_PETALBURG_RIVAL, Common_Movement_QuestionMark
+	applymovement LOCALID_PETALBURG_EXTRARIVAL, Common_Movement_QuestionMark
 	waitmovement 0
-	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_EventScript_eRival0_shoveblock
+	applymovement LOCALID_PETALBURG_EXTRARIVAL, PetalburgCity_EventScript_eRival0_shoveblock
 	waitmovement 0
 	goto PetalburgCity_EventScript_eRival_shove
 	end
 
 PetalburgCity_EventScript_eRival_shove1::
 	playse SE_PIN
-	applymovement LOCALID_PETALBURG_RIVAL, Common_Movement_QuestionMark
+	applymovement LOCALID_PETALBURG_EXTRARIVAL, Common_Movement_QuestionMark
 	waitmovement 0
-	applymovement LOCALID_PETALBURG_RIVAL, PetalburgCity_EventScript_eRival1_shoveblock
+	applymovement LOCALID_PETALBURG_EXTRARIVAL, PetalburgCity_EventScript_eRival1_shoveblock
 	waitmovement 0
 	goto PetalburgCity_EventScript_eRival_shove
 	end
@@ -804,10 +806,70 @@ PetalburgCity_EventScript_eRival_shove1::
 PetalburgCity_EventScript_eRival_shove::
 	playse SE_WALL_HIT
 	applymovement LOCALID_PLAYER PetalburgCity_EventScript_eRival_getshoved
-	applymovement LOCALID_PETALBURG_RIVAL,PetalburgCity_EventScript_eRivalshoving
+	applymovement LOCALID_PETALBURG_EXTRARIVAL,PetalburgCity_EventScript_eRivalshoving
 	waitmovement 0
 	msgbox PetalburgCity_Text_eRival_shove, MSGBOX_DEFAULT
 	closemessage
+	end
+
+PetalburgCity_EventScript_Rando0::
+	lockall
+	addobject LOCALID_PETALBURG_RANDO
+	setobjectxy LOCALID_PETALBURG_RANDO, 13, 13
+	goto PetalburgCity_EventScript_Rando
+	end
+
+PetalburgCity_EventScript_Rando1::
+	lockall
+	addobject LOCALID_PETALBURG_RANDO
+	setobjectxy LOCALID_PETALBURG_RANDO, 13, 12
+	goto PetalburgCity_EventScript_Rando
+	end
+
+PetalburgCity_EventScript_Rando::
+	msgbox PetalburgCity_Text_rando, MSGBOX_GETPOINTS
+	applymovement LOCALID_PETALBURG_RANDO, PetalburgCity_Movement_ScottStartWalkLeft
+	waitmovement 0
+	applymovement LOCALID_PETALBURG_RANDO, PetalburgCity_Movement_ScottStartWalkLeft
+	waitmovement 0
+	playmoncry SPECIES_HO_OH, CRY_MODE_ENCOUNTER
+	applymovement LOCALID_PETALBURG_RANDO, PetalburgCity_Movement_ScottStartWalkLeft
+	waitmovement 0
+	waitmoncry
+	applymovement LOCALID_PETALBURG_RANDO, PetalburgCity_Movement_ScottStartWalkLeft
+	waitmovement 0
+	waitmoncry
+	playse SE_M_HEAL_BELL
+	waitse
+	playse SE_M_HEAL_BELL
+	waitse
+	applymovement LOCALID_PETALBURG_RANDO, PetalburgCity_Movement_ScottStartWalkLeft
+	waitmovement 0
+	applymovement LOCALID_PETALBURG_RANDO, PetalburgCity_Movement_ScottStartWalkLeft
+	waitmovement 0
+	removeobject LOCALID_PETALBURG_RANDO
+	setvar VAR_PETALBURG_eRIVAL, 3
+	delay 20
+	msgbox PetalburgCity_Text_randoF, MSGBOX_GETPOINTS
+	delay 40
+	applymovement LOCALID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	msgbox PetalburgCity_Text_randoFF, MSGBOX_DEFAULT
+	applymovement LOCALID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	delay 20
+	closemessage
+	delay 20
+	msgbox PetalburgCity_Text_randoFFF, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	delay 40
+	msgbox PetalburgCity_Text_randoFFFFF, MSGBOX_GETPOINTS
+	delay 40
+	msgbox PetalburgCity_Text_randoFFFFFF, MSGBOX_DEFAULT
+	closemessage
+	releaseall
 	end
 
 PetalburgCity_EventScript_eRivalblockmove0:
@@ -913,31 +975,72 @@ PetalburgCity_Text_ImLookingForTalentedTrainers:
 	.string "talented TRAINERS.\p"
 	.string "I'm sorry to have taken your time.$"
 
+PetalburgCity_Text_eRival_entrancehi:
+	.string "WAIIT!!$"
+
 PetalburgCity_Text_eRival_entrance:
-	.string "Hallo.\n"
-	.string "Ik laat je er pas langs als\p"
-	.string "jij mij in een gevecht kan verslaan.\n"
-	.string "Durf je het aan?$"
+	.string "My name is Zinnia.\n"
+	.string "I hail from Pacifidlog Town.\p"
+	.string "The elders from my village forsaw\n"
+	.string "disastorous events that will soon unfold.\p"
+	.string "They chose me to go on a journey to\n"
+	.string "find and retrieve the saviour that has\l"
+	.string "the power to stop our impending doom.\p"
+	.string "They call it: 'THE DNA POKéMON'.\p"
+	.string "Whats your name?\n"
+	.string "... {PLAYER}{KUN}?\l"
+	.string "Huh... What a wierd name!\p"
+	.string "The professor believed in my quest\n"
+	.string "and blessed me with a Pokémon from\l"
+	.string "the 'unpicked' box.\p"
+	.string "He bestowed his sagely advise upon me:\p"
+	.string "'find other rookie trainers like\n"
+	.string "you and battle them!'\p"
+	.string "You quallify as a 'rookie' trainer.\p"
+	.string "Battle me!$"
 
 PetalburgCity_Text_eRival_vraag_battle:
-	.string "Dus.\n" 
-	.string "Je moet stoot?$"
+	.string "Are you ready for battle?\n" 
+	.string "$"
 
 PetalburgCity_Text_eRival_Battle_Starttext:
-	.string "Ik ga je hele kanker team slopen.$"
+	.string "Don't try to faint!$"
 
 PetalburgCity_Text_eRival_Battle_Notext:
-	.string "Helaas!$"
+	.string "Too bad!$"
 
 PetalburgCity_Text_eRival_shove:
-	.string "Ho! Niet zo snel.\n"
-	.string "Eerst vechten!!!$"
+	.string "Not so fast!\n"
+	.string "Battle me first.$"
 
 PetalburgCity_eRival1_Text_Defeat:
 	.string "…\p"
 	.string "… …\p"
-	.string "KANKER ZOOI!!!!\n"
-	.string "…$"
+	.string "Fuuuckk$"
 
 PetalburgCity_eRival1_Text_jemoeder:
-	.string "Je moeder.$"
+	.string "Jammer(s)$"
+
+PetalburgCity_Text_rando:
+	.string "After a tumultuous start,\n"
+	.string "your journey finally begins!$"
+
+PetalburgCity_Text_randoF:
+	.string "You have sighted the LEGENDARY\n"
+	.string "POKéMON: 'Ho-Oh'!!!$"
+
+PetalburgCity_Text_randoFF:
+	.string "Wow!$"	
+
+PetalburgCity_Text_randoFFF:
+	.string "This certainly can't mean you will never\n"
+	.string "see that POKéMON again in this game!\p"
+	.string "Right?$"
+
+PetalburgCity_Text_randoFFFFF:
+	.string "Buy a diffrent POKéMON game!!\n"
+	.string "Maybe THAT one has Ho-Oh!!!$"
+
+PetalburgCity_Text_randoFFFFFF:
+	.string "Ok now you can enjoy the game.\n"
+	.string "Go. Shoo.$"
