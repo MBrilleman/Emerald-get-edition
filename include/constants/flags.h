@@ -45,11 +45,11 @@
 
 #define FLAG_HIDE_eRIVAL1    0x20 // Flag to hide eRival in petalburg
 #define FLAG_BLISSEY_EGG     0x21 // Flag to stop counting bellies
-#define FLAG_UNUSED_0x022    0x22 // Unused Flag
-#define FLAG_UNUSED_0x023    0x23 // Unused Flag
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
-#define FLAG_UNUSED_0x025    0x25 // Unused Flag
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
+#define FLAG_HIDE_eRIVAL2    0x22 // Flag to hide eRival in dewford
+#define FLAG_HIDE_eRIVAL3    0x23 // Flag to hide eRival in mauville
+#define FLAG_HIDE_eRIVAL4    0x24 // Flag to hide eRival in sky pillar
+#define FLAG_HIDE_REPORTERS  0x25 // Flag to hide reporters in mauville
+#define FLAG_RANDO_LEFTO     0x26 // POST gym 6 leftovers giver
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
 #define FLAG_UNUSED_0x028    0x28 // Unused Flag
 #define FLAG_UNUSED_0x029    0x29 // Unused Flag

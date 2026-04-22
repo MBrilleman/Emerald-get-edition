@@ -39,6 +39,20 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_DEWFORD_EXTRARIVAL",
+      "graphics_id": "OBJ_EVENT_GFX_LUCY",
+      "x": 8,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DewfordTown_EventScript_eRival_Battle",
+      "flag": "FLAG_HIDE_eRIVAL2"
+    },
+    {
       "local_id": "LOCALID_DEWFORD_BRINEY",
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
       "x": 12,
@@ -130,7 +144,17 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [    
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_DEWFORD_eRIVAL",
+      "var_value": "0",
+      "script": "DewfordTown_EventScript_eRivalEntrance"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

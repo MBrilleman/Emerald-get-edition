@@ -309,6 +309,20 @@
       "trainer_sight_or_berry_tree_id": "4",
       "script": "Route118_EventScript_Deandre",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_MAUVILLE_EXTRARIVAL",
+      "graphics_id": "OBJ_EVENT_GFX_LUCY",
+      "x": 6,
+      "y": 7,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Mauville_EventScript_eRival_Ask_Battle",
+      "flag": "FLAG_HIDE_eRIVAL3"
     }
   ],
   "warp_events": [
@@ -354,6 +368,42 @@
       "var": "VAR_ROUTE118_STATE",
       "var_value": "0",
       "script": "Route118_EventScript_StevenTrigger2"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 7,
+      "elevation": 3,
+      "var": "VAR_MAUVILLE_eRIVAL",
+      "var_value": "2",
+      "script": "Mauville_EventScript_eRival0"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 8,
+      "elevation": 3,
+      "var": "VAR_MAUVILLE_eRIVAL",
+      "var_value": "2",
+      "script": "Mauville_EventScript_eRival1"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 7,
+      "elevation": 3,
+      "var": "VAR_MAUVILLE_eRIVAL",
+      "var_value": "3",
+      "script": "Mauville_EventScript_eRivalShove0"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 8,
+      "elevation": 3,
+      "var": "VAR_MAUVILLE_eRIVAL",
+      "var_value": "3",
+      "script": "Mauville_EventScript_eRivalShove1"
     }
   ],
   "bg_events": [

@@ -272,7 +272,12 @@ LittleRootTown_EventScript_AfgewezenDenizFocusPunch::
     end
 
 LittlerootTown_testNPC::
-	trainerbattle_single TRAINER_TEST, testNPC_intro, testNPC_Defeated
+	trainerbattle_single TRAINER_YELLOW, testNPC_intro, testNPC_Defeated
+	msgbox testNPC_postbattle, MSGBOX_AUTOCLOSE
+	end
+
+LittlerootTown_testNPCTwee::
+	trainerbattle_single TRAINER_CRYSTAL, testNPC_intro, testNPC_Defeated
 	msgbox testNPC_postbattle, MSGBOX_AUTOCLOSE
 	end
 

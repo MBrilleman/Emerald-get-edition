@@ -6493,12 +6493,22 @@ u16 GetBattleBGM(void)
             return MUS_VS_ELITE_FOUR;
         case TRAINER_CLASS_SALON_MAIDEN:
         case TRAINER_CLASS_DOME_ACE:
-        case TRAINER_CLASS_PALACE_MAVEN:
         case TRAINER_CLASS_ARENA_TYCOON:
         case TRAINER_CLASS_FACTORY_HEAD:
-        case TRAINER_CLASS_PIKE_QUEEN:
-        case TRAINER_CLASS_PYRAMID_KING:
+        case TRAINER_CLASS_PIKE_QUEEN:  //Extra rival
             return MUS_VS_FRONTIER_BRAIN;
+        case TRAINER_CLASS_PALACE_MAVEN:    //bellys
+            return MUS_GSC_PEWTER;
+        case TRAINER_CLASS_PYRAMID_KING:    //Extra rival final form
+            return MUS_RG_VS_DEOXYS;
+        case TRAINER_CLASS_YELLOW:  //Yellow protag
+            return MUS_RG_VS_TRAINER;
+        case TRAINER_CLASS_CRYSTAL: //Crystal protag
+            return MUS_VS_CHAMPION;
+        case TRAINER_CLASS_LEFTO: //Leftovers man
+            return MUS_CONTEST_LOBBY;
+        case TRAINER_CLASS_JOKE_MAN: //Joke mans (geeft choice)
+            return MUS_RG_TEACHY_TV_SHOW;
         default:
             return MUS_VS_TRAINER;
         }

@@ -408,6 +408,20 @@
       "trainer_sight_or_berry_tree_id": "6",
       "script": "MtChimney_EventScript_Sawyer",
       "flag": "FLAG_HIDE_MT_CHIMNEY_TRAINERS"
+    },
+    {
+      "local_id": "LOCALID_MTCHIMNEY_EXTRARIVAL",
+      "graphics_id": "OBJ_EVENT_GFX_LUCY",
+      "x": 10,
+      "y": 17,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_HIDE_PETALBURG_CITY_SCOTT"
     }
   ],
   "warp_events": [
@@ -440,7 +454,17 @@
       "dest_warp_id": "3"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_MTCHIMNEY_eRIVAL",
+      "var_value": "1",
+      "script": "MtChimney_EventScript_Erival"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

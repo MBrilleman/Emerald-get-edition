@@ -4,6 +4,8 @@ DewfordTown_MapScripts::
 
 DewfordTown_OnTransition:
 	setflag FLAG_VISITED_DEWFORD_TOWN
+	setflag FLAG_HIDE_eRIVAL2
+	call_if_eq VAR_DEWFORD_eRIVAL, 1, DewfordTown_EventScript_eRival_Spawn
 	end
 
 DewfordTown_EventScript_Briney::
@@ -626,6 +628,97 @@ DewfordTown_EventScript_PhraseNotTrendyEnough::
 	release
 	end
 
+DewfordTown_EventScript_eRival_Spawn::
+	clearflag FLAG_HIDE_eRIVAL2
+	return
+
+
+DewfordTown_EventScript_eRivalEntrance::
+	lockall
+	addobject LOCALID_DEWFORD_EXTRARIVAL
+	setobjectxy LOCALID_DEWFORD_EXTRARIVAL, 6, 3
+	playbgm MUS_B_PIKE, FALSE
+	applymovement LOCALID_DEWFORD_EXTRARIVAL, DewfordTown_eRival_entranceDown
+	waitmovement 0
+	applymovement LOCALID_DEWFORD_EXTRARIVAL, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	delay 20
+	playse SE_PIN
+	applymovement LOCALID_DEWFORD_EXTRARIVAL, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 80
+	applymovement LOCALID_DEWFORD_EXTRARIVAL, DewfordTown_eRival_entranceRight
+	waitmovement 0
+	msgbox DewfordTown_Text_eRival, MSGBOX_DEFAULT
+	closemessage
+	delay 20
+	applymovement LOCALID_DEWFORD_EXTRARIVAL, DewfordTown_eRival_exit
+	waitmovement 0
+	setvar VAR_DEWFORD_eRIVAL, 1
+	fadedefaultbgm
+	release
+	releaseall
+	end
+
+DewfordTown_EventScript_eRival_Battle::
+	faceplayer
+	msgbox DewfordTown_Text_eRivalBattle, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_eRIVAL2, DewfordTown_eRival_Text_Defeat
+	closemessage
+	playbgm MUS_B_PIKE, FALSE
+	msgbox DewfordTown_eRival_Text_FlyAway, MSGBOX_DEFAULT
+	closemessage
+	playse SE_WARP_OUT
+	applymovement LOCALID_DEWFORD_EXTRARIVAL, DewfordTown_Erival_flyAway
+	waitmovement 0
+	removeobject LOCALID_DEWFORD_EXTRARIVAL
+	setvar VAR_DEWFORD_eRIVAL, 2
+	fadedefaultbgm
+	releaseall
+	end
+
+DewfordTown_eRival_entranceDown:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+DewfordTown_eRival_entranceRight:
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+DewfordTown_eRival_exit:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+DewfordTown_Erival_flyAway:
+	fly_up
+	step_end
+
+
 DewfordTown_Text_TinyIslandCommunity:
 	.string "DEWFORD is a tiny island community.\n"
 	.string "If something gets trendy here,\l"
@@ -788,3 +881,27 @@ DewfordTown_Text_YeahDefinitionOfInRightNow:
 	.string "Yeah, absolutely right!\p"
 	.string "“{STR_VAR_1}” is the\n"
 	.string "definition of “in” right now.$"
+
+DewfordTown_Text_eRival:
+	.string "Oh Hiii!\p"
+	.string "I just caught some crazy cool Pokémon\n"
+	.string "in that dank cave north from here\p"
+	.string "You should check it out!\p"
+	.string "I'll wait for you down here and we'll\n"
+	.string "have a battle with our new friends!$"
+
+DewfordTown_Text_eRivalBattle:
+	.string "En garde!$"
+
+DewfordTown_eRival_Text_Defeat:
+	.string "...\p"
+	.string "I lost again!$"
+
+DewfordTown_eRival_Text_FlyAway:
+	.string "I keep losing...\n"
+	.string "I'm so get!\p"
+	.string "But 'get' means 'high'...\n"
+	.string "... Right?\p"
+	.string "And I am SUUUPPERRR get right now.\p"
+	.string "There I go!\p"
+	.string "Byyeeeeeeeeeeeeeeeeeeeeeeeeeeee!!!!$"

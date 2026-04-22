@@ -12389,6 +12389,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_testNPC[] = {
     .species = SPECIES_DEOXYS,
     }
 };
+
 static const struct TrainerMonNoItemDefaultMoves sParty_placeholder[] = {
     {
     .iv = 0,
@@ -12410,5 +12411,232 @@ static const struct TrainerMonNoItemCustomMoves sParty_eRival1[] = {
     .lvl = 100,
     .species = SPECIES_MAGIKARP,
     .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_eRival2[] = {
+    {
+    .iv = 0,
+    .lvl = 100,
+    .species = SPECIES_MAGIKARP,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 0,
+    .lvl = 100,
+    .species = SPECIES_MAGIKARP,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_eRival3[] = {
+    {
+    .iv = 0,
+    .lvl = 100,
+    .species = SPECIES_MAGIKARP,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 0,
+    .lvl = 100,
+    .species = SPECIES_MAGIKARP,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_Yellow[] = {
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_LAPRAS,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_ZAPDOS,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_HYPNO,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_GOLEM,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_VENUSAUR,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_CHARIZARD,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_CrystalMaarten[] = {
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_GYARADOS,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_MAGCARGO,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_AERODACTYL,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_TYRANITAR,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_POLITOED,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_NIDOQUEEN,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_CrystalMarcus[] = {
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_AERODACTYL,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_ELECTABUZZ,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_MUK,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_NIDOQUEEN,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_MURKROW,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_POLITOED,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_CrystalRob[] = {
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_POLITOED,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_MAGCARGO,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_LANTURN,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_AERODACTYL,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_NIDOQUEEN,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 255,
+    .lvl = 2,
+    .species = SPECIES_TYRANITAR,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_Lefto[] = {
+    {
+    .iv = 255,
+    .lvl = 30,
+    .species = SPECIES_SNORLAX,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_HEADBUTT, MOVE_YAWN, MOVE_REST, MOVE_SNORE}
+    },
+    {
+    .iv = 255,
+    .lvl = 28,
+    .species = SPECIES_LICKITUNG,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_LICK, MOVE_STOMP, MOVE_KNOCK_OFF, MOVE_PROTECT}
     }
 };
