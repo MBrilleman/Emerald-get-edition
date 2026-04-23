@@ -2,33 +2,48 @@
 .set AMOUNT, VAR_0x8001
 
 Std_ObtainItem::
-	copyvar VAR_0x8004, ITEMID
-	copyvar VAR_0x8005, AMOUNT
-    checkpcitem ITEMID, 1              @give 1 as the function checks if you have more than x in pc 
-    copyvar VAR_0x8008, VAR_RESULT
-    setvar VAR_0x8007, TRUE
-    call_if_eq VAR_0x8008, FALSE, EventScript_TryAddItemToBagObtain
-    call_if_eq VAR_0x8008, TRUE, EventScript_TryAddItemToPCObtain
-    call_if_eq VAR_0x8007, FALSE, EventScript_TryAddItemToPCObtain
-	call EventScript_ObtainItemMessage
-	return
+
+    copyvar VAR_0x8004, ITEMID
+    copyvar VAR_0x8005, AMOUNT
+    setvar VAR_0x8007, 0                @ default: full/failed
+
+    @ Scenario 1: item already in PC -> go straight to PC
+    checkpcitem ITEMID, 1
+    call_if_eq VAR_RESULT, TRUE, EventScript_TryAddItemToPCObtain
+    goto_if_eq VAR_0x8007, 2, EventScript_ObtainItemMessage     @ PC success, show msg
+
+    @ Scenario 2: not in PC (or PC add failed) -> try bag
+    call EventScript_TryAddItemToBagObtain
+    goto_if_eq VAR_0x8007, 1, EventScript_ObtainItemMessage     @ bag success, show msg
+
+    @ Scenario 3: bag full -> overflow to PC
+    call EventScript_TryAddItemToPCObtain
+    @ VAR_0x8007 is now 2 (PC success) or 0 (both full)
+
+    call EventScript_ObtainItemMessage
+    end
 
 EventScript_TryAddItemToBagObtain::
-    additem ITEMID, AMOUNT
-    copyvar VAR_0x8007, VAR_RESULT
+    additem VAR_0x8004, VAR_0x8005
+    goto_if_eq VAR_RESULT, FALSE, EventScript_TryAddItemToBagObtainFailed
+    setvar VAR_0x8007, 1                @ success: bag
     return
-
+EventScript_TryAddItemToBagObtainFailed::
+    setvar VAR_0x8007, 0                @ bag full
+    return
 
 EventScript_TryAddItemToPCObtain::
-	checkitemtype VAR_0x8004 @ Don't add if it's a key item
-	goto_if_eq VAR_RESULT, POCKET_KEY_ITEMS, EventScript_TryAddItemToPCObtainContinue
-	addpcitem VAR_0x8004, VAR_0x8005
-	goto_if_eq VAR_RESULT, FALSE, EventScript_TryAddItemToPCObtainContinue
-	setvar VAR_0x8007, 2  @ (0= full, 1= in pocket, 2=in PC) only used for text later
-    return
+    @ Key items can never go to PC
+    checkitemtype VAR_0x8004
+    goto_if_eq VAR_RESULT, POCKET_KEY_ITEMS, EventScript_TryAddItemToPCObtainFailed
 
-EventScript_TryAddItemToPCObtainContinue::
-	return
+    addpcitem VAR_0x8004, VAR_0x8005
+    goto_if_eq VAR_RESULT, FALSE, EventScript_TryAddItemToPCObtainFailed
+    setvar VAR_0x8007, 2                @ success: PC
+    return
+EventScript_TryAddItemToPCObtainFailed::
+    setvar VAR_0x8007, 0                @ PC also full or key item
+    return
 
 EventScript_ObtainItemMessage::
 	bufferitemnameplural STR_VAR_2, ITEMID, AMOUNT
@@ -117,45 +132,64 @@ EventScript_NoRoomForDecor::
 	return
 
 Std_FindItem::
-	lock
-	faceplayer
-	waitse
-	copyvar VAR_0x8004, ITEMID
-	copyvar VAR_0x8005, AMOUNT
-    checkpcitem ITEMID, 1               @give 1 as the function checks if you have more than x in pc 
-    copyvar VAR_0x8008, VAR_RESULT
-    setvar VAR_0x8007, 2 
-    call_if_eq VAR_0x8008, FALSE, EventScript_CheckBagSpace
-    call_if_eq VAR_0x8007, FALSE, EventScript_CheckPCSpace
-	bufferitemnameplural STR_VAR_2, ITEMID, AMOUNT
-	checkitemtype ITEMID
-	call EventScript_BufferPocketNameAndTryFanfare
-	call_if_ne VAR_0x8007, FALSE, EventScript_PickUpItem
-	call_if_eq VAR_0x8007, FALSE, EventScript_NoRoomToPickUpItem
-	release
-	return
+    lock
+    faceplayer
+    waitse
+    copyvar VAR_0x8004, ITEMID
+    copyvar VAR_0x8005, AMOUNT
+    setvar VAR_0x8007, 0                        @ default: full/failed
 
-EventScript_CheckBagSpace::
-    checkitemspace VAR_0x8004, VAR_0x8005
-    copyvar VAR_0x8007, VAR_RESULT
+    @ Scenario 1: item already in PC -> go straight to PC
+    checkpcitem ITEMID, 1
+    call_if_eq VAR_RESULT, TRUE, EventScript_TryAddItemToPCFind
+    goto_if_eq VAR_0x8007, 2, EventScript_FindItemSuccess
 
-EventScript_CheckPCSpace::
-	checkitemtype VAR_0x8004 @ Don't add if it's a key item
-	goto_if_eq VAR_RESULT, POCKET_KEY_ITEMS, EventScript_CheckPCSpaceContinue
-    pyramid_getlocation
-	copyvar VAR_0x8004, ITEMID  @ pyramid_inchallenge modifies VAR_0x8004
-	goto_if_eq VAR_RESULT, TRUE, EventScript_CheckPCSpaceContinue
-	checkpcspace VAR_0x8004, VAR_0x8005
-	goto_if_eq VAR_RESULT, FALSE, EventScript_CheckPCSpaceContinue
-	setvar VAR_0x8007, 2  @ (0= full, 1= in pocket, 2=in PC)
+    @ Scenario 2: not in PC -> try bag
+    call EventScript_TryAddItemToBagFind
+    goto_if_eq VAR_0x8007, 1, EventScript_FindItemSuccess
+
+    @ Scenario 3: bag full -> overflow to PC
+    call EventScript_TryAddItemToPCFind
+    goto_if_eq VAR_0x8007, 2, EventScript_FindItemSuccess
+
+    @ Both full
+    call EventScript_NoRoomToPickUpItem
+    release
+    return
+
+EventScript_FindItemSuccess::
+    bufferitemnameplural STR_VAR_2, ITEMID, AMOUNT
+    checkitemtype ITEMID
+    call EventScript_BufferPocketNameAndTryFanfare
+    call EventScript_PickUpItem                 @ physically picks it up off the ground
+    release
+    return
+
+EventScript_TryAddItemToBagFind::
+    additem VAR_0x8004, VAR_0x8005
+    goto_if_eq VAR_RESULT, FALSE, EventScript_TryAddItemToBagFindFailed
+    setvar VAR_0x8007, 1                        @ success: bag
+    return
+EventScript_TryAddItemToBagFindFailed::
+    setvar VAR_0x8007, 0                        @ bag full
+    return
+
+EventScript_TryAddItemToPCFind::
+    checkitemtype VAR_0x8004
+    goto_if_eq VAR_RESULT, POCKET_KEY_ITEMS, EventScript_TryAddItemToPCFindFailed
+    addpcitem VAR_0x8004, VAR_0x8005
+    goto_if_eq VAR_RESULT, FALSE, EventScript_TryAddItemToPCFindFailed
+    setvar VAR_0x8007, 2                        @ success: PC
+    return
+EventScript_TryAddItemToPCFindFailed::
+    setvar VAR_0x8007, 0                        @ PC full or key item
+    return
 
 EventScript_CheckPCSpaceContinue::
 	return
 
 EventScript_PickUpItem::
 	removeobject VAR_LAST_TALKED
-    goto_if_eq VAR_0x8007, 2, EventScript_PickUpItemPCAdd
-	additem VAR_0x8004, VAR_0x8005
     goto EventScript_PickUpItemContinueAdd
 
 EventScript_PickUpItemPCAdd::
