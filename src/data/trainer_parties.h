@@ -12543,91 +12543,42 @@ static const struct TrainerMonNoItemCustomMoves sParty_eRival3[] = {
 
 static const struct TrainerMonItemCustomMoves sParty_Yellow[] = {
     {
-    .iv = 255,
-    .lvl = 2,
-    .species = SPECIES_LAPRAS,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .iv = 200,
+    .lvl = 28,
+    .species = SPECIES_NUMEL,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_SUNNY_DAY, MOVE_MAGNITUDE, MOVE_TAKE_DOWN, MOVE_OVERHEAT}
     },
     {
-    .iv = 255,
-    .lvl = 2,
-    .species = SPECIES_ZAPDOS,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .iv = 251,
+    .lvl = 28,
+    .species = SPECIES_SLUGMA,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_OVERHEAT, MOVE_SMOG, MOVE_LIGHT_SCREEN, MOVE_SUNNY_DAY}
     },
     {
-    .iv = 255,
-    .lvl = 2,
-    .species = SPECIES_HYPNO,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .iv = 250,
+    .lvl = 29,
+    .species = SPECIES_CAMERUPT,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_OVERHEAT, MOVE_TACKLE, MOVE_SUNNY_DAY, MOVE_ATTRACT}
     },
     {
-    .iv = 255,
-    .lvl = 2,
-    .species = SPECIES_GOLEM,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-    .iv = 255,
-    .lvl = 2,
-    .species = SPECIES_VENUSAUR,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-    .iv = 255,
-    .lvl = 2,
-    .species = SPECIES_CHARIZARD,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .iv = 250,
+    .lvl = 31,
+    .species = SPECIES_TORKOAL,
+    .heldItem = ITEM_WHITE_HERB,
+    .moves = {MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_BODY_SLAM, MOVE_ATTRACT}
     }
 };
 
 static const struct TrainerMonItemCustomMoves sParty_CrystalMaarten[] = {
     {
-    .iv = 255,
-    .lvl = 2,
-    .species = SPECIES_GYARADOS,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-    .iv = 255,
-    .lvl = 2,
-    .species = SPECIES_MAGCARGO,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-    .iv = 255,
-    .lvl = 2,
-    .species = SPECIES_AERODACTYL,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-    .iv = 255,
-    .lvl = 2,
-    .species = SPECIES_TYRANITAR,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-    .iv = 255,
-    .lvl = 2,
-    .species = SPECIES_POLITOED,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-    .iv = 255,
-    .lvl = 2,
-    .species = SPECIES_NIDOQUEEN,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .iv = 200,
+    .lvl = 100,
+    .species = SPECIES_BLISSEY,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_SONIC_BOOM, MOVE_ROLLOUT, MOVE_SHOCK_WAVE, MOVE_SELF_DESTRUCT}
     }
 };
 
