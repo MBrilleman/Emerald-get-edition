@@ -18,6 +18,8 @@ Route117_EventScript_CheckEggMove::
 Route117_EventScript_GiveEggMoveOptions::
     msgbox Route117_EventScript_GiveEggMoveOptionsText, MSGBOX_DEFAULT
     setflag FLAG_EGG_MOVE_OPTION_GIVEN
+    playfanfare MUS_OBTAIN_ITEM
+    waitfanfare
     release
     end
 

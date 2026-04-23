@@ -988,9 +988,9 @@ static const u8 *const sLilycoveSSTidalDestinations[SSTIDAL_SELECTION_COUNT] =
 static const u8 *const sCableClubOptions_WithRecordMix[] =
 {
     CableClub_Text_TradeUsingLinkCable,
-    CableClub_Text_BattleUsingLinkCable,
     CableClub_Text_TradeWithSelf,
     CableClub_Text_WonderTrade,
+    CableClub_Text_BattleUsingLinkCable,
     CableClub_Text_RecordCornerUsingLinkCable,
     CableClub_Text_CancelSelectedItem,
 };
@@ -1019,9 +1019,9 @@ static const u8 *const sWirelessOptions_AllServices[] =
 static const u8 *const sCableClubOptions_NoRecordMix[] =
 {
     CableClub_Text_TradeUsingLinkCable,
-    CableClub_Text_BattleUsingLinkCable,
     CableClub_Text_TradeWithSelf,
     CableClub_Text_WonderTrade,
+    CableClub_Text_BattleUsingLinkCable,
     CableClub_Text_CancelSelectedItem,
 };
 static const u8 *const sWirelessOptions_NoRecordMixBerryCrush[] =
