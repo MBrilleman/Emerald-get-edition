@@ -1,0 +1,13 @@
+#ifndef GUARD_CONSTANTS_MUGSHOTS_H
+#define GUARD_CONSTANTS_MUGSHOTS_H
+
+#define MUGSHOT_TEST    0
+#define MUGSHOT_TEST2   1
+#define MUGSHOT_TEST3   2
+#define MUGSHOT_TEST4   3
+#define MUGSHOT_PEACE1  4
+#define MUGSHOT_PEACE2  5
+#define MUGSHOT_PEACE3  6
+#define MUGSHOT_PEACE4  7
+
+#endif

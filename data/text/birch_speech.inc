@@ -40,10 +40,10 @@ gText_Birch_BoyOrGirl::
 
 gText_Birch_WhatsYourName::
 	.string "All right.\n"
-	.string "What's your name?$"
+	.string "What's your name, bro?$"
 
 gText_Birch_SoItsPlayer::
-	.string "So it's {PLAYER}{KUN}?$"
+	.string "{PLAYER}{KUN}? Really?$"
 
 gText_Birch_YourePlayer::
 	.string "Ah, okay!\p"

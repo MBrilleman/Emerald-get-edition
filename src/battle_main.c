@@ -535,6 +535,8 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_PIKE_QUEEN, 0},
     {TRAINER_CLASS_FACTORY_HEAD , 50},
     {TRAINER_CLASS_JOKE_MAN, 0},
+    {TRAINER_CLASS_YELLOW, 100},
+    {TRAINER_CLASS_CRYSTAL, 200},
     {0xFF, 5}, // Any trainer class not listed above uses this
 };
 
@@ -5010,6 +5012,8 @@ static void HandleEndTurn_BattleWon(void)
         {
         case TRAINER_CLASS_ELITE_FOUR:
         case TRAINER_CLASS_CHAMPION:
+        case TRAINER_CLASS_YELLOW:
+        case TRAINER_CLASS_CRYSTAL:
             PlayBGM(MUS_VICTORY_LEAGUE);
             break;
         case TRAINER_CLASS_TEAM_AQUA:
@@ -5024,6 +5028,8 @@ static void HandleEndTurn_BattleWon(void)
             PlayBGM(MUS_VICTORY_GYM_LEADER);
             break;
         case TRAINER_CLASS_LEFTO:
+        case TRAINER_CLASS_JOKE_MAN:
+        case TRAINER_CLASS_FACTORY_HEAD:
             PlayBGM(MUS_CONTEST_WINNER);
             break;
         default:

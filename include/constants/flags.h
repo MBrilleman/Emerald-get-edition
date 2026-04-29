@@ -50,9 +50,9 @@
 #define FLAG_HIDE_eRIVAL4    0x24 // Flag to hide eRival in sky pillar
 #define FLAG_HIDE_REPORTERS  0x25 // Flag to hide reporters in mauville
 #define FLAG_RANDO_LEFTO     0x26 // POST gym 6 leftovers giver
-#define FLAG_UNUSED_0x027    0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
+#define FLAG_GETKWONDO       0x27 // Getkwondo trainer
+#define FLAG_HIDE_POSTGAME   0x28 // Postgame flag
+#define FLAG_TALKED_CRYSTAL  0x29 // No intro for Cyrstal veteran
 #define FLAG_UNUSED_0x02A    0x2A // Unused Flag
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag

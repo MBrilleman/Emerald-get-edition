@@ -48,6 +48,7 @@ MauvilleCity_EventScript_FusRoDa4::
 
 MauvilleCity_EventScript_FusRoDa::
 	playfanfare SE_M_BLIZZARD
+	
 	applymovement LOCALID_MAUVILLE_FUSRODA, FusRoDaFlyIn
 	waitmovement 0
 	applymovement LOCALID_MAUVILLE_FUSRODA, Common_Movement_FaceDown
@@ -100,11 +101,11 @@ MauvilleCity_FusRoDaTextIntro:
 	.string "your hands only...\p"
 	.string "Lettss see here...\p"
 	.string "Ah, It's from Whiterun!\n"
-	.string "Adressed from the Cloud District.\p"
+	.string "Here you go.\p"
 	.string "'Dear {PLAYER}{KUN},\n"
 	.string "I know you don't get here very often,\l"
-	.string "but you should come visit me in the\l"
-	.string "Cloud District very soon.\p"
+	.string "but you should come visit me in back in\l"
+	.string "the 'ol Skyrim region very soon.\p"
 	.string "I wish to get a closer look at the edge\n"
 	.string "of your blade or the tip of your hammer.\p"
 	.string "With the vilest and most mean-spirited\n"

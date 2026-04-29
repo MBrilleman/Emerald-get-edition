@@ -276,6 +276,20 @@
       "flag": "FLAG_HIDE_SLATEPORT_CITY_TEAM_AQUA"
     },
     {
+      "local_id": "LOCALID_SLATEPORT_YELLOW",
+      "graphics_id": "OBJ_EVENT_GFX_RED",
+      "x": 28,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SlateportCity_EventScript_Yellow_Speak",
+      "flag": "FLAG_HIDE_POSTGAME"
+    },
+    {
       "local_id": "LOCALID_SLATEPORT_GRUNT_3",
       "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
       "x": 29,
@@ -604,7 +618,17 @@
       "var": "VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE",
       "var_value": "2",
       "script": "SlateportCity_EventScript_ScottBattleTentScene"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 13,
+      "elevation": 3,
+      "var": "VAR_VETERANS",
+      "var_value": "1",
+      "script": "SlateportCity_EventScript_Yellow"
     }
+    	 
   ],
   "bg_events": [
     {

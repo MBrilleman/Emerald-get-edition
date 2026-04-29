@@ -780,7 +780,7 @@
 #define TRAINER_eRIVAL3                     776 
 #define TRAINER_LEFTO                       777 
 #define TRAINER_JOKE                        778 
-#define TRAINER_WATTSON_3                   779 // Ongebruikt
+#define TRAINER_GETKWONDO                   779 
 #define TRAINER_WATTSON_4                   780 // Ongebruikt
 #define TRAINER_WATTSON_5                   781 // Ongebruikt
 #define TRAINER_FLANNERY_2                  782 // Ongebruikt

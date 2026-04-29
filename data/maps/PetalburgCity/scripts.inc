@@ -872,6 +872,66 @@ PetalburgCity_EventScript_Rando::
 	releaseall
 	end
 
+PetalburgCity_EventScript_Postgame0::
+	lockall
+	playbgm MUS_NONE, FALSE
+	delay 30
+	applymovement LOCALID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	delay 10
+	playse SE_PIN
+	applymovement LOCALID_PLAYER, Common_Movement_QuestionMark
+	waitmovement 0
+	delay 30
+	addobject LOCALID_PETALBURG_RANDO
+	setobjectxy LOCALID_PETALBURG_RANDO, 1, 12
+	playse SE_M_FLY
+	applymovement LOCALID_PETALBURG_RANDO, PetalburgCity_EventScript_PostgameFlyin
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	goto PetalburgCity_EventScript_Postgame
+	end
+
+PetalburgCity_EventScript_Postgame1::
+	lockall
+	playbgm MUS_NONE, FALSE
+	delay 30
+	applymovement LOCALID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	delay 10
+	playse SE_PIN
+	applymovement LOCALID_PLAYER, Common_Movement_QuestionMark
+	waitmovement 0
+	delay 30
+	addobject LOCALID_PETALBURG_RANDO
+	setobjectxy LOCALID_PETALBURG_RANDO, 1, 13
+	playse SE_M_FLY
+	applymovement LOCALID_PETALBURG_RANDO, PetalburgCity_EventScript_PostgameFlyin
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	goto PetalburgCity_EventScript_Postgame
+	end
+
+PetalburgCity_EventScript_Postgame::
+	delay 10
+	playmoncry SPECIES_HO_OH, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_HO_OH, 70
+	special BattleSetup_StartLegendaryBattle
+	setvar VAR_PETALBURG_eRIVAL, 4
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_PETALBURG_RANDO
+	fadescreenswapbuffers FADE_FROM_BLACK
+	release
+	releaseall
+	end
+
+PetalburgCity_EventScript_PostgameFlyin:
+	fly_down
+	step_end
+
+
 PetalburgCity_EventScript_eRivalblockmove0:
 	walk_left
 	walk_up

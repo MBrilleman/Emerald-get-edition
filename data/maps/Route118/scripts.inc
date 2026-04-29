@@ -31,6 +31,10 @@ Route118_EventScript_GoodRodFisherman::
 	goto_if_eq VAR_RESULT, NO, Route118_EventScript_DeclineGoodRod
 	end
 
+Route118_EventScript_Test::
+	setvar VAR_MAUVILLE_eRIVAL, 2
+	end
+
 Route118_EventScript_ReceiveGoodRod::
 	msgbox Route118_Text_IdenticalMindsTakeThis, MSGBOX_DEFAULT
 	giveitem ITEM_GOOD_ROD
@@ -223,6 +227,7 @@ Mauville_eRival_yes::
 	msgbox Mauville_eRival_PostBattle, MSGBOX_DEFAULT
 	giveitem ITEM_OLD_SEA_MAP
 	setflag FLAG_RECEIVED_OLD_SEA_MAP
+	setflag FLAG_ENABLE_SHIP_FARAWAY_ISLAND
 	closemessage
 	msgbox Mauville_eRival_exit, MSGBOX_DEFAULT
 	applymovement LOCALID_MAUVILLE_EXTRARIVAL, Mauville_eRival_exitmovement
@@ -524,8 +529,8 @@ Mauville_eRival_exit:
 	.string "Can you help me to become more get?\l"
 	.string "... Uh-huh... Yeah...\p"
 	.string "What do you mean 'Have you smoked?'\n"
-	.string "You smoked me pretty hard in battle, so\l"
-	.string "Yes.\n"
+	.string "You smoked me pretty hard in battle,\l"
+	.string "so yes.\l"
 	.string "'But am I get?'\l"
 	.string "No.\p"
 	.string "Aiiiii nooooooooooooooooooooooooooo-\n"

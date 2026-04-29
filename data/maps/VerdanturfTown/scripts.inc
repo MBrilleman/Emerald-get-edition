@@ -61,6 +61,103 @@ VerdanturfTown_EventScript_RusturfTunnelSign::
 	msgbox VerdanturfTown_Text_RusturfTunnelSign, MSGBOX_SIGN
 	end
 
+VerdanturfTown_EventScript_Getkwondo::
+	msgbox VerdanturfTown_Text_Getkwondobegin, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_GETKWONDO, VerdanturfTown_Text_Getkwondolost
+	closemessage
+	playbgm MUS_NONE, 0
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_VERDANTURF_GETKWONDO
+	setflag FLAG_GETKWONDO
+	playse SE_PUDDLE
+	waitse
+	delay 10
+	playse SE_BRIDGE_WALK
+	delay 5
+	playse SE_BRIDGE_WALK
+	delay 5
+	playse SE_BRIDGE_WALK
+	waitse
+	delay 20
+	playse SE_TRUCK_DOOR
+	waitse
+	delay 30
+	playse SE_FU_ZAKU
+	waitse
+	delay 10
+	playse SE_CONTEST_PLACE
+	waitse
+	delay 30
+	playse SE_NOTE_E
+	waitse
+	delay 5
+	playse SE_NOTE_E
+	waitse
+	delay 5
+	playse SE_NOTE_F
+	waitse
+	delay 5
+	playse SE_NOTE_G
+	waitse
+	delay 5
+	playse SE_NOTE_G
+	waitse
+	delay 5
+	playse SE_NOTE_F
+	waitse
+	delay 5
+	playse SE_NOTE_E
+	waitse
+	delay 5
+	playse SE_NOTE_D
+	waitse
+	delay 5
+	playse SE_NOTE_C
+	waitse
+	delay 5
+	playse SE_NOTE_C
+	waitse
+	delay 5
+	playse SE_NOTE_D
+	waitse
+	delay 5
+	playse SE_NOTE_E
+	waitse
+	delay 5
+	playse SE_NOTE_E
+	waitse
+	delay 15
+	playse SE_NOTE_D
+	waitse
+	playse SE_NOTE_D
+	waitse
+	delay 50
+	playse SE_DING_DONG
+	waitse
+	fadescreen FADE_FROM_BLACK
+	msgbox VerdanturfTown_Text_Getkwondofinal, MSGBOX_DEFAULT
+	closemessage
+	fadedefaultbgm
+	release
+	
+	
+VerdanturfTown_Text_Getkwondobegin:
+	.string "I have trained the ultimate Pokémon!\p"
+	.string "I have developed the ultimate\n"
+	.string "strategy!\p"
+	.string "I am the ultimate trainer!\p"
+	.string "And I am standing in your way?\n"
+	.string "Well not for long!\p"
+	.string "Because I'll blow you away!$"
+
+VerdanturfTown_Text_Getkwondolost:
+	.string "No...\n"
+	.string "It was the ultimate strategy.\p"
+	.string "How can this be?$"
+
+VerdanturfTown_Text_Getkwondofinal:
+	.string "The end.$"
+
 VerdanturfTown_Text_ManTryingToDigTunnel:
 	.string "My papa told me.\p"
 	.string "He says this tunnel is full of\n"
