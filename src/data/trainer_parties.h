@@ -10644,67 +10644,46 @@ static const struct TrainerMonItemCustomMoves sParty_Joke[] = {
     .iv = 255,
     .lvl = 40,
     .species = SPECIES_SLUGMA,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_SMOG, MOVE_HARDEN, MOVE_FLAMETHROWER, MOVE_AMNESIA}
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_ENDURE, MOVE_HARDEN, MOVE_FLAMETHROWER, MOVE_AMNESIA}
     },
     {
     .iv = 255,
     .lvl = 35,
     .species = SPECIES_RHYDON,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_STOMP, MOVE_HORN_ATTACK, MOVE_SCARY_FACE, MOVE_ROCK_BLAST}
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_STOMP, MOVE_HORN_ATTACK, MOVE_ENDURE, MOVE_ROCK_BLAST}
     },
     {
     .iv = 255,
     .lvl = 40,
     .species = SPECIES_GULPIN,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_YAWN, MOVE_STOCKPILE, MOVE_SWALLOW, MOVE_POUND}
+    .moves = {MOVE_YAWN, MOVE_STOCKPILE, MOVE_SWALLOW, MOVE_PROTECT}
     },
     {
     .iv = 255,
     .lvl = 40,
     .species = SPECIES_SWELLOW,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_AERIAL_ACE, MOVE_QUICK_ATTACK, MOVE_WING_ATTACK, MOVE_SWALLOW}
+    .moves = {MOVE_AERIAL_ACE, MOVE_QUICK_ATTACK, MOVE_PROTECT, MOVE_SWALLOW}
     }
 };
 
-static const struct TrainerMonItemCustomMoves sParty_Wattson3[] = {
+static const struct TrainerMonItemCustomMoves sParty_Getkwondo[] = {
     {
-    .iv = 255,
-    .lvl = 39,
-    .species = SPECIES_PIKACHU,
+    .iv = 0,
+    .lvl = 2,
+    .species = SPECIES_GROUDON,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_THUNDER, MOVE_SLAM, MOVE_RAIN_DANCE, MOVE_SHOCK_WAVE}
+    .moves = {MOVE_BELLY_DRUM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
     .iv = 255,
-    .lvl = 41,
-    .species = SPECIES_FLAAFFY,
+    .lvl = 25,
+    .species = SPECIES_SUNKERN,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_THUNDER, MOVE_PROTECT, MOVE_THUNDER_WAVE, MOVE_LIGHT_SCREEN}
-    },
-    {
-    .iv = 255,
-    .lvl = 41,
-    .species = SPECIES_ELECTRODE,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_ROLLOUT, MOVE_THUNDER, MOVE_EXPLOSION, MOVE_RAIN_DANCE}
-    },
-    {
-    .iv = 255,
-    .lvl = 43,
-    .species = SPECIES_MAGNETON,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_THUNDER, MOVE_RAIN_DANCE}
-    },
-    {
-    .iv = 255,
-    .lvl = 45,
-    .species = SPECIES_MANECTRIC,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_BITE, MOVE_THUNDER_WAVE, MOVE_THUNDER, MOVE_PROTECT}
+    .moves = {MOVE_SOLAR_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -12544,45 +12523,45 @@ static const struct TrainerMonNoItemCustomMoves sParty_eRival3[] = {
 static const struct TrainerMonItemCustomMoves sParty_Yellow[] = {
     {
     .iv = 255,
-    .lvl = 2,
+    .lvl = 65,
     .species = SPECIES_LAPRAS,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_PSYCHIC, MOVE_PROTECT, MOVE_ICE_BEAM, MOVE_HYDRO_PUMP}
     },
     {
     .iv = 255,
-    .lvl = 2,
+    .lvl = 65,
     .species = SPECIES_ZAPDOS,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .heldItem = ITEM_MAGNET,
+    .moves = {MOVE_LIGHT_SCREEN, MOVE_THUNDERBOLT, MOVE_DRILL_PECK, MOVE_THUNDER}
     },
     {
     .iv = 255,
-    .lvl = 2,
+    .lvl = 65,
     .species = SPECIES_HYPNO,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .heldItem = ITEM_TWISTED_SPOON,
+    .moves = {MOVE_HEADBUTT, MOVE_PSYCHIC, MOVE_METRONOME, MOVE_SHADOW_BALL}
     },
     {
     .iv = 255,
-    .lvl = 2,
+    .lvl = 65,
     .species = SPECIES_GOLEM,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .heldItem = ITEM_CHOICE_BAND,
+    .moves = {MOVE_EXPLOSION, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_DOUBLE_EDGE}
     },
     {
     .iv = 255,
-    .lvl = 2,
+    .lvl = 65,
     .species = SPECIES_VENUSAUR,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .moves = {MOVE_SLEEP_POWDER, MOVE_LEECH_SEED, MOVE_SLUDGE_BOMB, MOVE_GIGA_DRAIN}
     },
     {
     .iv = 255,
-    .lvl = 2,
+    .lvl = 65,
     .species = SPECIES_CHARIZARD,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .heldItem = ITEM_CHARCOAL,
+    .moves = {MOVE_HEAT_WAVE, MOVE_WING_ATTACK, MOVE_DRAGON_CLAW, MOVE_FIRE_BLAST}
     }
 };
 

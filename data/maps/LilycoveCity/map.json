@@ -301,6 +301,21 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_LILYCOVE_YELLOW",
+      "graphics_id": "OBJ_EVENT_GFX_RED",
+      "x": 12,
+      "y": 33,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LilycoveCity_EventScript_Yellow_Speak",
+      "flag": "FLAG_HIDE_POSTGAME"
+    },
+    
+    {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
       "x": 16,
       "y": 35,
@@ -414,7 +429,17 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [    
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 33,
+      "elevation": 3,
+      "var": "VAR_VETERANS",
+      "var_value": "1",
+      "script": "LilycoveCity_EventScript_Yellow"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

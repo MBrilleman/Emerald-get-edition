@@ -8,12 +8,24 @@ SlateportCity_OnTransition:
 	call SlateportCity_EventScript_EnterSlateport
 	call_if_eq VAR_SLATEPORT_CITY_STATE, 1, SlateportCity_EventScript_MovePeopleForSternInterview
 	call_if_eq VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 1, SlateportCity_EventScript_SetReadyForScottScene
+	call_if_eq VAR_VETERANS, 2, SlateportCity_EventScript_SpawnYellow
+	call_if_eq VAR_VETERANS, 0, SlateportCity_EventScript_HideYellow
+	call_if_eq VAR_VETERANS, 1, SlateportCity_EventScript_HideYellow
+	call_if_eq VAR_VETERANS, 3, SlateportCity_EventScript_HideYellow
 	end
 
 SlateportCity_EventScript_EnterSlateport::
 	setflag FLAG_VISITED_SLATEPORT_CITY
 	setvar VAR_CONTEST_HALL_STATE, 0
 	setflag FLAG_HIDE_SLATEPORT_CITY_CONTEST_REPORTER
+	return
+
+SlateportCity_EventScript_SpawnYellow::
+	clearflag FLAG_HIDE_POSTGAME
+	return
+
+SlateportCity_EventScript_HideYellow::
+	setflag FLAG_HIDE_POSTGAME
 	return
 
 SlateportCity_EventScript_MovePeopleForSternInterview::
@@ -31,7 +43,87 @@ SlateportCity_EventScript_MovePeopleForSternInterview::
 	setobjectmovementtype LOCALID_SLATEPORT_GIRL, MOVEMENT_TYPE_FACE_UP
 	setobjectmovementtype LOCALID_SLATEPORT_FAT_MAN, MOVEMENT_TYPE_FACE_UP
 	setobjectmovementtype LOCALID_SLATEPORT_MAN_1, MOVEMENT_TYPE_FACE_LEFT
-	return
+	
+SlateportCity_EventScript_Yellow::
+	lock
+	addobject LOCALID_SLATEPORT_YELLOW
+	setobjectxy LOCALID_SLATEPORT_YELLOW, 28, 12
+	waitmovement 0
+	playse SE_DOOR
+	applymovement LOCALID_SLATEPORT_YELLOW, SlateportCity_Movement_ScottExitBattleTent
+	delay 4
+	playse SE_WALL_HIT
+	applymovement LOCALID_PLAYER, SlateportCity_Movement_ScottExitBattleTent
+	waitmovement 0
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	msgbox SlateportCity_Text_YellowIntro, MSGBOX_DEFAULT
+	closemessage
+	goto SlateportCity_EventScript_Yellow_Speak
+	end
+
+SlateportCity_EventScript_Yellow_Speak::
+	applymovement LOCALID_SLATEPORT_YELLOW, Common_Movement_FacePlayer
+	waitmovement 0
+	lock
+	playbgm MUS_RG_ENCOUNTER_GYM_LEADER, FALSE
+	msgbox SlateportCity_Text_Vraag, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, SlateportCity_EventScript_YellowYes
+	goto_if_eq VAR_RESULT, NO, SlateportCity_EventScript_YellowNo
+	end
+	
+SlateportCity_EventScript_YellowYes:
+	msgbox SlateportCity_Text_Yellowb4Battle, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_YELLOW, SlateportCity_Text_Yellow_Defeat
+	closemessage
+	msgbox SlateportCity_Text_Yellow_Post, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_SLATEPORT_YELLOW, SlateportCity_Movement_ScottExit
+	waitmovement 0
+	removeobject LOCALID_SLATEPORT_YELLOW
+	setflag FLAG_HIDE_POSTGAME
+	setvar VAR_VETERANS, 3
+	fadedefaultbgm
+	release
+	releaseall
+	end
+
+SlateportCity_EventScript_YellowNo:
+	msgbox SlateportCity_Text_YellowNo, MSGBOX_DEFAULT
+	setobjectxyperm LOCALID_SLATEPORT_YELLOW, 28, 13
+	setvar VAR_VETERANS, 2
+	clearflag FLAG_HIDE_POSTGAME
+	fadedefaultbgm
+	release
+	releaseall
+	end
+
+
+SlateportCity_Text_YellowIntro:
+@ de exit operands n & l & p zijn voor wat de VOLGENDE tekstbox moet doen
+	.string "dit\n" @ n plaatst volgende line specifiek op regel 2. Enkel gebruiken na een p of in nieuwe tekstbox
+	.string "is\l" @ l is voor scroll newline, line 1 schuift uit beeld en line 2 gaat naar 1. Gebruik na een n of l 
+	.string "voorbeeld\p" @ p begint een blanco tekstbox
+	.string "tekst$" @ dollar als afsluiter. NIET VERGETEN! Blijft net zolang lezen totdat die een $ ziet met alle gevolgen van dien. 
+
+SlateportCity_Text_Vraag:
+	.string "Vechten?$"
+
+SlateportCity_Text_Yellowb4Battle:
+	.string "Nu begint de fight.$"
+
+SlateportCity_Text_YellowNo:
+	.string "Kom later terug.$"
+
+
+SlateportCity_Text_Yellow_Defeat:
+@Tekst in battle na winst
+	.string "I lost.$"
+
+SlateportCity_Text_Yellow_Post:
+@Tekst post battle
+	.string "Ik ga,\n"
+	.string "Doei!$"
 
 SlateportCity_EventScript_SetReadyForScottScene::
 	setflag FLAG_HIDE_MAP_NAME_POPUP
@@ -701,6 +793,8 @@ SlateportCity_EventScript_Gabby::
 
 SlateportCity_EventScript_Man3::
 	msgbox SlateportCity_Text_WonderIfLighthouseStartlesPokemon, MSGBOX_NPC
+	setvar VAR_VETERANS, 1
+	setflag FLAG_SYS_GAME_CLEAR
 	end
 
 SlateportCity_EventScript_BerryPowderClerk::

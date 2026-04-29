@@ -272,9 +272,61 @@ LittleRootTown_EventScript_AfgewezenDenizFocusPunch::
     end
 
 LittlerootTown_testNPC::
+	msgbox textje, MSGBOX_DEFAULT
+	closemessage
+	playbgm MUS_NONE, FALSE
+
+	setvar VAR_0x8000, MUGSHOT_PEACE3
+	callnative DrawMugshot
+	delay 80
+	setvar VAR_0x8000, MUGSHOT_PEACE4
+	callnative DrawMugshot
+	delay 80
+	setvar VAR_0x8000, MUGSHOT_PEACE3
+	callnative DrawMugshot
+	delay 80
+	setvar VAR_0x8000, MUGSHOT_PEACE4
+	callnative DrawMugshot
+	delay 80
+	setvar VAR_0x8000, MUGSHOT_PEACE3
+	callnative DrawMugshot
+	delay 80
+	setvar VAR_0x8000, MUGSHOT_PEACE4
+	callnative DrawMugshot
+	delay 80
+	call WingullCall
+	setvar VAR_0x8000, MUGSHOT_PEACE3
+	callnative DrawMugshot
+	delay 80
+	setvar VAR_0x8000, MUGSHOT_PEACE4
+	callnative DrawMugshot
+	delay 80
+	setvar VAR_0x8000, MUGSHOT_PEACE3
+	callnative DrawMugshot
+	delay 80
+	setvar VAR_0x8000, MUGSHOT_PEACE4
+	callnative DrawMugshot
+	delay 80
+	setvar VAR_0x8000, MUGSHOT_PEACE3
+	callnative DrawMugshot
+	delay 80
+	setvar VAR_0x8000, MUGSHOT_PEACE4
+	callnative DrawMugshot
+	delay 80
+	call WingullCall
+	callnative ClearMugshot
+	fadedefaultbgm
 	trainerbattle_single TRAINER_YELLOW, testNPC_intro, testNPC_Defeated
 	msgbox testNPC_postbattle, MSGBOX_AUTOCLOSE
 	end
+
+textje:
+	.string "yo$"
+
+WingullCall::
+	playmoncry SPECIES_WINGULL, CRY_MODE_NORMAL
+	delay 30
+	return
 
 LittlerootTown_testNPCTwee::
 	trainerbattle_single TRAINER_CRYSTAL, testNPC_intro, testNPC_Defeated

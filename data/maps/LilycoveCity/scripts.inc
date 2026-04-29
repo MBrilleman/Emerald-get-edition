@@ -9,11 +9,24 @@ LilycoveCity_OnTransition:
 	setflag FLAG_HIDE_LILYCOVE_CONTEST_HALL_REPORTER
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	call Common_EventScript_SetupRivalGfxId
+	call_if_eq VAR_VETERANS, 2, LilycoveCity_EventScript_SpawnYellow
+	call_if_eq VAR_VETERANS, 0, LilycoveCity_EventScript_HideYellow
+	call_if_eq VAR_VETERANS, 1, LilycoveCity_EventScript_HideYellow
+	call_if_eq VAR_VETERANS, 3, LilycoveCity_EventScript_HideYellow
 	end
 
 LilycoveCity_OnLoad:
 	call_if_unset FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE, LilycoveCity_EventScript_SetWailmerMetatiles
 	end
+
+LilycoveCity_EventScript_SpawnYellow::
+	clearflag FLAG_HIDE_POSTGAME
+	return
+
+LilycoveCity_EventScript_HideYellow::
+	setflag FLAG_HIDE_POSTGAME
+	return
+
 
 LilycoveCity_EventScript_SetWailmerMetatiles::
 	setmetatile 76, 12, METATILE_Lilycove_Wailmer0, TRUE
@@ -29,6 +42,89 @@ LilycoveCity_EventScript_SetWailmerMetatiles::
 	setmetatile 77, 17, METATILE_Lilycove_Wailmer2, TRUE
 	setmetatile 78, 17, METATILE_Lilycove_Wailmer3, TRUE
 	return
+
+	
+LilycoveCity_EventScript_Yellow::
+	lock
+	addobject LOCALID_LILYCOVE_YELLOW
+	setobjectxy LOCALID_LILYCOVE_YELLOW, 12, 32
+	waitmovement 0
+	playse SE_DOOR
+	applymovement LOCALID_LILYCOVE_YELLOW, SlateportCity_Movement_ScottExitBattleTent
+	delay 4
+	playse SE_WALL_HIT
+	applymovement LOCALID_PLAYER, SlateportCity_Movement_ScottExitBattleTent
+	waitmovement 0
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	msgbox LilycoveCity_Text_YellowIntro, MSGBOX_DEFAULT
+	closemessage
+	goto LilycoveCity_EventScript_Yellow_Speak
+	end
+
+LilycoveCity_EventScript_Yellow_Speak::
+	applymovement LOCALID_LILYCOVE_YELLOW, Common_Movement_FacePlayer
+	waitmovement 0
+	lock
+	playbgm MUS_RG_ENCOUNTER_GYM_LEADER, FALSE
+	msgbox LilycoveCity_Text_Vraag, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, LilycoveCity_EventScript_YellowYes
+	goto_if_eq VAR_RESULT, NO, LilycoveCity_EventScript_YellowNo
+	end
+	
+LilycoveCity_EventScript_YellowYes:
+	msgbox LilycoveCity_Text_Yellowb4Battle, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_YELLOW, SlateportCity_Text_Yellow_Defeat
+	closemessage
+	msgbox LilycoveCity_Text_Yellow_Post, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_LILYCOVE_YELLOW, SlateportCity_Movement_ScottExit
+	waitmovement 0
+	removeobject LOCALID_LILYCOVE_YELLOW
+	setflag FLAG_HIDE_POSTGAME
+	setvar VAR_VETERANS, 3
+	fadedefaultbgm
+	release
+	releaseall
+	end
+
+LilycoveCity_EventScript_YellowNo:
+	msgbox LilycoveCity_Text_YellowNo, MSGBOX_DEFAULT
+	setobjectxyperm LOCALID_LILYCOVE_YELLOW, 12, 33
+	setvar VAR_VETERANS, 2
+	clearflag FLAG_HIDE_POSTGAME
+	fadedefaultbgm
+	release
+	releaseall
+	end
+
+
+LilycoveCity_Text_YellowIntro:
+@ de exit operands n & l & p zijn voor wat de VOLGENDE tekstbox moet doen
+	.string "dit\n" @ n plaatst volgende line specifiek op regel 2. Enkel gebruiken na een p of in nieuwe tekstbox
+	.string "is\l" @ l is voor scroll newline, line 1 schuift uit beeld en line 2 gaat naar 1. Gebruik na een n of l 
+	.string "voorbeeld\p" @ p begint een blanco tekstbox
+	.string "tekst$" @ dollar als afsluiter. NIET VERGETEN! Blijft net zolang lezen totdat die een $ ziet met alle gevolgen van dien. 
+
+LilycoveCity_Text_Vraag:
+	.string "Vechten?$"
+
+LilycoveCity_Text_Yellowb4Battle:
+	.string "Nu begint de fight.$"
+
+LilycoveCity_Text_YellowNo:
+	.string "Kom later terug.$"
+
+
+LilycoveCity_Text_Yellow_Defeat:
+@Tekst in battle na winst
+	.string "I lost.$"
+
+LilycoveCity_Text_Yellow_Post:
+@Tekst post battle
+	.string "Ik ga,\n"
+	.string "Doei!$"
+
 
 LilycoveCity_EventScript_BerryGentleman::
 	lock

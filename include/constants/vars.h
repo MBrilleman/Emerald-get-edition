@@ -95,11 +95,11 @@
 #define VAR_POKELOT_RND1                                 0x404B
 #define VAR_POKELOT_RND2                                 0x404C
 #define VAR_POKELOT_PRIZE_PLACE                          0x404D
-#define VAR_eRIVAL_STATE_0x404E                          0x404E // Extra rival's state. 0 = uncountered, 1 = waiting in Pburg, 2 defeated in Pburg
+#define VAR_eRIVAL_STATE_0x404E                          0x404E 
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
 #define VAR_LITTLEROOT_TOWN_STATE                        0x4050
 #define VAR_OLDALE_TOWN_STATE                            0x4051
-#define VAR_PETALBURG_eRIVAL                             0x4052 // Extra rival in petalburg state
+#define VAR_PETALBURG_eRIVAL                             0x4052 // Extra rival's state. 0 = uncountered, 1 = waiting in Pburg, 2 defeated in Pburg, 3 = Postgame easter egg
 #define VAR_LAVARIDGE_TOWN_STATE                         0x4053
 #define VAR_CURRENT_SECRET_BASE                          0x4054 // was probably allocated for VAR_FALLARBOR_TOWN_STATE at one point
 #define VAR_BLISSEY_COUNTER                              0x4055 // Blissey lucky egg counter
@@ -114,7 +114,7 @@
 #define VAR_SOOTOPOLIS_CITY_STATE                        0x405E
 #define VAR_BRAWLEY_DEFEATED                             0x405F // Used for Brawley check in Mauville. 0 = undefeated fusrodaman. 1 = Defeated, reporters. 2 = Reporters gone. 
 #define VAR_ROUTE101_STATE                               0x4060
-#define VAR_ROUTE102_STATE                               0x4061 // Unused Var
+#define VAR_VETERANS                                     0x4061 // 0 = don't spawn. 1 = YELLOW trigger active in Slateport & Lilycove. 2 = Defeated, CRYSTAL trigger active in SS Tidal
 #define VAR_ROUTE103_STATE                               0x4062 // Unused Var
 #define VAR_ROUTE104_STATE                               0x4063
 #define VAR_ROUTE105_STATE                               0x4064 // Unused Var

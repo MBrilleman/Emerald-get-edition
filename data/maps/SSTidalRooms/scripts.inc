@@ -27,6 +27,86 @@ SSTidalRooms_EventScript_Bed::
 	releaseall
 	end
 
+SSTidalRooms_EventScript_Crystal_Intro::
+	lockall
+	call_if_eq VAR_VETERANS, 0, SSTidalRooms_EventScript_Crystal_Ignore
+	call_if_eq VAR_VETERANS, 1, SSTidalRooms_EventScript_Crystal_Ignore
+	call_if_eq VAR_VETERANS, 2, SSTidalRooms_EventScript_Crystal_Ignore
+	call_if_eq VAR_VETERANS, 4, SSTidalRooms_EventScript_Crystal_Ignore
+	call_if_set	FLAG_TALKED_CRYSTAL, SSTidalRooms_EventScript_Crystal_Vraag
+	setflag FLAG_TALKED_CRYSTAL
+	applymovement LOCALID_SSTIDAL_CRYSTAL, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox SSTidalRooms_Text_CrystalIntro, MSGBOX_DEFAULT
+	goto SSTidalRooms_EventScript_Crystal_Vraag
+	end
+
+SSTidalRooms_EventScript_Crystal_Ignore::
+	msgbox SSTidalRooms_Text_Crystal_Ignore, MSGBOX_DEFAULT
+	closemessage
+	release
+	releaseall
+	end
+
+SSTidalRooms_EventScript_Crystal_Vraag::
+	lockall
+	applymovement LOCALID_SSTIDAL_CRYSTAL, Common_Movement_FacePlayer
+	waitmovement 0
+	playbgm MUS_RG_ENCOUNTER_GYM_LEADER, FALSE
+	msgbox SSTidalRooms_Text_Crystal_Vraag, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, SSTidalRooms_EventScript_CrystalYes
+	goto_if_eq VAR_RESULT, NO, SSTidalRooms_EventScript_CrystalNo
+	end
+
+SSTidalRooms_EventScript_CrystalYes::
+	msgbox SSTidalRooms_Text_Crystalb4Battle, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_CRYSTAL, SSTidalRooms_Text_Crystal_Defeat
+	closemessage
+	msgbox SSTidalRooms_Text_Crystal_Post, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_VETERANS, 4
+	fadedefaultbgm
+	release
+	releaseall
+	end
+
+SSTidalRooms_EventScript_CrystalNo::
+	msgbox SSTidalRooms_Text_CrystalNo, MSGBOX_DEFAULT
+	closemessage
+	fadedefaultbgm
+	release
+	releaseall
+	end
+
+SSTidalRooms_Text_CrystalIntro:
+@ de exit operands n & l & p zijn voor wat de VOLGENDE tekstbox moet doen
+	.string "dit\n" @ n plaatst volgende line specifiek op regel 2. Enkel gebruiken na een p of in nieuwe tekstbox
+	.string "is\l" @ l is voor scroll newline, line 1 schuift uit beeld en line 2 gaat naar 1. Gebruik na een n of l 
+	.string "voorbeeld\p" @ p begint een blanco tekstbox
+	.string "tekst$" @ dollar als afsluiter. NIET VERGETEN! Blijft net zolang lezen totdat die een $ ziet met alle gevolgen van dien. 
+
+SSTidalRooms_Text_Crystal_Vraag:
+	.string "Vechten?$"
+
+SSTidalRooms_Text_Crystalb4Battle:
+	.string "Nu begint de fight.$"
+
+SSTidalRooms_Text_CrystalNo:
+	.string "Kom later terug.$"
+
+
+SSTidalRooms_Text_Crystal_Defeat:
+@Tekst in battle na winst
+	.string "I lost.$"
+
+SSTidalRooms_Text_Crystal_Post:
+@Tekst post battle
+	.string "Ik ga,\n"
+	.string "Doei!$"
+
+SSTidalRooms_Text_Crystal_Ignore:
+	.string "...$"
+
 SSTidalRooms_EventScript_Colton::
 	trainerbattle_single TRAINER_COLTON, SSTidalRooms_Text_ColtonIntro, SSTidalRooms_Text_ColtonDefeat
 	msgbox SSTidalRooms_Text_ColtonPostBattle, MSGBOX_AUTOCLOSE

@@ -196,10 +196,21 @@ Route127_EventScript_JokeFight::
 	end
 
 Route127_EventScript_JokeExit::
+	fadescreen FADE_TO_BLACK
+	delay 1
 	playse SE_M_WATERFALL
-	applymovement LOCALID_ROUTE127_JOKE, Route127_Movment_jokeExit
-	waitmovement 0
+	waitse
+	delay 10
 	removeobject LOCALID_ROUTE127_JOKE
+	playse SE_M_BUBBLE
+	waitse
+	delay 1
+	playse SE_M_BUBBLE3
+	waitse
+	playse SE_M_BUBBLE
+	waitse
+	delay 20
+	fadescreen FADE_FROM_BLACK
 	return
 
 Route127_Movement_joke:
@@ -249,7 +260,7 @@ Route127_Joke_Text_postbattle:
 	.string "evolves from Rhydon?\l"
 	.string "Wait. No, that's not right...\p"
 	.string "What was that? Rhydon your dick?\p"
-	.string "AI NOOOOOOOOOOO MAAT$"
+	.string "AI NOOOOOOOOOOOOOOOOOOOOOOOOOO MAAT$"
 
 Route127_TalkJoke_Text:
 	.string "What Pokémon evolves from Gulpin?\n"
@@ -264,5 +275,5 @@ Route127_Joke_Text_Item:
 	.string "CHOICE words for him!$"
 
 Route127_Joke_text_F:
-	.string "That was the joke everyone!\n"
-	.string "GOODBYEEEEEEEEEEEEE!$"
+	.string "That was the joke everybody!$"
+	
