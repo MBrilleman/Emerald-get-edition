@@ -101,31 +101,29 @@ LilycoveCity_EventScript_YellowNo:
 
 LilycoveCity_Text_YellowIntro:
 @ de exit operands n & l & p zijn voor wat de VOLGENDE tekstbox moet doen
-	.string "Oh it's you again. You think you can\n" @ n plaatst volgende line specifiek op regel 2. Enkel gebruiken na een p of in nieuwe tekstbox
-	.string "defeat me a second time? Think again,\l" @ l is voor scroll newline, line 1 schuift uit beeld en line 2 gaat naar 1. Gebruik na een n of l 
-	.string "buttface!$"
+	.string "dit\n" @ n plaatst volgende line specifiek op regel 2. Enkel gebruiken na een p of in nieuwe tekstbox
+	.string "is\l" @ l is voor scroll newline, line 1 schuift uit beeld en line 2 gaat naar 1. Gebruik na een n of l 
+	.string "voorbeeld\p" @ p begint een blanco tekstbox
+	.string "tekst$" @ dollar als afsluiter. NIET VERGETEN! Blijft net zolang lezen totdat die een $ ziet met alle gevolgen van dien. 
 
 LilycoveCity_Text_Vraag:
-	.string "Oh it's you again. You think you can\n" @ n plaatst volgende line specifiek op regel 2. Enkel gebruiken na een p of in nieuwe tekstbox
-	.string "defeat me a second time? Think again,\l" @ l is voor scroll newline, line 1 schuift uit beeld en line 2 gaat naar 1. Gebruik na een n of l 
-	.string "buttface!$"
+	.string "Vechten?$"
 
 LilycoveCity_Text_Yellowb4Battle:
-	.string "Now we shall see, who will get who.\p"
-    .string "Witness meeeeee$"
+	.string "Nu begint de fight.$"
 
 LilycoveCity_Text_YellowNo:
-	.string "What are you doing here, puny little\n"
-    .string "man? Get lost!$"
+	.string "Kom later terug.$"
+
 
 LilycoveCity_Text_Yellow_Defeat:
 @Tekst in battle na winst
-	.string "Alright, catch you on the flippity flop.$"
+	.string "I lost.$"
 
 LilycoveCity_Text_Yellow_Post:
 @Tekst post battle
-	.string "Alas, you have bested me. You truly are,\n"
-	.string "lord of the get.$"
+	.string "Ik ga,\n"
+	.string "Doei!$"
 
 
 LilycoveCity_EventScript_BerryGentleman::

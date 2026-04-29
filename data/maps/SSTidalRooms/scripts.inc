@@ -60,7 +60,7 @@ SSTidalRooms_EventScript_Crystal_Vraag::
 
 SSTidalRooms_EventScript_CrystalYes::
 	msgbox SSTidalRooms_Text_Crystalb4Battle, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_CRYSTAL_ROB, SSTidalRooms_Text_Crystal_Defeat
+	trainerbattle_no_intro TRAINER_CRYSTAL, SSTidalRooms_Text_Crystal_Defeat
 	closemessage
 	msgbox SSTidalRooms_Text_Crystal_Post, MSGBOX_DEFAULT
 	closemessage
@@ -80,32 +80,29 @@ SSTidalRooms_EventScript_CrystalNo::
 
 SSTidalRooms_Text_CrystalIntro:
 @ de exit operands n & l & p zijn voor wat de VOLGENDE tekstbox moet doen
-	.string "LET'S GET READY TO R-R-R-R-\l"
-    .string "RRRUUUMMMBBLLEE!$"
+	.string "dit\n" @ n plaatst volgende line specifiek op regel 2. Enkel gebruiken na een p of in nieuwe tekstbox
+	.string "is\l" @ l is voor scroll newline, line 1 schuift uit beeld en line 2 gaat naar 1. Gebruik na een n of l 
+	.string "voorbeeld\p" @ p begint een blanco tekstbox
+	.string "tekst$" @ dollar als afsluiter. NIET VERGETEN! Blijft net zolang lezen totdat die een $ ziet met alle gevolgen van dien. 
 
 SSTidalRooms_Text_Crystal_Vraag:
-	.string "LET'S GET READY TO R-R-R-R-\l"
-    .string "RRRUUUMMMBBLLEE!$"
+	.string "Vechten?$"
 
 SSTidalRooms_Text_Crystalb4Battle:
-	.string "That's a nice team you got there.\n"
-    .string "It would be a shame if something \l"
-    .string "happened to it....$"
+	.string "Nu begint de fight.$"
 
 SSTidalRooms_Text_CrystalNo:
-	.string "What the fuck do you want?\n"
-    .string "Go away, I'm masturbating.$"
+	.string "Kom later terug.$"
+
 
 SSTidalRooms_Text_Crystal_Defeat:
 @Tekst in battle na winst
-	.string "Fine you won, asshole. What do you want,\n"
-    .string "a medal? Get the fuck outta here.$"
+	.string "I lost.$"
 
 SSTidalRooms_Text_Crystal_Post:
 @Tekst post battle
-    .string "Yeah yeah, well played and stuff.\n"
-    .string "How's your mom, still home alone?\l"
-    .string "Excellent....$"
+	.string "Ik ga,\n"
+	.string "Doei!$"
 
 SSTidalRooms_Text_Crystal_Ignore:
 	.string "...$"
