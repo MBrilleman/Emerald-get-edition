@@ -781,18 +781,18 @@
 #define TRAINER_LEFTO                       777 
 #define TRAINER_JOKE                        778 
 #define TRAINER_GETKWONDO                   779 
-#define TRAINER_WATTSON_4                   780 // Ongebruikt
-#define TRAINER_WATTSON_5                   781 // Ongebruikt
-#define TRAINER_FLANNERY_2                  782 // Ongebruikt
-#define TRAINER_FLANNERY_3                  783 // Ongebruikt
-#define TRAINER_FLANNERY_4                  784 // Ongebruikt
-#define TRAINER_FLANNERY_5                  785 // Ongebruikt
-#define TRAINER_NORMAN_2                    786 // Ongebruikt
-#define TRAINER_NORMAN_3                    787 // Ongebruikt
-#define TRAINER_NORMAN_4                    788 // Ongebruikt
-#define TRAINER_NORMAN_5                    789 // Ongebruikt
-#define TRAINER_WINONA_2                    790 // Ongebruikt
-#define TRAINER_WINONA_3                    791 // Ongebruikt
+#define TRAINER_eRIVAL1_Mudkip              780 
+#define TRAINER_eRIVAL1_Treecko             781 
+#define TRAINER_eRIVAL1_Torchic             782 
+#define TRAINER_eRIVAL2_Mudkip              783 
+#define TRAINER_eRIVAL2_Treecko             784 
+#define TRAINER_eRIVAL2_Torchic             785 
+#define TRAINER_eRIVAL3_Mudkip              786 
+#define TRAINER_eRIVAL3_Treecko             787 
+#define TRAINER_eRIVAL3_Torchic             788 
+#define TRAINER_eRIVAL4_Mudkip              789 
+#define TRAINER_eRIVAL4_Treecko             790 
+#define TRAINER_eRIVAL4_Torchic             791 
 #define TRAINER_WINONA_4                    792 // Ongebruikt
 #define TRAINER_WINONA_5                    793 // Ongebruikt
 #define TRAINER_TATE_AND_LIZA_2             794 // Ongebruikt

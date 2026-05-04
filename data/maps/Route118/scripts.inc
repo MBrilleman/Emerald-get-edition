@@ -220,7 +220,13 @@ Mauville_eRival_no::
 
 Mauville_eRival_yes::
 	msgbox Mauville_eRival_text_battle, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_eRIVAL3, Mauville_eRival_Text_defeat
+    switch VAR_STARTER_MON
+    case 0, Mauville_eRival_Battle_Mudkip
+	case 1, Mauville_eRival_Battle_Treecko
+	case 2, Mauville_eRival_Battle_Torchic
+	end 
+
+Mauville_eRival_Fought::
 	closemessage
 	faceplayer
 	playbgm MUS_B_PIKE, FALSE
@@ -237,7 +243,22 @@ Mauville_eRival_yes::
 	setvar VAR_MAUVILLE_eRIVAL, 4
 	fadedefaultbgm
 	releaseall
-	end 
+    end
+
+Mauville_eRival_Battle_Mudkip::
+	trainerbattle_no_intro TRAINER_eRIVAL3_Mudkip, Mauville_eRival_Text_defeat
+    goto Mauville_eRival_Fought
+    end
+
+Mauville_eRival_Battle_Treecko::
+	trainerbattle_no_intro TRAINER_eRIVAL3_Treecko, Mauville_eRival_Text_defeat
+    goto Mauville_eRival_Fought
+    end
+
+Mauville_eRival_Battle_Torchic::
+	trainerbattle_no_intro TRAINER_eRIVAL3_Torchic, Mauville_eRival_Text_defeat
+    goto Mauville_eRival_Fought
+    end
 
 Route118_Movement_PlayerWatchStevenExit:
 	delay_16

@@ -12558,6 +12558,57 @@ static const struct TrainerMonNoItemCustomMoves sParty_eRival1[] = {
     }
 };
 
+static const struct TrainerMonItemCustomMoves sParty_eRival1_Mudkip[] = {
+    {
+    .iv = 0,
+    .lvl = 2,
+    .species = SPECIES_WHISMUR,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_POUND, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 0,
+    .lvl = 5,
+    .species = SPECIES_MUDKIP,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_TACKLE, MOVE_GROWL, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_eRival1_Treecko[] = {
+    {
+    .iv = 0,
+    .lvl = 2,
+    .species = SPECIES_WHISMUR,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_POUND, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 0,
+    .lvl = 5,
+    .species = SPECIES_TREECKO,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_POUND, MOVE_LEER, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_eRival1_Torchic[] = {
+    {
+    .iv = 0,
+    .lvl = 2,
+    .species = SPECIES_WHISMUR,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_POUND, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 0,
+    .lvl = 5,
+    .species = SPECIES_TORCHIC,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_SCRATCH, MOVE_GROWL, MOVE_NONE, MOVE_NONE}
+    }
+};
+
 static const struct TrainerMonNoItemCustomMoves sParty_eRival2[] = {
     {
     .iv = 0,
@@ -12573,6 +12624,99 @@ static const struct TrainerMonNoItemCustomMoves sParty_eRival2[] = {
     }
 };
 
+static const struct TrainerMonItemCustomMoves sParty_eRival2_Mudkip[] = {
+    {
+    .iv = 80,
+    .lvl = 16,
+    .species = SPECIES_ARON,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_METAL_CLAW, MOVE_MUD_SLAP, MOVE_HARDEN, MOVE_HEADBUTT}   
+    },
+    {
+    .iv = 80,
+    .lvl = 18,
+    .species = SPECIES_WHISMUR,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_POUND, MOVE_UPROAR, MOVE_ASTONISH, MOVE_HOWL}
+    },
+    {
+    .iv = 80,
+    .lvl = 16,
+    .species = SPECIES_SABLEYE,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_LEER, MOVE_SCRATCH, MOVE_NIGHT_SHADE, MOVE_ASTONISH}
+    },
+    {
+    .iv = 80,
+    .lvl = 18,
+    .species = SPECIES_MARSHTOMP,
+    .heldItem = ITEM_BERRY_JUICE,
+    .moves = {MOVE_TACKLE, MOVE_BIDE, MOVE_MUD_SHOT, MOVE_WATER_GUN}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_eRival2_Treecko[] = {
+    {
+    .iv = 80,
+    .lvl = 16,
+    .species = SPECIES_ARON,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_METAL_CLAW, MOVE_MUD_SLAP, MOVE_HARDEN, MOVE_HEADBUTT}   
+    },
+    {
+    .iv = 80,
+    .lvl = 18,
+    .species = SPECIES_WHISMUR,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_POUND, MOVE_UPROAR, MOVE_ASTONISH, MOVE_HOWL}
+    },
+    {
+    .iv = 80,
+    .lvl = 16,
+    .species = SPECIES_SABLEYE,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_LEER, MOVE_SCRATCH, MOVE_NIGHT_SHADE, MOVE_ASTONISH}
+    },
+    {
+    .iv = 80,
+    .lvl = 18,
+    .species = SPECIES_GROVYLE,
+    .heldItem = ITEM_BERRY_JUICE,
+    .moves = {MOVE_QUICK_ATTACK, MOVE_ABSORB, MOVE_FURY_CUTTER, MOVE_PURSUIT}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_eRival2_Torchic[] = {
+    {
+    .iv = 80,
+    .lvl = 16,
+    .species = SPECIES_ARON,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_METAL_CLAW, MOVE_MUD_SLAP, MOVE_HARDEN, MOVE_HEADBUTT}   
+    },
+    {
+    .iv = 80,
+    .lvl = 18,
+    .species = SPECIES_WHISMUR,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_POUND, MOVE_UPROAR, MOVE_ASTONISH, MOVE_HOWL}
+    },
+    {
+    .iv = 80,
+    .lvl = 16,
+    .species = SPECIES_SABLEYE,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_LEER, MOVE_SCRATCH, MOVE_NIGHT_SHADE, MOVE_ASTONISH}
+    },
+    {
+    .iv = 80,
+    .lvl = 18,
+    .species = SPECIES_COMBUSKEN,
+    .heldItem = ITEM_BERRY_JUICE,
+    .moves = {MOVE_PECK, MOVE_DOUBLE_KICK, MOVE_EMBER, MOVE_FOCUS_ENERGY}
+    }
+};
+
 static const struct TrainerMonNoItemCustomMoves sParty_eRival3[] = {
     {
     .iv = 0,
@@ -12585,6 +12729,255 @@ static const struct TrainerMonNoItemCustomMoves sParty_eRival3[] = {
     .lvl = 100,
     .species = SPECIES_MAGIKARP,
     .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_eRival3_Mudkip[] = {
+    {
+    .iv = 160,
+    .lvl = 32,
+    .species = SPECIES_LAIRON,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_METAL_CLAW, MOVE_ROAR, MOVE_IRON_DEFENSE, MOVE_HEADBUTT}   
+    },
+    {
+    .iv = 160,
+    .lvl = 33,
+    .species = SPECIES_LOUDRED,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_STOMP, MOVE_ASTONISH, MOVE_HOWL, MOVE_SWAGGER}
+    },
+    {
+    .iv = 160,
+    .lvl = 32,
+    .species = SPECIES_SABLEYE,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_FAKE_OUT, MOVE_FAINT_ATTACK, MOVE_DETECT, MOVE_NIGHT_SHADE}
+    },
+    {
+    .iv = 160,
+    .lvl = 30,
+    .species = SPECIES_SEVIPER,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_CRUNCH, MOVE_GLARE, MOVE_POISON_TAIL, MOVE_SCREECH}
+    },
+    {
+    .iv = 160,
+    .lvl = 33,
+    .species = SPECIES_MARSHTOMP,
+    .heldItem = ITEM_BERRY_JUICE,
+    .moves = {MOVE_TAKE_DOWN, MOVE_MUD_SHOT, MOVE_WATER_GUN, MOVE_MIRROR_COAT}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_eRival3_Treecko[] = {
+    {
+    .iv = 160,
+    .lvl = 32,
+    .species = SPECIES_LAIRON,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_METAL_CLAW, MOVE_ROAR, MOVE_IRON_DEFENSE, MOVE_HEADBUTT}   
+    },
+    {
+    .iv = 160,
+    .lvl = 33,
+    .species = SPECIES_LOUDRED,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_STOMP, MOVE_ASTONISH, MOVE_HOWL, MOVE_SWAGGER}
+    },
+    {
+    .iv = 160,
+    .lvl = 32,
+    .species = SPECIES_SABLEYE,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_FAKE_OUT, MOVE_FAINT_ATTACK, MOVE_DETECT, MOVE_NIGHT_SHADE}
+    },
+    {
+    .iv = 160,
+    .lvl = 30,
+    .species = SPECIES_SEVIPER,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_CRUNCH, MOVE_GLARE, MOVE_POISON_TAIL, MOVE_SCREECH}
+    },
+    {
+    .iv = 160,
+    .lvl = 33,
+    .species = SPECIES_GROVYLE,
+    .heldItem = ITEM_BERRY_JUICE,
+    .moves = {MOVE_LEAF_BLADE, MOVE_SCREECH, MOVE_PURSUIT, MOVE_QUICK_ATTACK}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_eRival3_Torchic[] = {
+    {
+    .iv = 160,
+    .lvl = 32,
+    .species = SPECIES_LAIRON,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_METAL_CLAW, MOVE_ROAR, MOVE_IRON_DEFENSE, MOVE_HEADBUTT}   
+    },
+    {
+    .iv = 160,
+    .lvl = 33,
+    .species = SPECIES_LOUDRED,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_STOMP, MOVE_ASTONISH, MOVE_HOWL, MOVE_SWAGGER}
+    },
+    {
+    .iv = 160,
+    .lvl = 32,
+    .species = SPECIES_SABLEYE,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_FAKE_OUT, MOVE_FAINT_ATTACK, MOVE_DETECT, MOVE_NIGHT_SHADE}
+    },
+    {
+    .iv = 160,
+    .lvl = 30,
+    .species = SPECIES_SEVIPER,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_CRUNCH, MOVE_GLARE, MOVE_POISON_TAIL, MOVE_SCREECH}
+    },
+    {
+    .iv = 160,
+    .lvl = 33,
+    .species = SPECIES_COMBUSKEN,
+    .heldItem = ITEM_BERRY_JUICE,
+    .moves = {MOVE_DOUBLE_KICK, MOVE_ROCK_SLIDE, MOVE_EMBER, MOVE_BULK_UP}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_eRival4_Mudkip[] = {
+    {
+    .iv = 255,
+    .lvl = 47,
+    .species = SPECIES_SABLEYE,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_FAKE_OUT, MOVE_SHADOW_BALL, MOVE_DETECT, MOVE_FAINT_ATTACK}
+    },
+    {
+    .iv = 255,
+    .lvl = 46,
+    .species = SPECIES_SEVIPER,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_CRUNCH, MOVE_SCREECH, MOVE_POISON_FANG, MOVE_BODY_SLAM}
+    },
+    {
+    .iv = 255,
+    .lvl = 47,
+    .species = SPECIES_AGGRON,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_ROCK_TOMB, MOVE_IRON_TAIL, MOVE_ICE_PUNCH, MOVE_PROTECT}   
+    },
+    {
+    .iv = 255,
+    .lvl = 48,
+    .species = SPECIES_EXPLOUD,
+    .heldItem = ITEM_MYSTIC_WATER,
+    .moves = {MOVE_SHOCK_WAVE, MOVE_SCREECH, MOVE_HYPER_BEAM, MOVE_SURF}
+    },
+    {
+    .iv = 255,
+    .lvl = 49,
+    .species = SPECIES_SWAMPERT,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_SURF, MOVE_PROTECT, MOVE_EARTHQUAKE, MOVE_ICE_PUNCH}
+    },
+    {
+    .iv = 255,
+    .lvl = 50,
+    .species = SPECIES_DEOXYS,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_NIGHT_SHADE, MOVE_RECOVER, MOVE_EXTREME_SPEED, MOVE_PSYCHIC}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_eRival4_Treecko[] = {
+    {
+    .iv = 255,
+    .lvl = 47,
+    .species = SPECIES_SABLEYE,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_FAKE_OUT, MOVE_SHADOW_BALL, MOVE_DETECT, MOVE_FAINT_ATTACK}
+    },
+    {
+    .iv = 255,
+    .lvl = 46,
+    .species = SPECIES_SEVIPER,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_CRUNCH, MOVE_SCREECH, MOVE_POISON_FANG, MOVE_BODY_SLAM}
+    },
+    {
+    .iv = 255,
+    .lvl = 47,
+    .species = SPECIES_AGGRON,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_ROCK_TOMB, MOVE_IRON_TAIL, MOVE_ICE_PUNCH, MOVE_PROTECT}   
+    },
+    {
+    .iv = 255,
+    .lvl = 48,
+    .species = SPECIES_EXPLOUD,
+    .heldItem = ITEM_MYSTIC_WATER,
+    .moves = {MOVE_SHOCK_WAVE, MOVE_SCREECH, MOVE_HYPER_BEAM, MOVE_SURF}
+    },
+    {
+    .iv = 255,
+    .lvl = 49,
+    .species = SPECIES_SCEPTILE,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_LEAF_BLADE, MOVE_DRAGON_BREATH, MOVE_CRUNCH, MOVE_THUNDER_PUNCH}
+    },
+    {
+    .iv = 255,
+    .lvl = 50,
+    .species = SPECIES_DEOXYS,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_NIGHT_SHADE, MOVE_RECOVER, MOVE_EXTREME_SPEED, MOVE_PSYCHIC}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_eRival4_Torchic[] = {
+    {
+    .iv = 255,
+    .lvl = 47,
+    .species = SPECIES_SABLEYE,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_FAKE_OUT, MOVE_SHADOW_BALL, MOVE_DETECT, MOVE_FAINT_ATTACK}
+    },
+    {
+    .iv = 255,
+    .lvl = 46,
+    .species = SPECIES_SEVIPER,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_CRUNCH, MOVE_SCREECH, MOVE_POISON_FANG, MOVE_BODY_SLAM}
+    },
+    {
+    .iv = 255,
+    .lvl = 47,
+    .species = SPECIES_AGGRON,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_ROCK_TOMB, MOVE_IRON_TAIL, MOVE_ICE_PUNCH, MOVE_PROTECT}   
+    },
+    {
+    .iv = 255,
+    .lvl = 48,
+    .species = SPECIES_EXPLOUD,
+    .heldItem = ITEM_MYSTIC_WATER,
+    .moves = {MOVE_SHOCK_WAVE, MOVE_SCREECH, MOVE_HYPER_BEAM, MOVE_SURF}
+    },
+    {
+    .iv = 255,
+    .lvl = 49,
+    .species = SPECIES_BLAZIKEN,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_FIRE_PUNCH, MOVE_ROCK_SLIDE, MOVE_BRICK_BREAK, MOVE_SLASH}
+    },
+    {
+    .iv = 255,
+    .lvl = 50,
+    .species = SPECIES_DEOXYS,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_NIGHT_SHADE, MOVE_RECOVER, MOVE_EXTREME_SPEED, MOVE_PSYCHIC}
     }
 };
 

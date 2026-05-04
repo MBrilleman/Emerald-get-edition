@@ -753,7 +753,14 @@ PetalburgCity_EventScript_eRival_Battle::
 PetalburgCity_Text_eRival_Battle_Start::
 	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
 	msgbox PetalburgCity_Text_eRival_Battle_Starttext, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_eRIVAL1, PetalburgCity_eRival1_Text_Defeat
+    release
+    switch VAR_STARTER_MON
+    case 0, PetalburgCity_eRival1_Battle_Mudkip
+	case 1, PetalburgCity_eRival1_Battle_Treecko
+	case 2, PetalburgCity_eRival1_Battle_Torchic
+	end
+
+PetalburgCity_Text_eRival_Battle_Fought::
 	closemessage
 	msgbox PetalburgCity_eRival1_Text_jemoeder, MSGBOX_DEFAULT
 	playbgm MUS_B_PIKE, FALSE
@@ -764,7 +771,22 @@ PetalburgCity_Text_eRival_Battle_Start::
 	removeobject LOCALID_PETALBURG_EXTRARIVAL
 	release
 	releaseall
-	end
+    end
+
+PetalburgCity_eRival1_Battle_Torchic::
+    trainerbattle_no_intro TRAINER_eRIVAL1_Torchic, PetalburgCity_eRival1_Text_Defeat
+    goto PetalburgCity_Text_eRival_Battle_Fought
+    end
+
+PetalburgCity_eRival1_Battle_Treecko::
+    trainerbattle_no_intro TRAINER_eRIVAL1_Treecko, PetalburgCity_eRival1_Text_Defeat
+    goto PetalburgCity_Text_eRival_Battle_Fought
+    end
+
+PetalburgCity_eRival1_Battle_Mudkip::
+    trainerbattle_no_intro TRAINER_eRIVAL1_Mudkip, PetalburgCity_eRival1_Text_Defeat
+    goto PetalburgCity_Text_eRival_Battle_Fought
+    end
 
 PetalburgCity_Text_eRival_Battle_No::
 	msgbox PetalburgCity_Text_eRival_Battle_Notext, MSGBOX_DEFAULT

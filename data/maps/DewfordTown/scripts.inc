@@ -665,8 +665,14 @@ DewfordTown_EventScript_eRival_Battle::
 	faceplayer
 	msgbox DewfordTown_Text_eRivalBattle, MSGBOX_DEFAULT
 	closemessage
-	trainerbattle_no_intro TRAINER_eRIVAL2, DewfordTown_eRival_Text_Defeat
-	closemessage
+    switch VAR_STARTER_MON
+    case 0, DewfordTown_eRival_Battle_Mudkip
+	case 1, DewfordTown_eRival_Battle_Treecko
+	case 2, DewfordTown_eRival_Battle_Torchic
+	end
+
+DewfordTown_EventScript_eRival_Battle_Fought::
+    closemessage
 	playbgm MUS_B_PIKE, FALSE
 	msgbox DewfordTown_eRival_Text_FlyAway, MSGBOX_DEFAULT
 	closemessage
@@ -677,7 +683,22 @@ DewfordTown_EventScript_eRival_Battle::
 	setvar VAR_DEWFORD_eRIVAL, 2
 	fadedefaultbgm
 	releaseall
-	end
+    end
+
+DewfordTown_eRival_Battle_Mudkip::
+	trainerbattle_no_intro TRAINER_eRIVAL2_Mudkip, DewfordTown_eRival_Text_Defeat
+    goto DewfordTown_EventScript_eRival_Battle_Fought
+    end
+
+DewfordTown_eRival_Battle_Treecko::
+	trainerbattle_no_intro TRAINER_eRIVAL2_Treecko, DewfordTown_eRival_Text_Defeat
+    goto DewfordTown_EventScript_eRival_Battle_Fought
+    end
+
+DewfordTown_eRival_Battle_Torchic::
+	trainerbattle_no_intro TRAINER_eRIVAL2_Torchic, DewfordTown_eRival_Text_Defeat
+    goto DewfordTown_EventScript_eRival_Battle_Fought
+    end
 
 DewfordTown_eRival_entranceDown:
 	walk_down
