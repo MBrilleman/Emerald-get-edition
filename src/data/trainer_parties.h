@@ -12887,7 +12887,7 @@ static const struct TrainerMonItemCustomMoves sParty_eRival4_Mudkip[] = {
     .lvl = 50,
     .species = SPECIES_DEOXYS,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_NIGHT_SHADE, MOVE_RECOVER, MOVE_EXTREME_SPEED, MOVE_PSYCHIC}
+    .moves = {MOVE_PSYCHO_BOOST, MOVE_HYPER_BEAM, MOVE_ICE_BEAM, MOVE_PURSUIT}
     }
 };
 
@@ -12932,7 +12932,7 @@ static const struct TrainerMonItemCustomMoves sParty_eRival4_Treecko[] = {
     .lvl = 50,
     .species = SPECIES_DEOXYS,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_NIGHT_SHADE, MOVE_RECOVER, MOVE_EXTREME_SPEED, MOVE_PSYCHIC}
+    .moves = {MOVE_PSYCHO_BOOST, MOVE_HYPER_BEAM, MOVE_ICE_BEAM, MOVE_PURSUIT}
     }
 };
 
@@ -12977,7 +12977,7 @@ static const struct TrainerMonItemCustomMoves sParty_eRival4_Torchic[] = {
     .lvl = 50,
     .species = SPECIES_DEOXYS,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_NIGHT_SHADE, MOVE_RECOVER, MOVE_EXTREME_SPEED, MOVE_PSYCHIC}
+    .moves = {MOVE_PSYCHO_BOOST, MOVE_HYPER_BEAM, MOVE_ICE_BEAM, MOVE_PURSUIT}
     }
 };
 
