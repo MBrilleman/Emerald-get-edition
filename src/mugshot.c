@@ -22,32 +22,99 @@ void DrawMugshotAtPos(void); //VAR_0x8000 = mugshot id, VAR_0x8001 = x, VAR_0x80
 void ClearMugshot(void);
 void DrawMugshot2(void);
 
-static const u32 sMugshotImg_test[] = INCBIN_U32("graphics/mugshots/test.4bpp.lz");
-static const u16 sMugshotPal_test[] = INCBIN_U16("graphics/mugshots/test.gbapal");
-static const u32 sMugshotImg_test2[] = INCBIN_U32("graphics/mugshots/test2.4bpp.lz");
-static const u16 sMugshotPal_test2[] = INCBIN_U16("graphics/mugshots/test2.gbapal");
-static const u32 sMugshotImg_test3[] = INCBIN_U32("graphics/mugshots/test3.4bpp.lz");
-static const u16 sMugshotPal_test3[] = INCBIN_U16("graphics/mugshots/test3.gbapal");
-static const u32 sMugshotImg_test4[] = INCBIN_U32("graphics/mugshots/test4.4bpp.lz");
-static const u16 sMugshotPal_test4[] = INCBIN_U16("graphics/mugshots/test4.gbapal");
-static const u32 sMugshotImg_peace1[] = INCBIN_U32("graphics/mugshots/peace1.4bpp.lz");
-static const u16 sMugshotPal_peace1[] = INCBIN_U16("graphics/mugshots/peace1.gbapal");
-static const u32 sMugshotImg_peace2[] = INCBIN_U32("graphics/mugshots/peace2.4bpp.lz");
-static const u16 sMugshotPal_peace2[] = INCBIN_U16("graphics/mugshots/peace2.gbapal");
-static const u32 sMugshotImg_peace3[] = INCBIN_U32("graphics/mugshots/peace3.4bpp.lz");
-static const u16 sMugshotPal_peace3[] = INCBIN_U16("graphics/mugshots/peace3.gbapal");
-static const u32 sMugshotImg_peace4[] = INCBIN_U32("graphics/mugshots/peace4.4bpp.lz");
-static const u16 sMugshotPal_peace4[] = INCBIN_U16("graphics/mugshots/peace4.gbapal");
+static const u32 sMugshotImg_intromin1[] = INCBIN_U32("graphics/mugshots/intromin1.4bpp.lz");
+static const u32 sMugshotImg_intro0[] = INCBIN_U32("graphics/mugshots/intro0.4bpp.lz");
+static const u32 sMugshotImg_intro1[] = INCBIN_U32("graphics/mugshots/intro1.4bpp.lz");
+static const u32 sMugshotImg_intro2[] = INCBIN_U32("graphics/mugshots/intro2.4bpp.lz");
+static const u32 sMugshotImg_intro3[] = INCBIN_U32("graphics/mugshots/intro3.4bpp.lz");
+static const u32 sMugshotImg_intro4[] = INCBIN_U32("graphics/mugshots/intro4.4bpp.lz");
+static const u32 sMugshotImg_intro5[] = INCBIN_U32("graphics/mugshots/intro5.4bpp.lz");
+static const u32 sMugshotImg_intro6[] = INCBIN_U32("graphics/mugshots/intro6.4bpp.lz");
+static const u16 sMugshotPal_intro[] = INCBIN_U16("graphics/mugshots/intro.gbapal");
+
+static const u32 sMugshotImg_appear1[] = INCBIN_U32("graphics/mugshots/appear1.4bpp.lz");
+static const u32 sMugshotImg_appear2[] = INCBIN_U32("graphics/mugshots/appear2.4bpp.lz");
+static const u32 sMugshotImg_appear3[] = INCBIN_U32("graphics/mugshots/appear3.4bpp.lz");
+static const u32 sMugshotImg_appear4[] = INCBIN_U32("graphics/mugshots/appear4.4bpp.lz");
+static const u32 sMugshotImg_appear5[] = INCBIN_U32("graphics/mugshots/appear5.4bpp.lz");
+static const u32 sMugshotImg_appear6[] = INCBIN_U32("graphics/mugshots/appear6.4bpp.lz");
+static const u32 sMugshotImg_appear7[] = INCBIN_U32("graphics/mugshots/appear7.4bpp.lz");
+static const u32 sMugshotImg_appear7b[] = INCBIN_U32("graphics/mugshots/appear7b.4bpp.lz");
+static const u16 sMugshotPal_appear[] = INCBIN_U16("graphics/mugshots/appear.gbapal");
+
+static const u32 sMugshotImg_encounter1[] = INCBIN_U32("graphics/mugshots/encounter1.4bpp.lz");
+static const u32 sMugshotImg_encounter2[] = INCBIN_U32("graphics/mugshots/encounter2.4bpp.lz");
+static const u32 sMugshotImg_encounter3[] = INCBIN_U32("graphics/mugshots/encounter3.4bpp.lz");
+static const u32 sMugshotImg_encounter4[] = INCBIN_U32("graphics/mugshots/encounter4.4bpp.lz");
+static const u32 sMugshotImg_encounter5[] = INCBIN_U32("graphics/mugshots/encounter5.4bpp.lz");
+static const u32 sMugshotImg_encounter6[] = INCBIN_U32("graphics/mugshots/encounter6.4bpp.lz");
+static const u32 sMugshotImg_encounter7[] = INCBIN_U32("graphics/mugshots/encounter7.4bpp.lz");
+static const u32 sMugshotImg_encounter8[] = INCBIN_U32("graphics/mugshots/encounter8.4bpp.lz");
+static const u32 sMugshotImg_encounter8a1[] = INCBIN_U32("graphics/mugshots/encounter8a1.4bpp.lz");
+static const u32 sMugshotImg_encounter8a2[] = INCBIN_U32("graphics/mugshots/encounter8a2.4bpp.lz");
+static const u32 sMugshotImg_encounter9[] = INCBIN_U32("graphics/mugshots/encounter9.4bpp.lz");
+static const u32 sMugshotImg_encounter10[] = INCBIN_U32("graphics/mugshots/encounter10.4bpp.lz");
+static const u32 sMugshotImg_encounter11[] = INCBIN_U32("graphics/mugshots/encounter11.4bpp.lz");
+static const u32 sMugshotImg_encounter12[] = INCBIN_U32("graphics/mugshots/encounter12.4bpp.lz");
+static const u32 sMugshotImg_encounter13[] = INCBIN_U32("graphics/mugshots/encounter13.4bpp.lz");
+static const u32 sMugshotImg_encounter14[] = INCBIN_U32("graphics/mugshots/encounter14.4bpp.lz");
+static const u32 sMugshotImg_encounter15[] = INCBIN_U32("graphics/mugshots/encounter15.4bpp.lz");
+static const u32 sMugshotImg_encounter16[] = INCBIN_U32("graphics/mugshots/encounter16.4bpp.lz");
+static const u32 sMugshotImg_encounter17[] = INCBIN_U32("graphics/mugshots/encounter17.4bpp.lz");
+static const u32 sMugshotImg_encounter18[] = INCBIN_U32("graphics/mugshots/encounter18.4bpp.lz");
+static const u32 sMugshotImg_encounter19[] = INCBIN_U32("graphics/mugshots/encounter19.4bpp.lz");
+static const u32 sMugshotImg_encounter20[] = INCBIN_U32("graphics/mugshots/encounter20.4bpp.lz");
+static const u32 sMugshotImg_encounter21[] = INCBIN_U32("graphics/mugshots/encounter21.4bpp.lz");
+static const u32 sMugshotImg_encounter22[] = INCBIN_U32("graphics/mugshots/encounter22.4bpp.lz");
+static const u32 sMugshotImg_encounter23[] = INCBIN_U32("graphics/mugshots/encounter23.4bpp.lz");
+static const u32 sMugshotImg_encounter24[] = INCBIN_U32("graphics/mugshots/encounter24.4bpp.lz");
+static const u32 sMugshotImg_encounter25[] = INCBIN_U32("graphics/mugshots/encounter25.4bpp.lz");
+static const u16 sMugshotPal_encounter[] = INCBIN_U16("graphics/mugshots/encounter.gbapal");
 
 static const struct Mugshot sMugshots[] = {
-    [MUGSHOT_TEST] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_test, .palette = sMugshotPal_test},
-    [MUGSHOT_TEST2] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_test2, .palette = sMugshotPal_test2},
-    [MUGSHOT_TEST3] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_test3, .palette = sMugshotPal_test3},
-    [MUGSHOT_TEST4] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_test4, .palette = sMugshotPal_test4},
-    [MUGSHOT_PEACE1] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_peace1, .palette = sMugshotPal_peace1},
-    [MUGSHOT_PEACE2] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_peace2, .palette = sMugshotPal_peace2},
-    [MUGSHOT_PEACE3] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_peace3, .palette = sMugshotPal_peace3},
-    [MUGSHOT_PEACE4] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_peace4, .palette = sMugshotPal_peace4},
+    [MUGSHOT_INTROMIN1] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_intromin1, .palette = sMugshotPal_intro},
+    [MUGSHOT_INTRO0] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_intro0, .palette = sMugshotPal_intro},
+    [MUGSHOT_INTRO1] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_intro1, .palette = sMugshotPal_intro},
+    [MUGSHOT_INTRO2] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_intro2, .palette = sMugshotPal_intro},
+    [MUGSHOT_INTRO3] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_intro3, .palette = sMugshotPal_intro},
+    [MUGSHOT_INTRO4] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_intro4, .palette = sMugshotPal_intro},
+    [MUGSHOT_INTRO5] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_intro5, .palette = sMugshotPal_intro},
+    [MUGSHOT_INTRO6] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_intro6, .palette = sMugshotPal_intro},
+    [MUGSHOT_APPEAR1] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_appear1, .palette = sMugshotPal_appear},
+    [MUGSHOT_APPEAR2] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_appear2, .palette = sMugshotPal_appear},
+    [MUGSHOT_APPEAR3] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_appear3, .palette = sMugshotPal_appear},
+    [MUGSHOT_APPEAR4] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_appear4, .palette = sMugshotPal_appear},
+    [MUGSHOT_APPEAR5] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_appear5, .palette = sMugshotPal_appear},
+    [MUGSHOT_APPEAR6] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_appear6, .palette = sMugshotPal_appear},
+    [MUGSHOT_APPEAR7] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_appear7, .palette = sMugshotPal_appear},
+    [MUGSHOT_APPEAR7B] = {.x = 0, .y = 0, .width = 200, .height = 136, .image = sMugshotImg_appear7b, .palette = sMugshotPal_appear},
+    [MUGSHOT_ENCOUNTER1] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter1, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER2] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter2, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER3] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter3, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER4] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter4, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER5] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter5, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER6] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter6, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER7] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter7, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER8] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter8, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER8A1] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter8a1, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER8A2] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter8a2, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER9] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter9, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER10] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter10, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER11] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter11, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER12] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter12, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER13] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter13, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER14] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter14, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER15] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter15, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER16] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter16, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER17] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter17, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER18] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter18, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER19] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter19, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER20] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter20, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER21] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter21, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER22] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter22, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER23] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter23, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER24] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter24, .palette = sMugshotPal_encounter},
+    [MUGSHOT_ENCOUNTER25] {.x = 0, .y = 0, .width = 240, .height =176, .image = sMugshotImg_encounter25, .palette = sMugshotPal_encounter},
 };
 
 
