@@ -903,8 +903,8 @@ LittlerootTown_ProfessorBirchsLab_Text_CompletedDexChoosePokemon:
 	.string "… … … … … …\n"
 	.string "… … … … … …\p"
 	.string "Yes, there's no doubt about it.\p"
-    .string "You really have collected 4 BADGES\n"
-	.string "To celebrate your halfway point.\p"
+    .string "You really have collected 4 BADGES\p"
+	.string "To celebrate your halfway point.\n"
 	.string "I have a gift for you.\p"
 	.string "My gift is a rare POKéMON only found\n"
 	.string "in another region!\p"
@@ -973,26 +973,28 @@ LittlerootTown_ProfessorBirchsLab_Text_DontHaveAnyRoomForPokemon:
 	.string "this POKéMON.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayWhatNextImStayingHere:
-	.string "MAY: {PLAYER}{KUN}, good luck\n"
-	.string "On your way to the ELITE FOUR!\p"
+	.string "MAY: {PLAYER}{KUN}\p"
 	.string "I'll battle you sometime so you\n"
     .string "better train up that new pokemon!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanPreferCollectingSlowly:
-	.string "BRENDAN: {PLAYER}{KUN}, good luck\n"
-	.string "On your way to the ELITE FOUR!\p"
+	.string "BRENDAN: {PLAYER}{KUN}\n"
 	.string "I'll battle you sometime so you\n"
     .string "better train up that new pokemon!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier:
 	.string "MAY: Oh, hi, {PLAYER}{KUN}!\n"
 	.string "Have you gone to that place,\l"
-	.string "the BATTLE FRONTIER?$"
+	.string "the CLOUD DISTRICT?\p"
+    .string "The visitor we had the other day told\n"
+    .string "us all about it.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier:
 	.string "BRENDAN: Hey, {PLAYER}!\n"
 	.string "Have you gone out to that place,\l"
-	.string "the BATTLE FRONTIER?$"
+	.string "the CLOUD DISTRICT?\p"
+    .string "The visitor we had the other day told\n"
+    .string "us all about it.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "… … … … … …\n"
