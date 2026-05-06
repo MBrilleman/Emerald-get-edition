@@ -775,7 +775,7 @@
 #define TRAINER_BLISSEY_2                   771 
 #define TRAINER_BLISSEY_3                   772 
 #define TRAINER_YELLOW                      773 
-#define TRAINER_CRYSTAL                     774 
+#define TRAINER_CRYSTAL_MAARTEN                     774 
 #define TRAINER_eRIVAL2                     775 
 #define TRAINER_eRIVAL3                     776 
 #define TRAINER_LEFTO                       777 
@@ -793,8 +793,8 @@
 #define TRAINER_eRIVAL4_Mudkip              789 
 #define TRAINER_eRIVAL4_Treecko             790 
 #define TRAINER_eRIVAL4_Torchic             791 
-#define TRAINER_WINONA_4                    792 // Ongebruikt
-#define TRAINER_WINONA_5                    793 // Ongebruikt
+#define TRAINER_CRYSTAL_ROB                  792 // Ongebruikt
+#define TRAINER_CRYSTAL_MARCUS               793 // Ongebruikt
 #define TRAINER_TATE_AND_LIZA_2             794 // Ongebruikt
 #define TRAINER_TATE_AND_LIZA_3             795 // Ongebruikt
 #define TRAINER_TATE_AND_LIZA_4             796 // Ongebruikt
