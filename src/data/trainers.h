@@ -9289,7 +9289,7 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_Yellow),
     },
 
-    [TRAINER_CRYSTALROB] =
+    [TRAINER_CRYSTAL_ROB] =
     {
         .trainerClass = TRAINER_CLASS_CRYSTAL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
@@ -9300,7 +9300,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .party = ITEM_CUSTOM_MOVES(sParty_CrystalRob),
     },
-    [TRAINER_CRYSTALMARCUS] =
+    [TRAINER_CRYSTAL_MARCUS] =
     {
         .trainerClass = TRAINER_CLASS_CRYSTAL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
@@ -9311,7 +9311,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .party = ITEM_CUSTOM_MOVES(sParty_CrystalMarcus),
     },
-    [TRAINER_CRYSTALMAARTEN] =
+    [TRAINER_CRYSTAL_MAARTEN] =
     {
         .trainerClass = TRAINER_CLASS_CRYSTAL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
@@ -9382,29 +9382,6 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .party = ITEM_CUSTOM_MOVES(sParty_Getkwondo),
-    },
-    [TRAINER_WINONA_4] =
-    {
-        .trainerClass = TRAINER_CLASS_LEADER,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_LEADER_WINONA,
-        .trainerName = _("WINONA"),
-        .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE},
-        .doubleBattle = TRUE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_RISKY,
-        .party = ITEM_CUSTOM_MOVES(sParty_Winona4),
-    },
-
-    [TRAINER_WINONA_5] =
-    {
-        .trainerClass = TRAINER_CLASS_LEADER,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_LEADER_WINONA,
-        .trainerName = _("WINONA"),
-        .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE},
-        .doubleBattle = TRUE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_RISKY,
-        .party = ITEM_CUSTOM_MOVES(sParty_Winona5),
     },
 
     [TRAINER_TATE_AND_LIZA_2] =

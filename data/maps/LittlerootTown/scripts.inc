@@ -329,7 +329,7 @@ WingullCall::
 	return
 
 LittlerootTown_testNPCTwee::
-	trainerbattle_single TRAINER_CRYSTAL, testNPC_intro, testNPC_Defeated
+	trainerbattle_single TRAINER_CRYSTAL_ROB, testNPC_intro, testNPC_Defeated
 	msgbox testNPC_postbattle, MSGBOX_AUTOCLOSE
 	end
 
