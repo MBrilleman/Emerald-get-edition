@@ -9289,7 +9289,29 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_Yellow),
     },
 
-    [TRAINER_CRYSTAL] =
+    [TRAINER_CRYSTALROB] =
+    {
+        .trainerClass = TRAINER_CLASS_CRYSTAL,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_CRYSTAL,
+        .trainerName = _("Naam"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .party = ITEM_CUSTOM_MOVES(sParty_CrystalRob),
+    },
+    [TRAINER_CRYSTALMARCUS] =
+    {
+        .trainerClass = TRAINER_CLASS_CRYSTAL,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_CRYSTAL,
+        .trainerName = _("Naam"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .party = ITEM_CUSTOM_MOVES(sParty_CrystalMarcus),
+    },
+    [TRAINER_CRYSTALMAARTEN] =
     {
         .trainerClass = TRAINER_CLASS_CRYSTAL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
