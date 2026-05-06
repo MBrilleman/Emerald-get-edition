@@ -10246,7 +10246,7 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_eRival3_Torchic),
     },
 
-        [TRAINER_eRIVAL4_Mudkip] =
+    [TRAINER_eRIVAL4_Mudkip] =
     {
         .trainerClass = TRAINER_CLASS_PIKE_QUEEN,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,

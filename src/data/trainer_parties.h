@@ -12859,21 +12859,21 @@ static const struct TrainerMonItemCustomMoves sParty_eRival4_Mudkip[] = {
     .lvl = 46,
     .species = SPECIES_SEVIPER,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_CRUNCH, MOVE_SCREECH, MOVE_POISON_FANG, MOVE_BODY_SLAM}
+    .moves = {MOVE_CRUNCH, MOVE_SCREECH, MOVE_SLUDGE_BOMB, MOVE_BODY_SLAM}
     },
     {
     .iv = 255,
     .lvl = 47,
     .species = SPECIES_AGGRON,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_ROCK_TOMB, MOVE_IRON_TAIL, MOVE_ICE_PUNCH, MOVE_PROTECT}   
+    .moves = {MOVE_ROCK_TOMB, MOVE_IRON_TAIL, MOVE_EARTHQUAKE, MOVE_PROTECT}   
     },
     {
     .iv = 255,
     .lvl = 48,
     .species = SPECIES_EXPLOUD,
     .heldItem = ITEM_MYSTIC_WATER,
-    .moves = {MOVE_SHOCK_WAVE, MOVE_SCREECH, MOVE_HYPER_BEAM, MOVE_SURF}
+    .moves = {MOVE_SHOCK_WAVE, MOVE_COUNTER, MOVE_BODY_SLAM, MOVE_SURF}
     },
     {
     .iv = 255,
@@ -12887,7 +12887,7 @@ static const struct TrainerMonItemCustomMoves sParty_eRival4_Mudkip[] = {
     .lvl = 50,
     .species = SPECIES_DEOXYS,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_PSYCHO_BOOST, MOVE_HYPER_BEAM, MOVE_ICE_BEAM, MOVE_PURSUIT}
+    .moves = {MOVE_PSYCHO_BOOST, MOVE_COSMIC_POWER, MOVE_ICE_BEAM, MOVE_PURSUIT}
     }
 };
 
@@ -12904,21 +12904,21 @@ static const struct TrainerMonItemCustomMoves sParty_eRival4_Treecko[] = {
     .lvl = 46,
     .species = SPECIES_SEVIPER,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_CRUNCH, MOVE_SCREECH, MOVE_POISON_FANG, MOVE_BODY_SLAM}
+    .moves = {MOVE_CRUNCH, MOVE_SCREECH, MOVE_SLUDGE_BOMB, MOVE_BODY_SLAM}
     },
     {
     .iv = 255,
     .lvl = 47,
     .species = SPECIES_AGGRON,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_ROCK_TOMB, MOVE_IRON_TAIL, MOVE_ICE_PUNCH, MOVE_PROTECT}   
+    .moves = {MOVE_ROCK_TOMB, MOVE_IRON_TAIL, MOVE_EARTHQUAKE, MOVE_PROTECT}   
     },
     {
     .iv = 255,
     .lvl = 48,
     .species = SPECIES_EXPLOUD,
     .heldItem = ITEM_MYSTIC_WATER,
-    .moves = {MOVE_SHOCK_WAVE, MOVE_SCREECH, MOVE_HYPER_BEAM, MOVE_SURF}
+    .moves = {MOVE_SHOCK_WAVE, MOVE_COUNTER, MOVE_BODY_SLAM, MOVE_SURF}
     },
     {
     .iv = 255,
@@ -12932,7 +12932,7 @@ static const struct TrainerMonItemCustomMoves sParty_eRival4_Treecko[] = {
     .lvl = 50,
     .species = SPECIES_DEOXYS,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_PSYCHO_BOOST, MOVE_HYPER_BEAM, MOVE_ICE_BEAM, MOVE_PURSUIT}
+    .moves = {MOVE_PSYCHO_BOOST, MOVE_COSMIC_POWER, MOVE_ICE_BEAM, MOVE_PURSUIT}
     }
 };
 
@@ -12949,35 +12949,35 @@ static const struct TrainerMonItemCustomMoves sParty_eRival4_Torchic[] = {
     .lvl = 46,
     .species = SPECIES_SEVIPER,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_CRUNCH, MOVE_SCREECH, MOVE_POISON_FANG, MOVE_BODY_SLAM}
+    .moves = {MOVE_CRUNCH, MOVE_SCREECH, MOVE_SLUDGE_BOMB, MOVE_BODY_SLAM}
     },
     {
     .iv = 255,
     .lvl = 47,
     .species = SPECIES_AGGRON,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_ROCK_TOMB, MOVE_IRON_TAIL, MOVE_ICE_PUNCH, MOVE_PROTECT}   
+    .moves = {MOVE_ROCK_TOMB, MOVE_IRON_TAIL, MOVE_EARTHQUAKE, MOVE_PROTECT}   
     },
     {
     .iv = 255,
     .lvl = 48,
     .species = SPECIES_EXPLOUD,
     .heldItem = ITEM_MYSTIC_WATER,
-    .moves = {MOVE_SHOCK_WAVE, MOVE_SCREECH, MOVE_HYPER_BEAM, MOVE_SURF}
+    .moves = {MOVE_SHOCK_WAVE, MOVE_COUNTER, MOVE_BODY_SLAM, MOVE_SURF}
     },
     {
     .iv = 255,
     .lvl = 49,
     .species = SPECIES_BLAZIKEN,
     .heldItem = ITEM_LEFTOVERS,
-    .moves = {MOVE_FIRE_PUNCH, MOVE_ROCK_SLIDE, MOVE_BRICK_BREAK, MOVE_SLASH}
+    .moves = {MOVE_BLAZE_KICK, MOVE_THUNDER_PUNCH, MOVE_BRICK_BREAK, MOVE_SLASH}
     },
     {
     .iv = 255,
     .lvl = 50,
     .species = SPECIES_DEOXYS,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_PSYCHO_BOOST, MOVE_HYPER_BEAM, MOVE_ICE_BEAM, MOVE_PURSUIT}
+    .moves = {MOVE_PSYCHO_BOOST, MOVE_COSMIC_POWER, MOVE_ICE_BEAM, MOVE_PURSUIT}
     }
 };
 
