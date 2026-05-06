@@ -101,7 +101,7 @@ SlateportCity_EventScript_YellowNo:
 
 SlateportCity_Text_YellowIntro:
 @ de exit operands n & l & p zijn voor wat de VOLGENDE tekstbox moet doen
-	.string "dit\n" @ n plaatst volgende line specifiek op regel 2. Enkel gebruiken na een p of in nieuwe tekstbox
+	.string "dit is rob branch\n" @ n plaatst volgende line specifiek op regel 2. Enkel gebruiken na een p of in nieuwe tekstbox
 	.string "is\l" @ l is voor scroll newline, line 1 schuift uit beeld en line 2 gaat naar 1. Gebruik na een n of l 
 	.string "voorbeeld\p" @ p begint een blanco tekstbox
 	.string "tekst$" @ dollar als afsluiter. NIET VERGETEN! Blijft net zolang lezen totdat die een $ ziet met alle gevolgen van dien. 
