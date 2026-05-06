@@ -21,6 +21,39 @@ MauvilleCITY_eRival_reappear::
 	clearflag FLAG_HIDE_eRIVAL3
 	return
 
+MauvilleCity_EventScript_Interview1::
+	addobject LOCALID_MAUVILLE_REPORTER
+	setobjectxy LOCALID_MAUVILLE_REPORTER, 15, 18
+	addobject LOCALID_MAUVILLE_CAM1
+	setobjectxy LOCALID_MAUVILLE_CAM1, 16, 18
+	goto MauvilleCity_EventScript_Reporters
+	end
+
+MauvilleCity_EventScript_Interview2::
+	addobject LOCALID_MAUVILLE_REPORTER
+	setobjectxy LOCALID_MAUVILLE_REPORTER, 16, 18
+	addobject LOCALID_MAUVILLE_CAM1
+	setobjectxy LOCALID_MAUVILLE_CAM1, 17, 18
+	goto MauvilleCity_EventScript_Reporters
+	end
+
+MauvilleCity_EventScript_Interview3::
+	addobject LOCALID_MAUVILLE_REPORTER
+	setobjectxy LOCALID_MAUVILLE_REPORTER, 17, 18
+	addobject LOCALID_MAUVILLE_CAM1
+	setobjectxy LOCALID_MAUVILLE_CAM1, 18, 18
+	goto MauvilleCity_EventScript_Reporters
+	end
+
+MauvilleCity_EventScript_Interview4::
+	addobject LOCALID_MAUVILLE_REPORTER
+	setobjectxy LOCALID_MAUVILLE_REPORTER, 18, 18
+	addobject LOCALID_MAUVILLE_CAM1
+	setobjectxy LOCALID_MAUVILLE_CAM1, 17, 18
+	goto MauvilleCity_EventScript_Reporters
+	end
+
+
 MauvilleCity_EventScript_FusRoDa1::
 	addobject LOCALID_MAUVILLE_FUSRODA
 	setobjectxy LOCALID_MAUVILLE_FUSRODA, 15, 18
@@ -45,6 +78,33 @@ MauvilleCity_EventScript_FusRoDa4::
 	goto MauvilleCity_EventScript_FusRoDa
 	end
 
+
+MauvilleCity_EventScript_Reporters::
+	applymovement LOCALID_MAUVILLE_CAM2, Mauville_Setinvis
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM9, Mauville_Setinvis
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM3, Mauville_Setinvis
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM4, Mauville_Setinvis
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM5, Mauville_Setinvis
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM6, Mauville_Setinvis
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM7, Mauville_Setinvis
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM8, Mauville_Setinvis
+	waitmovement 0
+
+
+Mauville_Setinvis:
+	set_invisible
+	step_end
+
+Mauville_Setvis:
+	set_visible
+	step_end
 
 MauvilleCity_EventScript_FusRoDa::
 	playfanfare SE_M_BLIZZARD
@@ -143,7 +203,6 @@ MauvilleCity_EventScript_Woman::
 
 MauvilleCity_EventScript_RichBoy::
 	msgbox MauvilleCity_Text_PokemonCanJumpYouOnBike, MSGBOX_NPC
-	setvar VAR_MAUVILLE_eRIVAL, 2
 	end
 
 MauvilleCity_EventScript_CitySign::

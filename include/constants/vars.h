@@ -114,8 +114,8 @@
 #define VAR_SOOTOPOLIS_CITY_STATE                        0x405E
 #define VAR_BRAWLEY_DEFEATED                             0x405F // Used for Brawley check in Mauville. 0 = undefeated fusrodaman. 1 = Defeated, reporters. 2 = Reporters gone. 
 #define VAR_ROUTE101_STATE                               0x4060
-#define VAR_VETERANS                                     0x4061 // 0 = don't spawn. 1 = YELLOW trigger active in Slateport & Lilycove. 2 = Defeated, CRYSTAL trigger active in SS Tidal
-#define VAR_ROUTE103_STATE                               0x4062 // Unused Var
+#define VAR_VETERANS                                     0x4061 // 0 = don't spawn. 1 = YELLOW trigger active in Slateport & Lilycove. 2 = wachten in Slateport & Lilycove. 3 =  CRYSTAL trigger active in SS Tidal
+#define VAR_ERIVALRAYQUAZA                               0x4062 // 0 = Trigger inactive. 1 = Rayquaza defeated / captured. Trigger final fight active
 #define VAR_ROUTE104_STATE                               0x4063
 #define VAR_ROUTE105_STATE                               0x4064 // Unused Var
 #define VAR_ROUTE106_STATE                               0x4065 // Unused Var

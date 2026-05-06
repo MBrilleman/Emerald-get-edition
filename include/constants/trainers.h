@@ -111,6 +111,8 @@
 #define TRAINER_PIC_RS_MAY                92
 #define TRAINER_PIC_CRYSTAL               93 //Crystal protag
 #define TRAINER_PIC_LEFTO                 94 //Lefto de leftovers
+#define TRAINER_PIC_CHOSEN_HERO           95 // Chosen hero
+#define TRAINER_PIC_REAL_CRYSTAL          96 // Real Crystal
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0

@@ -80,29 +80,40 @@ SSTidalRooms_EventScript_CrystalNo::
 
 SSTidalRooms_Text_CrystalIntro:
 @ de exit operands n & l & p zijn voor wat de VOLGENDE tekstbox moet doen
-	.string "dit\n" @ n plaatst volgende line specifiek op regel 2. Enkel gebruiken na een p of in nieuwe tekstbox
-	.string "is\l" @ l is voor scroll newline, line 1 schuift uit beeld en line 2 gaat naar 1. Gebruik na een n of l 
-	.string "voorbeeld\p" @ p begint een blanco tekstbox
-	.string "tekst$" @ dollar als afsluiter. NIET VERGETEN! Blijft net zolang lezen totdat die een $ ziet met alle gevolgen van dien. 
+	.string "Suicune.\p" @ n plaatst volgende line specifiek op regel 2. Enkel gebruiken na een p of in nieuwe tekstbox
+	.string "Starters.\p" @ l is voor scroll newline, line 1 schuift uit beeld en line 2 gaat naar 1. Gebruik na een n of l 
+	.string "Eeveelutions.\p" @ p begint een blanco tekstbox
+	.string "Tentacool.\p" @ dollar als afsluiter. NIET VERGETEN! Blijft net zolang lezen totdat die een $ ziet met alle gevolgen van dien. 
+	.string "Legendary dogs.\p"
+	.string "Explosion.\p"
+	.string "Explosion.\p"
+	.string "Explosion.\p"
+	.string "Explosion.\p"
+	.string "Explosion.\p"
+	.string "Explosion Explosion Explosion\n"
+	.string "Self-Destruct Self-Destruct\p"
+	.string "...\p"
 
 SSTidalRooms_Text_Crystal_Vraag:
-	.string "Vechten?$"
+	.string "Explosion?$"
 
 SSTidalRooms_Text_Crystalb4Battle:
-	.string "Nu begint de fight.$"
+	.string "I won't leave ANY Pokémon alive\p"
+	.string "You will feel my pain too!$"
 
 SSTidalRooms_Text_CrystalNo:
-	.string "Kom later terug.$"
+	.string "Bitch says what?$"
 
 
 SSTidalRooms_Text_Crystal_Defeat:
 @Tekst in battle na winst
-	.string "I lost.$"
+	.string "Explosion Explosion Explosion\n"
+	.string "Self-Destruct Self-Destruct$"
 
 SSTidalRooms_Text_Crystal_Post:
 @Tekst post battle
-	.string "Ik ga,\n"
-	.string "Doei!$"
+	.string "Good luck with the FIRE RED and LEAF \n"
+	.string "GREEN randomizers!$"
 
 SSTidalRooms_Text_Crystal_Ignore:
 	.string "...$"
