@@ -378,6 +378,15 @@ static const union AnimCmd *const sAnims_Lefto[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_Real_Crystal[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Chosen_Hero[] ={
+    sAnim_GeneralFrame0,
+};
+
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_HIKER] = sAnims_Hiker,
@@ -475,4 +484,6 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_RS_MAY] = sAnims_RubySapphireMay,
     [TRAINER_PIC_CRYSTAL] = sAnims_Crystal,
     [TRAINER_PIC_LEFTO] = sAnims_Lefto,
+    [TRAINER_PIC_REAL_CRYSTAL] = sAnims_Real_Crystal,
+    [TRAINER_PIC_CHOSEN_HERO] = sAnims_Chosen_Hero,
 };

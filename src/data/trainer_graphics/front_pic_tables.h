@@ -95,6 +95,8 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_RS_MAY] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_CRYSTAL] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_LEFTO] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_REAL_CRYSTAL] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_CHOSEN_HERO] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -196,6 +198,8 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(RS_MAY, gTrainerFrontPic_RubySapphireMay, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(CRYSTAL, gTrainerFrontPic_Crystal, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(LEFTO, gTrainerFrontPic_Lefto, TRAINER_PIC_SIZE),
+    TRAINER_SPRITE(REAL_CRYSTAL, gTrainerFrontPic_Real_Crystal, TRAINER_PIC_SIZE),
+    TRAINER_SPRITE(CHOSEN_HERO, gTrainerFrontPic_Chosen_Hero, TRAINER_PIC_SIZE),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -297,4 +301,6 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(RS_MAY, gTrainerPalette_RubySapphireMay),
     TRAINER_PAL(CRYSTAL, gTrainerPalette_Crystal),
     TRAINER_PAL(LEFTO, gTrainerPalette_Lefto),
+    TRAINER_PAL(REAL_CRYSTAL, gTrainerPalette_Real_Crystal),
+    TRAINER_PAL(CHOSEN_HERO, gTrainerPalette_Chosen_Hero),
 };

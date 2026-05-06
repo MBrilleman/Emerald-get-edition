@@ -10755,39 +10755,39 @@ static const struct TrainerMonItemCustomMoves sParty_Getkwondo[] = {
     }
 };
 
-static const struct TrainerMonItemCustomMoves sParty_Wattson4[] = {
+static const struct TrainerMonItemCustomMoves sParty_Chosen_hero[] = {
     {
     .iv = 255,
-    .lvl = 44,
+    .lvl = 2,
     .species = SPECIES_RAICHU,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_THUNDER, MOVE_SLAM, MOVE_RAIN_DANCE, MOVE_PROTECT}
     },
     {
     .iv = 255,
-    .lvl = 46,
+    .lvl = 2,
     .species = SPECIES_AMPHAROS,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_THUNDER, MOVE_PROTECT, MOVE_THUNDER_WAVE, MOVE_LIGHT_SCREEN}
     },
     {
     .iv = 255,
-    .lvl = 46,
+    .lvl = 2,
     .species = SPECIES_ELECTRODE,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_ROLLOUT, MOVE_THUNDER, MOVE_EXPLOSION, MOVE_RAIN_DANCE}
     },
     {
     .iv = 255,
-    .lvl = 48,
+    .lvl = 2,
     .species = SPECIES_MAGNETON,
     .heldItem = ITEM_SITRUS_BERRY,
     .moves = {MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_THUNDER, MOVE_RAIN_DANCE}
     },
     {
     .iv = 255,
-    .lvl = 50,
-    .species = SPECIES_MANECTRIC,
+    .lvl = 2,
+    .species = SPECIES_DEOXYS,
     .heldItem = ITEM_SITRUS_BERRY,
     .moves = {MOVE_BITE, MOVE_THUNDER_WAVE, MOVE_THUNDER, MOVE_PROTECT}
     }
@@ -12849,6 +12849,10 @@ static const struct TrainerMonItemCustomMoves sParty_eRival3_Torchic[] = {
 static const struct TrainerMonItemCustomMoves sParty_eRival4_Mudkip[] = {
     {
     .iv = 255,
+    .lvl = 65,
+    .species = SPECIES_LAPRAS,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_PSYCHIC, MOVE_PROTECT, MOVE_ICE_BEAM, MOVE_HYDRO_PUMP}
     .lvl = 47,
     .species = SPECIES_SABLEYE,
     .heldItem = ITEM_NONE,
@@ -12856,6 +12860,10 @@ static const struct TrainerMonItemCustomMoves sParty_eRival4_Mudkip[] = {
     },
     {
     .iv = 255,
+    .lvl = 65,
+    .species = SPECIES_ZAPDOS,
+    .heldItem = ITEM_MAGNET,
+    .moves = {MOVE_LIGHT_SCREEN, MOVE_THUNDERBOLT, MOVE_DRILL_PECK, MOVE_THUNDER}
     .lvl = 46,
     .species = SPECIES_SEVIPER,
     .heldItem = ITEM_NONE,
@@ -12863,6 +12871,7 @@ static const struct TrainerMonItemCustomMoves sParty_eRival4_Mudkip[] = {
     },
     {
     .iv = 255,
+    .lvl = 65,
     .lvl = 47,
     .species = SPECIES_AGGRON,
     .heldItem = ITEM_NONE,

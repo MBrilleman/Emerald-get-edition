@@ -280,6 +280,12 @@ const u32 gTrainerPalette_RubySapphireMay[] = INCBIN_U32("graphics/trainers/pale
 const u32 gTrainerFrontPic_Crystal[] = INCBIN_U32("graphics/trainers/front_pics/crystal.4bpp.lz");
 const u32 gTrainerPalette_Crystal[] = INCBIN_U32("graphics/trainers/front_pics/crystal.gbapal.lz");
 
+const u32 gTrainerFrontPic_Chosen_Hero[] = INCBIN_U32("graphics/trainers/front_pics/chosen_hero.4bpp.lz");
+const u32 gTrainerPalette_Chosen_Hero[] = INCBIN_U32("graphics/trainers/front_pics/chosen_hero.gbapal.lz");
+
+const u32 gTrainerFrontPic_Real_Crystal[] = INCBIN_U32("graphics/trainers/front_pics/realcrystal.4bpp.lz");
+const u32 gTrainerPalette_Real_Crystal[] = INCBIN_U32("graphics/trainers/front_pics/realcrystal.gbapal.lz");
+
 const u32 gTrainerFrontPic_Lefto[] = INCBIN_U32("graphics/trainers/front_pics/lefto.4bpp.lz");
 const u32 gTrainerPalette_Lefto[] = INCBIN_U32("graphics/trainers/front_pics/lefto.gbapal.lz");
 

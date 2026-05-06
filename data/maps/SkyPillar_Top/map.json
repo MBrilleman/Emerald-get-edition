@@ -29,6 +29,63 @@
       "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA"
     },
     {
+      "local_id": "LOCALID_CHOSEN_ONE",
+      "graphics_id": "OBJ_EVENT_GFX_CHOSEN_ONE",
+      "x": 0,
+      "y": 0,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyPillar_Top_EventScript_TalkToChosenOne",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_WINGULL1",
+      "graphics_id": "OBJ_EVENT_GFX_WINGULL",
+      "x": 0,
+      "y": 0,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "0x0",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_WINGULL2",
+      "graphics_id": "OBJ_EVENT_GFX_WINGULL",
+      "x": 0,
+      "y": 0,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "0x0",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_SKYPILLAR_EXTRARIVAL",
+      "graphics_id": "OBJ_EVENT_GFX_LUCY",
+      "x": 0,
+      "y": 0,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyPillar_Top_EventScript_Erival",
+      "flag": "0"
+    },
+    
+    {
       "graphics_id": "OBJ_EVENT_GFX_RAYQUAZA_STILL",
       "x": 14,
       "y": 6,
@@ -52,6 +109,7 @@
     }
   ],
   "coord_events": [
+    
     {
       "type": "trigger",
       "x": 14,
@@ -60,6 +118,33 @@
       "var": "VAR_SKY_PILLAR_RAYQUAZA_CRY_DONE",
       "var_value": "0",
       "script": "SkyPillar_Top_EventScript_AwakenRayquaza"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_ERIVALRAYQUAZA",
+      "var_value": "1",
+      "script": "SkyPillar_Top_EventScript_IntroFinal"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 9,
+      "elevation": 4,
+      "var": "VAR_ERIVALRAYQUAZA",
+      "var_value": "1",
+      "script": "SkyPillar_Top_EventScript_IntroFinal"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 12,
+      "elevation": 3,
+      "var": "VAR_ERIVALRAYQUAZA",
+      "var_value": "2",
+      "script": "SkyPillar_Top_EventScript_WalkToChosenOne"
     }
   ],
   "bg_events": []

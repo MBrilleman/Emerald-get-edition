@@ -53,7 +53,7 @@
 #define FLAG_GETKWONDO       0x27 // Getkwondo trainer
 #define FLAG_HIDE_POSTGAME   0x28 // Postgame flag
 #define FLAG_TALKED_CRYSTAL  0x29 // No intro for Cyrstal veteran
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
+#define FLAG_HIDE_CHOSEN_ONE 0x2A // Finale fight
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
