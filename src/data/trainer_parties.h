@@ -12849,10 +12849,6 @@ static const struct TrainerMonItemCustomMoves sParty_eRival3_Torchic[] = {
 static const struct TrainerMonItemCustomMoves sParty_eRival4_Mudkip[] = {
     {
     .iv = 255,
-    .lvl = 65,
-    .species = SPECIES_LAPRAS,
-    .heldItem = ITEM_LEFTOVERS,
-    .moves = {MOVE_PSYCHIC, MOVE_PROTECT, MOVE_ICE_BEAM, MOVE_HYDRO_PUMP}
     .lvl = 47,
     .species = SPECIES_SABLEYE,
     .heldItem = ITEM_NONE,
@@ -12860,10 +12856,6 @@ static const struct TrainerMonItemCustomMoves sParty_eRival4_Mudkip[] = {
     },
     {
     .iv = 255,
-    .lvl = 65,
-    .species = SPECIES_ZAPDOS,
-    .heldItem = ITEM_MAGNET,
-    .moves = {MOVE_LIGHT_SCREEN, MOVE_THUNDERBOLT, MOVE_DRILL_PECK, MOVE_THUNDER}
     .lvl = 46,
     .species = SPECIES_SEVIPER,
     .heldItem = ITEM_NONE,
@@ -12871,7 +12863,6 @@ static const struct TrainerMonItemCustomMoves sParty_eRival4_Mudkip[] = {
     },
     {
     .iv = 255,
-    .lvl = 65,
     .lvl = 47,
     .species = SPECIES_AGGRON,
     .heldItem = ITEM_NONE,

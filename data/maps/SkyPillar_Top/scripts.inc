@@ -490,15 +490,35 @@ SkyPillar_Top_EventScript_FinalEncounter::
 	setvar VAR_0x8000, MUGSHOT_ENCOUNTER25
 	callnative DrawMugshot
 	delay 7
-	trainerbattle_no_intro TRAINER_ERIVALFINAL, SkyPillar_Top_Text_ErivalLost
-	removeobject LOCALID_CHOSEN_ONE
+    switch VAR_STARTER_MON
+    case 0, SkyPillar_Top_EventScript_eRival_Battle_Mudkip
+	case 1, SkyPillar_Top_EventScript_eRival_Battle_Treecko
+	case 2, SkyPillar_Top_EventScript_eRival_Battle_Torchic
+	end 
+
+SkyPillar_Top_EventScript_eRival_Battle_Mudkip::
+	trainerbattle_no_intro TRAINER_eRIVAL4_Mudkip, SkyPillar_Top_Text_ErivalLost
+    goto SkyPillar_After_Final_Encounter
+    end
+
+SkyPillar_Top_EventScript_eRival_Battle_Treecko::
+	trainerbattle_no_intro TRAINER_eRIVAL4_Treecko, SkyPillar_Top_Text_ErivalLost
+    goto SkyPillar_After_Final_Encounter
+    end
+
+SkyPillar_Top_EventScript_eRival_Battle_Torchic::
+	trainerbattle_no_intro TRAINER_eRIVAL4_Torchic, SkyPillar_Top_Text_ErivalLost
+    goto SkyPillar_After_Final_Encounter
+    end
+
+SkyPillar_After_Final_Encounter::
+    removeobject LOCALID_CHOSEN_ONE
 	addobject LOCALID_SKYPILLAR_EXTRARIVAL
 	setobjectxy LOCALID_SKYPILLAR_EXTRARIVAL, 11, 12
 	setvar VAR_ERIVALRAYQUAZA, 3
 	callnative ClearMugshot
 	release
-	end 
-
+    end
 
 SkyPillar_Top_EventScript_Erival::
 	lock
