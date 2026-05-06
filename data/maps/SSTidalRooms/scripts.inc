@@ -88,20 +88,24 @@ SSTidalRooms_Text_Crystal_Vraag:
     .string "RRRUUUMMMBBLLEE!$"
 
 SSTidalRooms_Text_Crystalb4Battle:
-	.string "Nu begint de fight.$"
+	.string "That's a nice team you got there.\n"
+    .string "It would be a shame if something \l"
+    .string "happened to it....$"
 
 SSTidalRooms_Text_CrystalNo:
-	.string "Kom later terug.$"
-
+	.string "What the fuck do you want?\n"
+    .string "Go away, I'm masturbating.$"
 
 SSTidalRooms_Text_Crystal_Defeat:
 @Tekst in battle na winst
-	.string "I lost.$"
+	.string "Fine you won, asshole. What do you want,\n"
+    .string "a medal? Get the fuck outta here.$"
 
 SSTidalRooms_Text_Crystal_Post:
 @Tekst post battle
-	.string "Ik ga,\n"
-	.string "Doei!$"
+    .string "Yeah yeah, well played and stuff.\n"
+    .string "How's your mom, still home alone?\l"
+    .string "Excellent....$"
 
 SSTidalRooms_Text_Crystal_Ignore:
 	.string "...$"

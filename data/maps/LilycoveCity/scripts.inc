@@ -111,11 +111,11 @@ LilycoveCity_Text_Vraag:
 	.string "buttface!$"
 
 LilycoveCity_Text_Yellowb4Battle:
-	.string "Now we shall see, who will get who.\l"
+	.string "Now we shall see, who will get who.\p"
     .string "Witness meeeeee$"
 
 LilycoveCity_Text_YellowNo:
-	.string "What are you doing here, puny little\l"
+	.string "What are you doing here, puny little\n"
     .string "man? Get lost!$"
 
 LilycoveCity_Text_Yellow_Defeat:
