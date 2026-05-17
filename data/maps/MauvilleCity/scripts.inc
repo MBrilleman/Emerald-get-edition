@@ -107,6 +107,7 @@ Mauville_Setvis:
 	step_end
 
 MauvilleCity_EventScript_FusRoDa::
+	lock
 	playfanfare SE_M_BLIZZARD
 	
 	applymovement LOCALID_MAUVILLE_FUSRODA, FusRoDaFlyIn
@@ -118,10 +119,10 @@ MauvilleCity_EventScript_FusRoDa::
 	closemessage
 	delay 20
 	playse SE_M_YAWN
-	msgbox MauvilleCity_Fus_text
+	msgbox MauvilleCity_Fus_text MSGBOX_DEFAULT
 	closemessage
 	playse SE_THUNDER2
-	msgbox MauvilleCity_RoDa_text
+	msgbox MauvilleCity_RoDa_text MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PLAYER, PlayerFusRoDa
 	waitmovement 0
@@ -134,13 +135,16 @@ MauvilleCity_EventScript_FusRoDa::
 	hideobjectat LOCALID_ROUTE104_BOAT, MAP_ROUTE104
 	copyvar VAR_BRINEY_LOCATION, VAR_0x8008
 	copyobjectxytoperm LOCALID_DEWFORD_BRINEY
-	setvar VAR_BOARD_BRINEY_BOAT_STATE, 0
+	@ setvar VAR_BOARD_BRINEY_BOAT_STATE, 0
+	setflag FLAG_FUSRODAH
 	warp MAP_DEWFORD_TOWN, 2, 11
 	waitstate
 	fadescreen FADE_FROM_BLACK
 	delay 20
 	applymovement LOCALID_PLAYER, FusRoDaFlyIn
 	waitmovement 0
+	release
+	releaseall
 	end
 
 FusRoDaFlyIn:

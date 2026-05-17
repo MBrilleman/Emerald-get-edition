@@ -4,7 +4,11 @@ Common_EventScript_PkmnCenterNurse::
 	setvar VAR_0x8004, 0
 	specialvar VAR_RESULT, CountPlayerTrainerStars
 	goto_if_eq VAR_RESULT, 4, EventScript_PkmnCenterNurse_GoldCard
-    goto EventScript_PkmnCenterNurse_HealPkmn
+	random 10
+	copyvar VAR_0x800A, VAR_RESULT
+	switch VAR_RESULT
+	case 0, EventScript_PkmnCenterNurse_HealPkmn
+    goto EventScript_PkmnCenterNurse_FastHeal  
 	end
 
 EventScript_PkmnCenterNurse_Goodbye::
@@ -13,6 +17,10 @@ EventScript_PkmnCenterNurse_Goodbye::
 
 @ VAR_0x8004 is 1 when player has Gold Card; jumps are identical
 EventScript_PkmnCenterNurse_HealPkmn::
+	playse SE_BOO
+	delay 5 
+	playse SE_FAILURE
+	waitse 
 	incrementgamestat GAME_STAT_USED_POKECENTER
 	call_if_eq VAR_0x8004, 0, EventScript_PkmnCenterNurse_IllTakeYourPkmn
 	call_if_eq VAR_0x8004, 1, EventScript_PkmnCenterNurse_IllTakeYourPkmn2
@@ -21,6 +29,18 @@ EventScript_PkmnCenterNurse_HealPkmn::
 	goto_if_unset FLAG_POKERUS_EXPLAINED, EventScript_PkmnCenterNurse_CheckPokerus
 	goto EventScript_PkmnCenterNurse_CheckTrainerHillAndUnionRoom
 	end
+
+EventScript_PkmnCenterNurse_FastHeal::
+    incrementgamestat GAME_STAT_USED_POKECENTER
+	fadescreen FADE_TO_BLACK
+	playse SE_DING_DONG
+	delay 10
+	special HealPlayerParty
+	fadescreen FADE_FROM_BLACK
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+    waitmovement 0
+	end
+
 
 EventScript_PkmnCenterNurse_IllTakeYourPkmn::
 	message gText_IllTakeYourPkmn

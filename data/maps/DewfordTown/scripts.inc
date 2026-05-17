@@ -662,13 +662,26 @@ DewfordTown_EventScript_eRivalEntrance::
 	end
 
 DewfordTown_EventScript_eRival_Battle::
+	goto_if_unset FLAG_FUSRODAH, DewfordTown_EventScript_eRival_GotoMauville
 	faceplayer
+	playbgm MUS_B_PIKE, FALSE
 	msgbox DewfordTown_Text_eRivalBattle, MSGBOX_DEFAULT
 	closemessage
     switch VAR_STARTER_MON
     case 0, DewfordTown_eRival_Battle_Mudkip
 	case 1, DewfordTown_eRival_Battle_Treecko
 	case 2, DewfordTown_eRival_Battle_Torchic
+	end
+
+DewfordTown_EventScript_eRival_GotoMauville::
+	faceplayer
+	playbgm MUS_B_PIKE, FALSE
+	waitmovement 0
+	msgbox DewfordTown_eRival_Text_GoToMauville, MSGBOX_DEFAULT
+	closemessage
+	release
+	releaseall
+	fadedefaultbgm
 	end
 
 DewfordTown_EventScript_eRival_Battle_Fought::
@@ -913,7 +926,14 @@ DewfordTown_Text_eRival:
 	.string "have a battle with our new friends!$"
 
 DewfordTown_Text_eRivalBattle:
-	.string "En garde!$"
+	.string "Every step I set.\p"
+	.string "Gets me closer to fulfilling my destiny.\p"
+	.string "Gets me closer to becoming the Chosen\n"
+	.string "One.\p"
+	.string "Gets me closer to the saviour of our\n"
+	.string "world.\p"
+	.string "...\p"
+	.string "And gets me closer to defeating you!$"
 
 DewfordTown_eRival_Text_Defeat:
 	.string "...\p"
@@ -925,5 +945,11 @@ DewfordTown_eRival_Text_FlyAway:
 	.string "But 'get' means 'high'...\n"
 	.string "... Right?\p"
 	.string "And I am SUUUPPERRR get right now.\p"
+	.string "Oh!\l"
 	.string "There I go!\p"
 	.string "Byyeeeeeeeeeeeeeeeeeeeeeeeeeeee!!!!$"
+
+DewfordTown_eRival_Text_GoToMauville:
+	.string "Have you been to Mauville City yet?\n"
+	.string "You should go visit it.\p"
+	.string "You'll be blown away!$"
