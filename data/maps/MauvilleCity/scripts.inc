@@ -80,10 +80,26 @@ MauvilleCity_EventScript_FusRoDa4::
 
 
 MauvilleCity_EventScript_Reporters::
+	playse SE_RG_POKE_JUMP_SUCCESS
+	applymovement LOCALID_MAUVILLE_CAM1, Mauville_spin
+	applymovement LOCALID_MAUVILLE_REPORTER, Mauville_spin
+	waitmovement 0 
+	delay 5
+	applymovement LOCALID_MAUVILLE_CAM1, Mauville_spin
+	applymovement LOCALID_MAUVILLE_REPORTER, Mauville_spin
+	waitmovement 0 
+	fadeoutbgm 0
+	addobject LOCALID_MAUVILLE_CAM2
+	addobject LOCALID_MAUVILLE_CAM3
+	addobject LOCALID_MAUVILLE_CAM4
+	addobject LOCALID_MAUVILLE_CAM5
+	addobject LOCALID_MAUVILLE_CAM6
+	addobject LOCALID_MAUVILLE_CAM7
+	addobject LOCALID_MAUVILLE_CAM8
+	addobject LOCALID_MAUVILLE_CAM9
 	applymovement LOCALID_MAUVILLE_CAM2, Mauville_Setinvis
 	waitmovement 0
-	applymovement LOCALID_MAUVILLE_CAM9, Mauville_Setinvis
-	waitmovement 0
+	delay 5
 	applymovement LOCALID_MAUVILLE_CAM3, Mauville_Setinvis
 	waitmovement 0
 	applymovement LOCALID_MAUVILLE_CAM4, Mauville_Setinvis
@@ -96,6 +112,256 @@ MauvilleCity_EventScript_Reporters::
 	waitmovement 0
 	applymovement LOCALID_MAUVILLE_CAM8, Mauville_Setinvis
 	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM9, Mauville_Setinvis
+	waitmovement 0
+	setobjectxy LOCALID_MAUVILLE_CAM2, 15, 15
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM2, Common_Movement_FaceDown
+	waitmovement 0
+	setobjectxy LOCALID_MAUVILLE_CAM3, 18, 15
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM3, Common_Movement_FaceDown
+	waitmovement 0
+	setobjectxy LOCALID_MAUVILLE_CAM3, 20, 17
+	waitmovement 0
+	setobjectxy LOCALID_MAUVILLE_CAM4, 13, 17
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM4, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	setobjectxy LOCALID_MAUVILLE_CAM5, 13, 17
+	waitmovement 0
+	setobjectxy LOCALID_MAUVILLE_CAM6, 12, 19
+	waitmovement 0
+	setobjectxy LOCALID_MAUVILLE_CAM7, 12, 19
+	waitmovement 0
+	setobjectxy LOCALID_MAUVILLE_CAM8, 12, 19
+	waitmovement 0
+	setobjectxy LOCALID_MAUVILLE_CAM9, 12, 19
+	waitmovement 0
+	playbgm MUS_CONTEST, FALSE
+	msgbox MauvilleCity_Text_Reportersintro, MSGBOX_YESNO
+	closemessage
+	applymovement LOCALID_MAUVILLE_CAM4, Mauville_4
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM6, Mauville_6
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM7, Mauville_7
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM8, Mauville_8
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM9, Mauville_9
+	waitmovement 0
+	msgbox MauvilleCity_Text_Reporterswhatever, MSGBOX_YESNO
+	msgbox MauvilleCity_Text_Reportersawnser, MSGBOX_YESNO
+	msgbox MauvilleCity_Text_Reporterget, MSGBOX_DEFAULT
+	playbgm MUS_CONTEST_WINNER, FALSE
+	msgbox MauvilleCity_Text_Reportergeget, MSGBOX_DEFAULT
+	applymovement LOCALID_MAUVILLE_CAM1, Mauville_spin
+	applymovement LOCALID_MAUVILLE_REPORTER, Mauville_spin
+	waitmovement 0 
+	delay 20
+	applymovement LOCALID_MAUVILLE_CAM1, Mauville_spin
+	applymovement LOCALID_MAUVILLE_REPORTER, Mauville_spin
+	waitmovement 0 
+	delay 20
+	applymovement LOCALID_MAUVILLE_CAM1, Mauville_spin
+	applymovement LOCALID_MAUVILLE_REPORTER, Mauville_spin
+	waitmovement 0 
+	delay 20
+	applymovement LOCALID_MAUVILLE_CAM1, Mauville_spin
+	applymovement LOCALID_MAUVILLE_REPORTER, Mauville_spin
+	waitmovement 0 
+	delay 20
+	applymovement LOCALID_MAUVILLE_CAM1, Mauville_spin
+	applymovement LOCALID_MAUVILLE_REPORTER, Mauville_spin
+	waitmovement 0 
+	delay 20
+	applymovement LOCALID_MAUVILLE_CAM1, Mauville_spin
+	applymovement LOCALID_MAUVILLE_REPORTER, Mauville_spin
+	waitmovement 0 
+	delay 20
+	applymovement LOCALID_MAUVILLE_CAM1, Mauville_spin
+	applymovement LOCALID_MAUVILLE_REPORTER, Mauville_spin
+	waitmovement 0 
+	delay 20
+	applymovement LOCALID_MAUVILLE_CAM1, Mauville_spin
+	applymovement LOCALID_MAUVILLE_REPORTER, Mauville_spin
+	waitmovement 0 
+	delay 20
+	applymovement LOCALID_MAUVILLE_CAM1, Mauville_spin
+	applymovement LOCALID_MAUVILLE_REPORTER, Mauville_spin
+	waitmovement 0 
+	delay 20
+	applymovement LOCALID_MAUVILLE_CAM1, Mauville_spin
+	applymovement LOCALID_MAUVILLE_REPORTER, Mauville_spin
+	waitmovement 0 
+	delay 20
+	
+	
+	msgbox MauvilleCity_Text_Reporterthere, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_MAUVILLE_CAM2, Mauville_Setvis
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM2, Mauville_Jumpy
+	waitmovement 0
+	playse SE_BIKE_HOP
+	applymovement LOCALID_MAUVILLE_CAM2, Common_Movement_FaceDown
+	waitmovement 0
+	
+	msgbox MauvilleCity_Text_Reporterandthere, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_MAUVILLE_CAM3, Mauville_Setvis
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM3, Mauville_Jumpy
+	waitmovement 0
+	playse SE_BIKE_HOP
+	applymovement LOCALID_MAUVILLE_CAM3, Common_Movement_FaceDown
+	waitmovement 0
+
+	msgbox MauvilleCity_Text_Reporterandthere, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_MAUVILLE_CAM4, Mauville_Setvis
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM4, Mauville_Jumpy
+	waitmovement 0
+	playse SE_BIKE_HOP
+	applymovement LOCALID_MAUVILLE_CAM4, Common_Movement_FaceDown
+	waitmovement 0
+
+	msgbox MauvilleCity_Text_Reporterthere, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_MAUVILLE_CAM5, Mauville_Setvis
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM5, Mauville_Jumpy
+	waitmovement 0
+	playse SE_BIKE_HOP
+	applymovement LOCALID_MAUVILLE_CAM5, Common_Movement_FaceDown
+	waitmovement 0
+
+	msgbox MauvilleCity_Text_Reporterthere, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_MAUVILLE_CAM6, Mauville_Setvis
+	waitmovement 0
+	setobjectxy LOCALID_MAUVILLE_CAM6, 12, 19
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM6, Mauville_Jumpy
+	waitmovement 0
+	playse SE_BIKE_HOP
+
+	msgbox MauvilleCity_Text_Reporterandthere, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_MAUVILLE_CAM7, Mauville_Setvis
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM7, Mauville_Jumpy
+	waitmovement 0
+	playse SE_BIKE_HOP
+	applymovement LOCALID_MAUVILLE_CAM7, Common_Movement_FaceUp
+	waitmovement 0
+
+	msgbox MauvilleCity_Text_Reporterthere, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_MAUVILLE_CAM8, Mauville_Setvis
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM8, Mauville_Jumpy
+	waitmovement 0
+	playse SE_BIKE_HOP
+	applymovement LOCALID_MAUVILLE_CAM8, Common_Movement_FaceUp
+	waitmovement 0
+
+	msgbox MauvilleCity_Text_Reporterandthere, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_MAUVILLE_CAM9, Mauville_Setvis
+	waitmovement 0
+	applymovement LOCALID_MAUVILLE_CAM9, Mauville_Jumpy
+	waitmovement 0
+	playse SE_BIKE_HOP
+	applymovement LOCALID_MAUVILLE_CAM9, Common_Movement_FaceUp
+	waitmovement 0
+	msgbox MauvilleCity_Text_Reporterhow, MSGBOX_YESNO
+	closemessage
+	delay 50
+	msgbox MauvilleCity_Text_Reporterend, MSGBOX_DEFAULT
+	fadedefaultbgm
+	setvar VAR_BRAWLEY_DEFEATED, 2
+	fadescreen FADE_TO_BLACK
+	delay 50
+	playse SE_DOOR
+	removeobject LOCALID_MAUVILLE_CAM1
+	removeobject LOCALID_MAUVILLE_CAM2
+	delay 30
+	playse SE_DOOR
+	removeobject LOCALID_MAUVILLE_CAM3
+	removeobject LOCALID_MAUVILLE_CAM4
+	delay 50
+	playse SE_DOOR
+	removeobject LOCALID_MAUVILLE_CAM5
+	delay 20
+	playse SE_DOOR
+	removeobject LOCALID_MAUVILLE_CAM6
+	delay 60
+	playse SE_DOOR
+	removeobject LOCALID_MAUVILLE_CAM7
+	delay 20
+	playse SE_DOOR
+	removeobject LOCALID_MAUVILLE_CAM8
+	delay 20
+	playse SE_DOOR
+	removeobject LOCALID_MAUVILLE_CAM9
+	delay 55
+	playse SE_DOOR
+	removeobject LOCALID_MAUVILLE_REPORTER
+	delay 10
+	playse SE_DOOR
+	fadescreen FADE_FROM_BLACK
+	release
+	releaseall
+	end
+
+
+MauvilleCity_Text_Reportersintro:
+	.string "Hi there young trainer!\p"
+	.string "We are looking for up and coming, \n"
+	.string "hotshot trainers to interview!\p"
+	.string "Are you interested?$"
+
+MauvilleCity_Text_Reporterswhatever:
+	.string "Whatever!\p"
+	.string "First question: \n"
+	.string "Are you get?$"
+
+MauvilleCity_Text_Reportersawnser:
+	.string "Ladies and gentlemen watching at home\n"
+	.string "you heard it here first!\p"
+	.string "Now...\n"
+	.string "Our second question!\p"
+	.string "A follow up question:\p"
+	.string "But have you smoked?$"
+
+MauvilleCity_Text_Reporterget:
+	.string "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\n"
+	.string "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOH!\p"
+	.string "You are get!\p"
+	.string "AND!\n"
+	.string "You are on...$"
+
+MauvilleCity_Text_Reportergeget:
+	.string "GEGET!$"
+
+MauvilleCity_Text_Reporterthere:
+	.string "There is a camera!$"
+
+MauvilleCity_Text_Reporterandthere:
+	.string "And there is a camera!$"
+
+MauvilleCity_Text_Reporterhow:
+	.string "So trainer, we gotta\n"
+	.string "know...\p"
+	.string "How does it feel to be on GEGET?$"
+
+MauvilleCity_Text_Reporterend:
+	.string "Wow!\p"
+	.string "No charisma whatsoever!\p"
+	.string "Stick to Pokémon battles, kid.$"
 
 
 Mauville_Setinvis:
@@ -104,6 +370,64 @@ Mauville_Setinvis:
 
 Mauville_Setvis:
 	set_visible
+	step_end
+
+Mauville_Jumpy:
+	jump_in_place_right
+	step_end
+
+Mauville_4:
+	walk_faster_down
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_up
+	step_end
+
+Mauville_6:
+	walk_faster_down
+	walk_faster_down
+	walk_faster_right
+	walk_faster_up
+	step_end
+
+Mauville_7:
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_right
+	walk_faster_right
+	walk_faster_up
+	step_end
+
+Mauville_8:
+	walk_faster_down
+	walk_faster_down
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	step_end
+
+Mauville_9:
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_right
+	step_end
+
+Mauville_spin:
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
 	step_end
 
 MauvilleCity_EventScript_FusRoDa::

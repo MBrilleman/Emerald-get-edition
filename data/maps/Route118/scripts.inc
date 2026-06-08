@@ -31,10 +31,6 @@ Route118_EventScript_GoodRodFisherman::
 	goto_if_eq VAR_RESULT, NO, Route118_EventScript_DeclineGoodRod
 	end
 
-Route118_EventScript_Test::
-	setvar VAR_MAUVILLE_eRIVAL, 2
-	end
-
 Route118_EventScript_ReceiveGoodRod::
 	msgbox Route118_Text_IdenticalMindsTakeThis, MSGBOX_DEFAULT
 	giveitem ITEM_GOOD_ROD

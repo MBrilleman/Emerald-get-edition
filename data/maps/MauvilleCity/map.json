@@ -423,17 +423,17 @@
       "y": 19,
       "elevation": 3,
       "var": "VAR_BRAWLEY_DEFEATED",
-      "var_value": "1",
-      "script": "MauvilleCity_EventScript_Interview4"
+      "var_value": "0",
+      "script": "MauvilleCity_EventScript_FusRoDa4"
     },
-          {
+    {
       "type": "trigger",
       "x": 15,
       "y": 19,
       "elevation": 3,
       "var": "VAR_BRAWLEY_DEFEATED",
       "var_value": "1",
-      "script": "MauvilleCity_EventScript_Interview3"
+      "script": "MauvilleCity_EventScript_Interview1"
     },
     {
       "type": "trigger",
@@ -451,7 +451,7 @@
       "elevation": 3,
       "var": "VAR_BRAWLEY_DEFEATED",
       "var_value": "1",
-      "script": "MauvilleCity_EventScript_Interview1"
+      "script": "MauvilleCity_EventScript_Interview3"
     },
     {
       "type": "trigger",
@@ -459,8 +459,8 @@
       "y": 19,
       "elevation": 3,
       "var": "VAR_BRAWLEY_DEFEATED",
-      "var_value": "0",
-      "script": "MauvilleCity_EventScript_FusRoDa4"
+      "var_value": "1",
+      "script": "MauvilleCity_EventScript_Interview4"
     }
   ],
   "bg_events": [
