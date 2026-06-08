@@ -64,7 +64,8 @@ enum
     MENU_ACTION_RETIRE_FRONTIER,
     MENU_ACTION_PYRAMID_BAG,
     MENU_ACTION_POKEDEX,
-    MENU_ACTION_CASINO
+    MENU_ACTION_CASINO,
+    MENU_ACTION_ROULETTE
 };
 
 // Save status
@@ -102,6 +103,7 @@ static bool8 StartMenuPlayerNameCallback(void);
 static bool8 StartMenuSaveCallback(void);
 static bool8 StartMenuOptionCallback(void);
 static bool8 StartMenuCasinoCallback(void);
+static bool8 StartMenuRouletteCallBack(void);
 static bool8 StartMenuExitCallback(void);
 static bool8 StartMenuSafariZoneRetireCallback(void);
 static bool8 StartMenuLinkModePlayerNameCallback(void);
@@ -200,6 +202,7 @@ static const struct MenuAction sStartMenuItems[] =
     [MENU_ACTION_PYRAMID_BAG]     = {gText_MenuBag,     {.u8_void = StartMenuBattlePyramidBagCallback}},
     [MENU_ACTION_POKEDEX]         = {gText_MenuPokedex, {.u8_void = StartMenuPokedexCallback}},
     [MENU_ACTION_CASINO]          = {gText_MenuCasino,  {.u8_void = StartMenuCasinoCallback}},
+    [MENU_ACTION_ROULETTE]        = {gText_MenuRoulette,{.u8_void = StartMenuRouletteCallBack}}
 };
 
 static const struct BgTemplate sBgTemplates_LinkBattleSave[] =
@@ -320,6 +323,7 @@ static void AddStartMenuAction(u8 action)
 
 static void BuildNormalStartMenu(void)
 {
+    //2nd menu -> right
     if (FlagGet(FLAG_SECONDARY_START_MENU_OPEN))
     {
         if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
@@ -333,6 +337,7 @@ static void BuildNormalStartMenu(void)
         }
 
         AddStartMenuAction(MENU_ACTION_PLAYER);
+        AddStartMenuAction(MENU_ACTION_OPTION);
     }
     //regular menu
     else 
@@ -348,10 +353,10 @@ static void BuildNormalStartMenu(void)
         if (FlagGet(FLAG_RECEIVED_COIN_CASE))
         {
           AddStartMenuAction(MENU_ACTION_CASINO);  
+          AddStartMenuAction(MENU_ACTION_ROULETTE);
         }
         
         AddStartMenuAction(MENU_ACTION_SAVE);
-        AddStartMenuAction(MENU_ACTION_OPTION);
     }
     //Add EXIT to both menu's
     AddStartMenuAction(MENU_ACTION_EXIT);
@@ -721,12 +726,45 @@ static bool8 StartMenuCasinoCallback(void)
     {
         PlayRainStoppingSoundEffect();
         PlaySE(SE_SELECT);
-        RemoveExtraStartMenuWindows();
+        RemoveExtraStartMenuWindows(); 
         HideStartMenu();
 		ScriptContext_SetupScript(MauvilleCity_GameCorner_EventScript_SlotMachine7);
         return TRUE;
     }
     return FALSE;
+}
+
+
+
+
+extern const u8 Roulette_EventScript_Table2[];
+
+static void Task_StartRouletteFromMenu(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        ScriptContext_SetupScript(Roulette_EventScript_Table2);
+        DestroyTask(taskId);
+    }
+}
+
+static bool8 StartMenuRouletteCallBack(void)
+{
+    u8 taskId;
+
+    if (!gPaletteFade.active)
+    {
+        PlayRainStoppingSoundEffect();
+        PlaySE(SE_SELECT);
+        CleanupOverworldWindowsAndTilemaps();
+        RemoveExtraStartMenuWindows();
+        HideStartMenu();
+		ScriptContext_SetupScript(Roulette_EventScript_Table2);
+        SetMainCallback2(CB2_ReturnToField);
+        LockPlayerFieldControls();
+        return TRUE;
+    }
+    return FALSE;    
 }
 
 static bool8 StartMenuBagCallback(void)
