@@ -337,7 +337,6 @@ static void BuildNormalStartMenu(void)
         }
 
         AddStartMenuAction(MENU_ACTION_PLAYER);
-        AddStartMenuAction(MENU_ACTION_OPTION);
     }
     //regular menu
     else 
@@ -353,11 +352,13 @@ static void BuildNormalStartMenu(void)
         if (FlagGet(FLAG_RECEIVED_COIN_CASE))
         {
           AddStartMenuAction(MENU_ACTION_CASINO);  
-          AddStartMenuAction(MENU_ACTION_ROULETTE);
+          //AddStartMenuAction(MENU_ACTION_ROULETTE);
         }
         
         AddStartMenuAction(MENU_ACTION_SAVE);
+        AddStartMenuAction(MENU_ACTION_OPTION);
     }
+
     //Add EXIT to both menu's
     AddStartMenuAction(MENU_ACTION_EXIT);
 }
