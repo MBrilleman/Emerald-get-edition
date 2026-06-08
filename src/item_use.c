@@ -1061,6 +1061,20 @@ void ItemUseInBattle_Escape(u8 taskId)
     }
 }
 
+extern const u8 Roulette_EventScript_Table2[];
+static void ItemUseOnFieldCB_Roulette(u8 taskId)
+{
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Roulette_EventScript_Table2);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_Roulette(u8 taskId)
+{
+    sItemUseOnFieldCB = ItemUseOnFieldCB_Roulette;
+    SetUpItemUseOnFieldCallback(taskId);
+}
+
 void ItemUseOutOfBattle_EnigmaBerry(u8 taskId)
 {
     switch (GetItemEffectType(gSpecialVar_ItemId))

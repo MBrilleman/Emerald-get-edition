@@ -807,7 +807,7 @@ static const struct RouletteSlot sRouletteSlots[] =
         .flag = F_PURPLE_MAKUHITA,
     },
 };
-static const u8 sTableMinBets[] = {1, 3, 1, 6};
+static const u8 sTableMinBets[] = {1, 8, 1, 6};
 
 static const struct RouletteTable sRouletteTables[] =
 {
@@ -834,7 +834,7 @@ static const struct RouletteTable sRouletteTables[] =
     },
     // Right table
     {
-        .minBet = 3,
+        .minBet = 9,
         .randDistanceHigh = DEGREES_PER_SLOT,
         .randDistanceLow = DEGREES_PER_SLOT / 2,
         .wheelSpeed = 1,
@@ -2347,6 +2347,8 @@ static const u32 sWheelIcons_Gfx[] = INCBIN_U32("graphics/roulette/wheel_icons.4
 static const u32 sShadow_Gfx[] = INCBIN_U32("graphics/roulette/shadow.4bpp.lz");
 static const u32 sCursor_Gfx[] = INCBIN_U32("graphics/roulette/cursor.4bpp.lz");
 
+const u8 Roulette_EventScript_Table2;
+
 static const struct SpritePalette sSpritePalettes[] =
 {
     { .data = sShadow_Pal,      .tag = PALTAG_SHADOW },
@@ -3478,6 +3480,17 @@ void PlayRoulette(void)
     LockPlayerFieldControls();
     ShowCoinsWindow(GetCoins(), 1, 1);
     taskId = CreateTask(Task_PrintRouletteEntryMsg, 0);
+    gTasks[taskId].tCoins = GetCoins();
+}
+
+void PlayRouletteBag(void)
+{
+    u8 taskId;
+    LockPlayerFieldControls();
+    PlaySE(SE_BALL_THROW);
+    //TODO check for minimum bet
+    //ShowCoinsWindow(GetCoins(), 1, 1);
+    taskId = CreateTask(Task_FadeToRouletteGame, 0);
     gTasks[taskId].tCoins = GetCoins();
 }
 

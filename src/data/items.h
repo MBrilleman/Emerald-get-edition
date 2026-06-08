@@ -679,15 +679,15 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_034] =
+    [ITEM_ROULETTE] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("ROULETTE"),
+        .itemId = ITEM_ROULETTE,
         .price = 0,
-        .description = sDummyDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .description = sRouletteDesc,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Roulette,
     },
 
     [ITEM_035] =

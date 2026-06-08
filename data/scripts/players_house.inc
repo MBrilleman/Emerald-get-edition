@@ -163,6 +163,7 @@ PlayersHouse_1F_EventScript_PetalburgGymReportMale::
 	msgbox PlayersHouse_1F_Text_ItsOverWeMissedHim, MSGBOX_DEFAULT
     giveitem ITEM_COIN_CASE
 	setflag FLAG_RECEIVED_COIN_CASE
+    giveitem ITEM_ROULETTE
     msgbox PlayersHouse_1F_Text_GamblingUpdate, MSGBOX_DEFAULT
 	msgbox PlayersHouse_1F_Text_GoIntroduceYourselfNextDoor, MSGBOX_DEFAULT
 	closemessage
