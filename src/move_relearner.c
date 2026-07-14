@@ -976,3 +976,4 @@ void MoveRelearnerShowHideHearts(s32 move)
         }
     }
 }
+

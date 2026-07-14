@@ -747,6 +747,12 @@ static void BuildEggMoveset(struct Pokemon *egg, struct BoxPokemon *father, stru
     }
 }
 
+bool8 MonHasEggMoves(struct Pokemon *mon)
+{
+    u16 eggMoves[EGG_MOVES_ARRAY_COUNT];
+    return GetEggMoves(mon, eggMoves) != 0;
+}
+
 static void RemoveEggFromDayCare(struct DayCare *daycare)
 {
     daycare->offspringPersonality = 0;

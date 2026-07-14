@@ -6362,13 +6362,13 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
     u8 preEvLvl = (level > MAX_LEVEL_DIFF_PRE_EV) ? (level - MAX_LEVEL_DIFF_PRE_EV) : 1;
     int i, j, k;
 
-    if (FlagGet(FLAG_PARTY_EGG_MOVES))
-    {
-        numEggMoves = GetEggMoves(mon, eggMoves);
+    // if (FlagGet(FLAG_PARTY_EGG_MOVES))
+    // {
+    //     numEggMoves = GetEggMoves(mon, eggMoves);
 
-        if (numEggMoves == 0)
-            return 0;
-    }
+    //     if (numEggMoves == 0)
+    //         return 0;
+    // }
 
     if (species == SPECIES_EGG)
         return 0;
