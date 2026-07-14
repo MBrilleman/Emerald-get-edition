@@ -21,13 +21,14 @@ Std_ObtainItem::
     @ VAR_0x8007 is now 2 (PC success) or 0 (both full)
 
     call EventScript_ObtainItemMessage
-    end
+    return
 
 EventScript_TryAddItemToBagObtain::
     additem VAR_0x8004, VAR_0x8005
     goto_if_eq VAR_RESULT, FALSE, EventScript_TryAddItemToBagObtainFailed
     setvar VAR_0x8007, 1                @ success: bag
     return
+    
 EventScript_TryAddItemToBagObtainFailed::
     setvar VAR_0x8007, 0                @ bag full
     return
@@ -41,6 +42,7 @@ EventScript_TryAddItemToPCObtain::
     goto_if_eq VAR_RESULT, FALSE, EventScript_TryAddItemToPCObtainFailed
     setvar VAR_0x8007, 2                @ success: PC
     return
+
 EventScript_TryAddItemToPCObtainFailed::
     setvar VAR_0x8007, 0                @ PC also full or key item
     return
