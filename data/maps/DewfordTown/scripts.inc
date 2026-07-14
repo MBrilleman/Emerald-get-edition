@@ -953,3 +953,4 @@ DewfordTown_eRival_Text_GoToMauville:
 	.string "Have you been to Mauville City yet?\n"
 	.string "You should go visit it.\p"
 	.string "You'll be blown away!$"
+

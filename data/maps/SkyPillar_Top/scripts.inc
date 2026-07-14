@@ -709,3 +709,4 @@ SkyPillar_Top_Text_Postbattle:
 	
 SkyPillar_Top_Text_PostbattleFinal:
 	.string "FOUND IT!$"
+
