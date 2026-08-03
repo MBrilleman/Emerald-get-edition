@@ -430,7 +430,7 @@
       "type": "trigger",
       "x": 64,
       "y": 16,
-      "elevation": 5,
+      "elevation": 0,
       "var": "VAR_MOSSDEEP_eRIVAL",
       "var_value": "1",
       "script": "MossdeepCity_EventScript_eRival_Encounter"

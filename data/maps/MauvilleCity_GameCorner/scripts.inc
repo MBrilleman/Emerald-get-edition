@@ -8,6 +8,7 @@ MauvilleCity_GameCorner_MapScripts::
 	.set TM_THUNDERBOLT_COINS, 4000
 	.set TM_ICE_BEAM_COINS, 4000
 	.set DOLL_COINS, 1000
+    .set EVOLUTION_ITEM_COINS, 500
 
 	.set COINS_PRICE_50,  1000
 	.set COINS_PRICE_500, 10000
@@ -126,7 +127,9 @@ MauvilleCity_GameCorner_EventScript_ChooseDollPrize::
 	case 0, MauvilleCity_GameCorner_EventScript_TreeckoDoll
 	case 1, MauvilleCity_GameCorner_EventScript_TorchicDoll
 	case 2, MauvilleCity_GameCorner_EventScript_MudkipDoll
-	case 3, MauvilleCity_GameCorner_EventScript_CancelDollSelect
+    case 3, MauvilleCity_GameCorner_EventScript_Seatooth
+    case 4, MauvilleCity_GameCorner_EventScript_Seascale
+	case 5, MauvilleCity_GameCorner_EventScript_CancelDollSelect
 	goto MauvilleCity_GameCorner_EventScript_CancelDollSelect
 	end
 
@@ -363,6 +366,353 @@ MauvilleCity_GameCorner_EventScript_YouAlreadyHaveThis::
 	end
 
 MauvilleCity_GameCorner_EventScript_CancelTMSelect::
+	msgbox MauvilleCity_GameCorner_Text_OhIsThatSo, MSGBOX_DEFAULT
+	hidecoinsbox 0, 0
+	release
+	end
+
+MauvilleCity_GameCorner_EventScript_ReturnToChooseEvolutionItemPrize_1::
+	goto MauvilleCity_GameCorner_EventScript_ChooseEvolutionItemsPrizeMessage_1
+
+MauvilleCity_GameCorner_EventScript_ReturnToChooseEvolutionItemPrize_2::
+	goto MauvilleCity_GameCorner_EventScript_ChooseEvolutionItemsPrizeMessage_2
+
+MauvilleCity_GameCorner_EventScript_PrizeCornerEvolutionItems_1::
+	lock
+	faceplayer
+	msgbox MauvilleCity_GameCorner_Text_ExchangeCoinsForPrizes, MSGBOX_DEFAULT
+	checkitem ITEM_COIN_CASE
+	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_ChooseEvolutionItemsPrizeMessage_1
+	release
+	end
+
+MauvilleCity_GameCorner_EventScript_PrizeCornerEvolutionItems_2::
+	lock
+	faceplayer
+	msgbox MauvilleCity_GameCorner_Text_ExchangeCoinsForPrizes, MSGBOX_DEFAULT
+	checkitem ITEM_COIN_CASE
+	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_ChooseEvolutionItemsPrizeMessage_2
+	release
+	end
+
+MauvilleCity_GameCorner_EventScript_ChooseEvolutionItemsPrizeMessage_1::
+	message MauvilleCity_GameCorner_Text_WhichPrize
+	waitmessage
+	setvar VAR_TEMP_1, 0
+	showcoinsbox 1, 1
+	goto MauvilleCity_GameCorner_EventScript_ChooseEvolutionItemPrize_1
+
+MauvilleCity_GameCorner_EventScript_ChooseEvolutionItemsPrizeMessage_2::
+	message MauvilleCity_GameCorner_Text_WhichPrize
+	waitmessage
+	setvar VAR_TEMP_1, 0
+	showcoinsbox 1, 1
+	goto MauvilleCity_GameCorner_EventScript_ChooseEvolutionItemPrize_2
+
+MauvilleCity_GameCorner_EventScript_ChooseEvolutionItemPrize_1::
+	multichoice 12, 0, MULTI_GAME_CORNER_EVO_ITEMS_1, FALSE
+	switch VAR_RESULT
+	case 0, MauvilleCity_GameCorner_EventScript_Firestone
+	case 1, MauvilleCity_GameCorner_EventScript_Waterstone
+	case 2, MauvilleCity_GameCorner_EventScript_Thunderstone
+	case 3, MauvilleCity_GameCorner_EventScript_Leafstone
+    case 4, MauvilleCity_GameCorner_EventScript_BuyMoonstone
+	case 5, MauvilleCity_GameCorner_EventScript_CancelEvolutionItemSelect
+	goto MauvilleCity_GameCorner_EventScript_CancelEvolutionItemSelect
+	end
+
+MauvilleCity_GameCorner_EventScript_ChooseEvolutionItemPrize_2::
+	multichoice 12, 0, MULTI_GAME_CORNER_EVO_ITEMS_2, FALSE
+	switch VAR_RESULT
+	case 0, MauvilleCity_GameCorner_EventScript_Sunstone
+	case 1, MauvilleCity_GameCorner_EventScript_Metalcoat
+	case 2, MauvilleCity_GameCorner_EventScript_Kingsrock
+	case 3, MauvilleCity_GameCorner_EventScript_Dragonscale
+    case 4, MauvilleCity_GameCorner_EventScript_Upgrade
+	case 5, MauvilleCity_GameCorner_EventScript_CancelEvolutionItemSelect
+	goto MauvilleCity_GameCorner_EventScript_CancelEvolutionItemSelect
+	end
+
+MauvilleCity_GameCorner_EventScript_Firestone::
+	setvar VAR_TEMP_1, 1
+	bufferitemname STR_VAR_1, ITEM_FIRE_STONE
+	goto MauvilleCity_GameCorner_EventScript_ConfirmEvolutionItem
+
+MauvilleCity_GameCorner_EventScript_Waterstone::
+	setvar VAR_TEMP_1, 2
+	bufferitemname STR_VAR_1, ITEM_WATER_STONE
+	setvar VAR_0x8004, ITEM_WATER_STONE
+	goto MauvilleCity_GameCorner_EventScript_ConfirmEvolutionItem
+
+MauvilleCity_GameCorner_EventScript_Thunderstone::
+	setvar VAR_TEMP_1, 3
+	bufferitemname STR_VAR_1, ITEM_THUNDER_STONE
+	setvar VAR_0x8004, ITEM_THUNDER_STONE
+	goto MauvilleCity_GameCorner_EventScript_ConfirmEvolutionItem
+
+MauvilleCity_GameCorner_EventScript_Leafstone::
+	setvar VAR_TEMP_1, 4
+	bufferitemname STR_VAR_1, ITEM_LEAF_STONE
+	setvar VAR_0x8004, ITEM_LEAF_STONE
+	goto MauvilleCity_GameCorner_EventScript_ConfirmEvolutionItem
+
+MauvilleCity_GameCorner_EventScript_Moonstone::
+	setvar VAR_TEMP_1, 5
+	bufferitemname STR_VAR_1, ITEM_MOON_STONE
+	setvar VAR_0x8004, ITEM_MOON_STONE
+	goto MauvilleCity_GameCorner_EventScript_ConfirmEvolutionItem
+
+MauvilleCity_GameCorner_EventScript_Sunstone::
+	setvar VAR_TEMP_1, 6
+	bufferitemname STR_VAR_1, ITEM_SUN_STONE
+	setvar VAR_0x8004, ITEM_SUN_STONE
+	goto MauvilleCity_GameCorner_EventScript_ConfirmEvolutionItem
+
+MauvilleCity_GameCorner_EventScript_Metalcoat::
+	setvar VAR_TEMP_1, 7
+	bufferitemname STR_VAR_1, ITEM_METAL_COAT
+	setvar VAR_0x8004, ITEM_METAL_COAT
+	goto MauvilleCity_GameCorner_EventScript_ConfirmEvolutionItem
+
+MauvilleCity_GameCorner_EventScript_Kingsrock::
+	setvar VAR_TEMP_1, 8
+	bufferitemname STR_VAR_1, ITEM_KINGS_ROCK
+	setvar VAR_0x8004, ITEM_KINGS_ROCK
+	goto MauvilleCity_GameCorner_EventScript_ConfirmEvolutionItem
+
+MauvilleCity_GameCorner_EventScript_Dragonscale::
+	setvar VAR_TEMP_1, 9
+	bufferitemname STR_VAR_1, ITEM_DRAGON_SCALE
+	setvar VAR_0x8004, ITEM_DRAGON_SCALE
+	goto MauvilleCity_GameCorner_EventScript_ConfirmEvolutionItem
+
+MauvilleCity_GameCorner_EventScript_Upgrade::
+	setvar VAR_TEMP_1, 10
+	bufferitemname STR_VAR_1, ITEM_UP_GRADE
+	setvar VAR_0x8004, ITEM_UP_GRADE
+	goto MauvilleCity_GameCorner_EventScript_ConfirmEvolutionItem
+
+MauvilleCity_GameCorner_EventScript_Seatooth::
+	setvar VAR_TEMP_1, 11
+	bufferitemname STR_VAR_1, ITEM_DEEP_SEA_TOOTH
+	setvar VAR_0x8004, ITEM_DEEP_SEA_TOOTH
+	goto MauvilleCity_GameCorner_EventScript_ConfirmEvolutionItem
+
+MauvilleCity_GameCorner_EventScript_Seascale::
+	setvar VAR_TEMP_1, 12
+	bufferitemname STR_VAR_1, ITEM_DEEP_SEA_SCALE
+	setvar VAR_0x8004, ITEM_DEEP_SEA_SCALE
+	goto MauvilleCity_GameCorner_EventScript_ConfirmEvolutionItem
+
+MauvilleCity_GameCorner_EventScript_ConfirmEvolutionItem::
+	msgbox MauvilleCity_GameCorner_Text_SoYourChoiceIsX, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_CancelEvolutionItemSelect
+	switch VAR_TEMP_1
+	case 1, MauvilleCity_GameCorner_EventScript_BuyFirestone
+	case 2, MauvilleCity_GameCorner_EventScript_BuyWaterstone
+	case 3, MauvilleCity_GameCorner_EventScript_BuyThunderstone
+	case 4, MauvilleCity_GameCorner_EventScript_BuyLeafstone
+    case 5, MauvilleCity_GameCorner_EventScript_BuyMoonstone
+    case 6, MauvilleCity_GameCorner_EventScript_BuySunstone
+    case 7, MauvilleCity_GameCorner_EventScript_BuyMetalcoat
+    case 8, MauvilleCity_GameCorner_EventScript_BuyKingsrock
+    case 9, MauvilleCity_GameCorner_EventScript_BuyDragonscale
+    case 10, MauvilleCity_GameCorner_EventScript_BuyUpgrade
+    case 11, MauvilleCity_GameCorner_EventScript_BuySeatooth
+    case 12, MauvilleCity_GameCorner_EventScript_BuySeascale
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyFirestone::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, EVOLUTION_ITEM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForEvolutionItem
+
+	checkitemspace ITEM_FIRE_STONE
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForEvolutionItem
+
+	removecoins EVOLUTION_ITEM_COINS
+	additem ITEM_FIRE_STONE
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseEvolutionItemPrize_1
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyWaterstone::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, EVOLUTION_ITEM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForEvolutionItem
+
+	checkitemspace ITEM_WATER_STONE
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForEvolutionItem
+
+	removecoins EVOLUTION_ITEM_COINS
+	additem ITEM_WATER_STONE
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseEvolutionItemPrize_1
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyThunderstone::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, EVOLUTION_ITEM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForEvolutionItem
+
+	checkitemspace ITEM_THUNDER_STONE
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForEvolutionItem
+
+	removecoins EVOLUTION_ITEM_COINS
+	additem ITEM_THUNDER_STONE
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseEvolutionItemPrize_1
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyLeafstone::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, EVOLUTION_ITEM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForEvolutionItem
+
+	checkitemspace ITEM_LEAF_STONE
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForEvolutionItem
+
+	removecoins EVOLUTION_ITEM_COINS
+	additem ITEM_LEAF_STONE
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseEvolutionItemPrize_1
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyMoonstone::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, EVOLUTION_ITEM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForEvolutionItem
+
+	checkitemspace ITEM_MOON_STONE
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForEvolutionItem
+
+	removecoins EVOLUTION_ITEM_COINS
+	additem ITEM_MOON_STONE
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseEvolutionItemPrize_1
+	end
+
+MauvilleCity_GameCorner_EventScript_BuySunstone::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, EVOLUTION_ITEM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForEvolutionItem
+
+	checkitemspace ITEM_SUN_STONE
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForEvolutionItem
+
+	removecoins EVOLUTION_ITEM_COINS
+	additem ITEM_SUN_STONE
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseEvolutionItemPrize_2
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyMetalcoat::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, EVOLUTION_ITEM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForEvolutionItem
+
+	checkitemspace ITEM_METAL_COAT
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForEvolutionItem
+
+	removecoins EVOLUTION_ITEM_COINS
+	additem ITEM_METAL_COAT
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseEvolutionItemPrize_2
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyKingsrock::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, EVOLUTION_ITEM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForEvolutionItem
+
+	checkitemspace ITEM_KINGS_ROCK
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForEvolutionItem
+
+	removecoins EVOLUTION_ITEM_COINS
+	additem ITEM_KINGS_ROCK
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseEvolutionItemPrize_2
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyDragonscale::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, EVOLUTION_ITEM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForEvolutionItem
+
+	checkitemspace ITEM_DRAGON_SCALE
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForEvolutionItem
+
+	removecoins EVOLUTION_ITEM_COINS
+	additem ITEM_DRAGON_SCALE
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseEvolutionItemPrize_2
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyUpgrade::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, EVOLUTION_ITEM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForEvolutionItem
+
+	checkitemspace ITEM_UP_GRADE
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForEvolutionItem
+
+	removecoins EVOLUTION_ITEM_COINS
+	additem ITEM_UP_GRADE
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseEvolutionItemPrize_2
+	end
+
+MauvilleCity_GameCorner_EventScript_BuySeatooth::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, EVOLUTION_ITEM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForEvolutionItem
+
+	checkitemspace ITEM_DEEP_SEA_TOOTH
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForEvolutionItem
+
+	removecoins EVOLUTION_ITEM_COINS
+	additem ITEM_DEEP_SEA_TOOTH
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_BuySeascale::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, EVOLUTION_ITEM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForEvolutionItem
+
+	checkitemspace ITEM_DEEP_SEA_SCALE
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForEvolutionItem
+
+	removecoins EVOLUTION_ITEM_COINS
+	additem ITEM_DEEP_SEA_SCALE
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForEvolutionItem::
+	msgbox MauvilleCity_GameCorner_Text_NotEnoughCoins, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseEvolutionItemPrize_1
+	end
+
+MauvilleCity_GameCorner_EventScript_NoRoomForEvolutionItem::
+	call Common_EventScript_BagIsFull
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseEvolutionItemPrize_1
+	end
+
+MauvilleCity_GameCorner_EventScript_CancelEvolutionItemSelect::
 	msgbox MauvilleCity_GameCorner_Text_OhIsThatSo, MSGBOX_DEFAULT
 	hidecoinsbox 0, 0
 	release
@@ -677,4 +1027,3 @@ MauvilleCity_GameCorner_Text_HeresSomeSlotsInfo:
 MauvilleCity_GameCorner_Text_CantPlayWithNoCoinCase:
 	.string "You can't play if you don't have\n"
 	.string "a COIN CASE.$"
-

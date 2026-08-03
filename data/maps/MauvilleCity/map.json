@@ -461,6 +461,42 @@
       "var": "VAR_BRAWLEY_DEFEATED",
       "var_value": "0",
       "script": "MauvilleCity_EventScript_FusRoDa4"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 19,
+      "elevation": 3,
+      "var": "VAR_BRAWLEY_DEFEATED",
+      "var_value": "1",
+      "script": "MauvilleCity_EventScript_Interview1"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 19,
+      "elevation": 3,
+      "var": "VAR_BRAWLEY_DEFEATED",
+      "var_value": "1",
+      "script": "MauvilleCity_EventScript_Interview2"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 19,
+      "elevation": 3,
+      "var": "VAR_BRAWLEY_DEFEATED",
+      "var_value": "1",
+      "script": "MauvilleCity_EventScript_Interview3"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 19,
+      "elevation": 3,
+      "var": "VAR_BRAWLEY_DEFEATED",
+      "var_value": "1",
+      "script": "MauvilleCity_EventScript_Interview4"
     }
   ],
   "bg_events": [

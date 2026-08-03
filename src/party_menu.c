@@ -73,6 +73,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "move_relearner.h"
+#include "daycare.h"
 
 enum {
     MENU_SUMMARY,
@@ -2647,7 +2648,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
         if (GetNumberOfRelearnableMoves(&mons[slotId]) != 0) {
 			AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_MOVES);
 		}
-        if (FlagGet(FLAG_EGG_MOVE_OPTION_GIVEN)){
+        if (FlagGet(FLAG_EGG_MOVE_OPTION_GIVEN) && MonHasEggMoves(&mons[slotId])){
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, EGG_MOVES);
         }
         if (ItemIsMail(GetMonData(&mons[slotId], MON_DATA_HELD_ITEM)))

@@ -1,6 +1,10 @@
 static const u8 sDummyDesc[] = _(
     "?????");
 
+static const u8 sRouletteDesc[] = _(
+    "For all your gambling\n"
+    "needs.");
+
 static const u8 sGamblingCoinsDesc[] = _(
     "Coins for instant\n"
     "gratification.");

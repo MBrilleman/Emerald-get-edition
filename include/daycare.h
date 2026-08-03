@@ -9,7 +9,7 @@ struct RecordMixingDaycareMail
     u32 numDaycareMons;
     bool16 cantHoldItem[DAYCARE_MON_COUNT];
 };
-
+bool8 MonHasEggMoves(struct Pokemon *mon);
 u8 *GetMonNickname2(struct Pokemon *mon, u8 *dest);
 u8 *GetBoxMonNickname(struct BoxPokemon *mon, u8 *dest);
 u8 CountPokemonInDaycare(struct DayCare *daycare);
@@ -31,5 +31,6 @@ bool8 NameHasGenderSymbol(const u8 *name, u8 genderRatio);
 void ShowDaycareLevelMenu(void);
 void ChooseSendDaycareMon(void);
 u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves);
+
 
 #endif // GUARD_DAYCARE_H

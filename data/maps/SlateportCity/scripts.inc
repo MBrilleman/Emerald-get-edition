@@ -797,10 +797,6 @@ SlateportCity_EventScript_Gabby::
 
 SlateportCity_EventScript_Man3::
 	msgbox SlateportCity_Text_WonderIfLighthouseStartlesPokemon, MSGBOX_NPC
-	setvar VAR_VETERANS, 1
-	setflag FLAG_SYS_GAME_CLEAR
-	setflag FLAG_WALLACE_GOES_TO_SKY_PILLAR
-	setvar VAR_SOOTOPOLIS_CITY_STATE, 3
 	end
 
 SlateportCity_EventScript_BerryPowderClerk::
