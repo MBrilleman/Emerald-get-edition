@@ -43,7 +43,8 @@ SlateportCity_EventScript_MovePeopleForSternInterview::
 	setobjectmovementtype LOCALID_SLATEPORT_GIRL, MOVEMENT_TYPE_FACE_UP
 	setobjectmovementtype LOCALID_SLATEPORT_FAT_MAN, MOVEMENT_TYPE_FACE_UP
 	setobjectmovementtype LOCALID_SLATEPORT_MAN_1, MOVEMENT_TYPE_FACE_LEFT
-	
+	return
+    
 SlateportCity_EventScript_Yellow::
 	lock
 	addobject LOCALID_SLATEPORT_YELLOW
