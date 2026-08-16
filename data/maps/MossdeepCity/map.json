@@ -428,12 +428,21 @@
     },
     {
       "type": "trigger",
-      "x": 64,
-      "y": 16,
+      "x": 57,
+      "y": 28,
       "elevation": 0,
       "var": "VAR_MOSSDEEP_eRIVAL",
       "var_value": "1",
-      "script": "MossdeepCity_EventScript_eRival_Encounter"
+      "script": "MossdeepCity_EventScript_eRival_Encounter_L"
+    },
+    {
+      "type": "trigger",
+      "x": 58,
+      "y": 28,
+      "elevation": 0,
+      "var": "VAR_MOSSDEEP_eRIVAL",
+      "var_value": "1",
+      "script": "MossdeepCity_EventScript_eRival_Encounter_R"
     },
     {
       "type": "trigger",
