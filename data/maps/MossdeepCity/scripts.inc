@@ -26,7 +26,6 @@ MossdeepCity_EventScript_PokefanFMagmaGone::
 MossdeepCity_EventScript_Sailor::
 	lock
 	faceplayer
-	setvar VAR_MOSSDEEP_eRIVAL, 1
 	goto_if_set FLAG_RECEIVED_HM_DIVE, MossdeepCity_EventScript_SailorMagmaGone
 	msgbox MossdeepCity_Text_MossdeepTargetedByMagma, MSGBOX_DEFAULT
 	release
@@ -341,6 +340,63 @@ MossdeepCity_EventScript_eRival_Encounter::
 	delay 40
 	applymovement LOCALID_MOSSDEEP_EXTRARIVAL, MossdeepCity_Movement_eRival_Exit
 	waitmovement 0
+	special SpawnCameraObject
+	waitmovement 0
+	playse SE_M_SELF_DESTRUCT
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 1  @ horizontal pan
+	setvar VAR_0x8006, 8  @ num shakes
+	setvar VAR_0x8007, 5  @ shake delay
+	special ShakeCamera
+	waitmovement 0
+	waitse
+	playse SE_M_SELF_DESTRUCT
+	delay 10
+	playse SE_M_FLAMETHROWER
+	delay 10
+	playse SE_M_FLAMETHROWER
+	delay 10
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 1  @ horizontal pan
+	setvar VAR_0x8006, 8  @ num shakes
+	setvar VAR_0x8007, 5  @ shake delay
+	special ShakeCamera
+	waitmovement 0
+	waitse
+	playse SE_M_SELF_DESTRUCT
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 1  @ horizontal pan
+	setvar VAR_0x8006, 18  @ num shakes
+	setvar VAR_0x8007, 4  @ shake delay
+	special ShakeCamera
+	waitmovement 0
+	waitse
+	playse SE_M_SELF_DESTRUCT
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 1  @ horizontal pan
+	setvar VAR_0x8006, 18  @ num shakes
+	setvar VAR_0x8007, 4  @ shake delay
+	special ShakeCamera
+	waitmovement 0
+	waitse
+	playse SE_M_FLAMETHROWER
+	delay 10
+	playse SE_M_FLAMETHROWER
+	delay 10
+	playse SE_M_FLAMETHROWER
+	delay 10
+	waitse
+	playse SE_M_SELF_DESTRUCT
+	setvar VAR_0x8004, 2  @ vertical pan
+	setvar VAR_0x8005, 2  @ horizontal pan
+	setvar VAR_0x8006, 18  @ num shakes
+	setvar VAR_0x8007, 4  @ shake delay
+	special ShakeCamera
+	waitmovement 0
+
+	msgbox MossDeepCity_Text_eRival_Bye, MSGBOX_DEFAULT
+	closemessage
+	special RemoveCameraObject
 	fadedefaultbgm
 	removeobject LOCALID_MOSSDEEP_EXTRARIVAL
 	setvar VAR_MOSSDEEP_eRIVAL, 2
@@ -552,3 +608,6 @@ MossDeepCity_Text_eRival_Emerald:
 	.string "The elders chose ME. With the DNA\n"
 	.string "Pokémon, I will halt this madness.\p"
 	.string "And save our world from the likes of you!$"
+
+MossDeepCity_Text_eRival_Bye:
+	.string "BYEEEEEEEEEEEEEEEEEEEEEEEEE!!!!!!$"
