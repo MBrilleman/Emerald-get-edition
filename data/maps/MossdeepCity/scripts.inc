@@ -303,26 +303,132 @@ MossdeepCity_Movement_ScottExitEast:
 	walk_left
 	step_end
 
-MossdeepCity_EventScript_eRival_Encounter::
+MossdeepCity_EventScript_eRival_Encounter_L::
 	lockall
 	playbgm MUS_B_PIKE, FALSE
 	delay 40
 	addobject LOCALID_MOSSDEEP_EXTRARIVAL
-	setobjectxy LOCALID_MOSSDEEP_EXTRARIVAL, 64, 26
+	setobjectxy LOCALID_MOSSDEEP_EXTRARIVAL, 47, 29
 	applymovement LOCALID_MOSSDEEP_EXTRARIVAL, MossdeepCity_Movement_eRival_Entrance
 	waitmovement 0
+	applymovement LOCALID_MOSSDEEP_EXTRARIVAL, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	goto MossdeepCity_EventScript_eRival_Encounter
+	end
+
+MossdeepCity_EventScript_eRival_Encounter_R::
+	lockall
+	playbgm MUS_B_PIKE, FALSE
+	delay 40
+	addobject LOCALID_MOSSDEEP_EXTRARIVAL
+	setobjectxy LOCALID_MOSSDEEP_EXTRARIVAL, 46, 29
+	applymovement LOCALID_MOSSDEEP_EXTRARIVAL, MossdeepCity_Movement_eRival_Entrance
+	waitmovement 0
+	applymovement LOCALID_MOSSDEEP_EXTRARIVAL, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	goto MossdeepCity_EventScript_eRival_Encounter
+	end
+
+MossdeepCity_EventScript_eRival_Encounter::
 	msgbox MossDeepCity_Text_eRival_Entrance, MSGBOX_DEFAULT
 	closemessage
+	playbgm MUS_RG_ENCOUNTER_DEOXYS, FALSE
+	delay 10
+	msgbox MossDeepCity_Text_eRival_Emerald, MSGBOX_DEFAULT
+	closemessage
+	playbgm MUS_B_PIKE, FALSE
+	delay 40
+	applymovement LOCALID_MOSSDEEP_EXTRARIVAL, MossdeepCity_Movement_eRival_Exit
+	waitmovement 0
+	special SpawnCameraObject
+	waitmovement 0
+	playse SE_M_SELF_DESTRUCT
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 1  @ horizontal pan
+	setvar VAR_0x8006, 8  @ num shakes
+	setvar VAR_0x8007, 5  @ shake delay
+	special ShakeCamera
+	waitmovement 0
+	waitse
+	playse SE_M_SELF_DESTRUCT
+	delay 10
+	playse SE_M_FLAMETHROWER
+	delay 10
+	playse SE_M_FLAMETHROWER
+	delay 10
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 1  @ horizontal pan
+	setvar VAR_0x8006, 8  @ num shakes
+	setvar VAR_0x8007, 5  @ shake delay
+	special ShakeCamera
+	waitmovement 0
+	waitse
+	playse SE_M_SELF_DESTRUCT
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 1  @ horizontal pan
+	setvar VAR_0x8006, 18  @ num shakes
+	setvar VAR_0x8007, 4  @ shake delay
+	special ShakeCamera
+	waitmovement 0
+	waitse
+	playse SE_M_SELF_DESTRUCT
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 1  @ horizontal pan
+	setvar VAR_0x8006, 18  @ num shakes
+	setvar VAR_0x8007, 4  @ shake delay
+	special ShakeCamera
+	waitmovement 0
+	waitse
+	playse SE_M_FLAMETHROWER
+	delay 10
+	playse SE_M_FLAMETHROWER
+	delay 10
+	playse SE_M_FLAMETHROWER
+	delay 10
+	waitse
+	playse SE_M_SELF_DESTRUCT
+	setvar VAR_0x8004, 2  @ vertical pan
+	setvar VAR_0x8005, 2  @ horizontal pan
+	setvar VAR_0x8006, 18  @ num shakes
+	setvar VAR_0x8007, 4  @ shake delay
+	special ShakeCamera
+	waitmovement 0
+
+	msgbox MossDeepCity_Text_eRival_Bye, MSGBOX_DEFAULT
+	closemessage
+	special RemoveCameraObject
+	fadedefaultbgm
+	removeobject LOCALID_MOSSDEEP_EXTRARIVAL
+	setvar VAR_MOSSDEEP_eRIVAL, 2
 	releaseall
 	end
 
 MossdeepCity_Movement_eRival_Entrance:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+MossdeepCity_Movement_eRival_Exit:
 	walk_up
 	walk_up
 	walk_up
 	walk_up
-	walk_up
-	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	walk_up
 	walk_up
 	walk_up
@@ -453,4 +559,55 @@ MossdeepCity_Text_SootopolisNewGymLeader:
 	.string "mentored WALLACE.$"
 
 MossDeepCity_Text_eRival_Entrance:
-	.string "yoyo$"
+	.string "Hi!\n"
+	.string "What brings you here?\p"
+	.string "I'm here for the rocket!\p"
+	.string "It's gonna take me to space.\p"
+	.string "...\p"
+	.string "Why?\n"
+	.string "To fulfill my destiny ofcourse!\p"
+	.string "The story of the titans I told you\n"
+	.string "last time on Mtn Chimney...\p"
+	.string "I'll tell the rest now.$"
+
+MossDeepCity_Text_eRival_Emerald:
+	.string "The Geological Titan of Land...\p"
+	.string "The Geological Titan of Sea...\p"
+	.string "Last time I told you about their\n"
+	.string "devastating battle for the Earth.\p"
+	.string "This was only the half thruth.\p"
+	.string "These two ancient forces of nature are\n"
+	.string "not the only participants in this\l"
+	.string "upcoming war.\p"
+	.string "...\p"
+	.string "There will be a third participant.\p"
+	.string "The battle for land and sea will attract\n"
+	.string "the attention of a third omnipotent\l"
+	.string "being with inmense power.\p"
+	.string "With the power to neutralize the\n"
+	.string "weather itself.\p"
+	.string "According to our legends it is called:\n"
+	.string "'Emerald'.\p"
+	.string "This third being will be the final\n"
+	.string "ingredient for the recipe of disaster.\p"
+	.string "This threeway struggle will tear the\n"
+	.string "Earth as we know it apart.\p"
+	.string "The one who stops their madness, our\n"
+	.string "saviour. Does not make it in time\l"
+	.string "to stop their destruction according to\l"
+	.string "the prophecy.\p"
+	.string "It will stop their war, but it will be too\n"
+	.string "late.\p"
+	.string "Once it arrives, the Earth will be a\n"
+	.string "dartling astroid floating in space.\p"
+	.string "Destroyed by the same powers you are\n"
+	.string "about to unleash on this world.\p"
+	.string "It is my quest to retrieve our saviour\n"
+	.string "before the war of the Earth can ensue.\p"
+	.string "I will not fail.\p"
+	.string "The elders chose ME. With the DNA\n"
+	.string "Pokémon, I will halt this madness.\p"
+	.string "And save our world from the likes of you!$"
+
+MossDeepCity_Text_eRival_Bye:
+	.string "BYEEEEEEEEEEEEEEEEEEEEEEEEE!!!!!!$"
