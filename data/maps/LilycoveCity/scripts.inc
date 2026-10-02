@@ -101,29 +101,28 @@ LilycoveCity_EventScript_YellowNo:
 
 LilycoveCity_Text_YellowIntro:
 @ de exit operands n & l & p zijn voor wat de VOLGENDE tekstbox moet doen
-	.string "dit\n" @ n plaatst volgende line specifiek op regel 2. Enkel gebruiken na een p of in nieuwe tekstbox
-	.string "is\l" @ l is voor scroll newline, line 1 schuift uit beeld en line 2 gaat naar 1. Gebruik na een n of l 
-	.string "voorbeeld\p" @ p begint een blanco tekstbox
-	.string "tekst$" @ dollar als afsluiter. NIET VERGETEN! Blijft net zolang lezen totdat die een $ ziet met alle gevolgen van dien. 
+	.string "Watch out dumbass\n" @ dollar als afsluiter. NIET VERGETEN! Blijft net zolang lezen totdat die een $ ziet met alle gevolgen van dien. 
+    .string "I just won the VGC tournament in Johto!$"
 
 LilycoveCity_Text_Vraag:
-	.string "Vechten?$"
+	.string "You wanna catch these\n"
+    .string "Iron Fist boosted hands?$"
 
 LilycoveCity_Text_Yellowb4Battle:
-	.string "Nu begint de fight.$"
+    .string "Get ready for my signature move \n"
+	.string "left, right, good night.$"
 
 LilycoveCity_Text_YellowNo:
-	.string "Kom later terug.$"
+	.string "That's right, be afraid!$"
 
 
 LilycoveCity_Text_Yellow_Defeat:
 @Tekst in battle na winst
-	.string "I lost.$"
+	.string "Damn, didn't know you were so defiant.$"
 
 LilycoveCity_Text_Yellow_Post:
 @Tekst post battle
-	.string "Ik ga,\n"
-	.string "Doei!$"
+    .string "We will meet again, mark my words!$"
 
 
 LilycoveCity_EventScript_BerryGentleman::
