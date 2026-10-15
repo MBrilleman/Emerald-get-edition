@@ -80,31 +80,38 @@ SSTidalRooms_EventScript_CrystalNo::
 
 SSTidalRooms_Text_CrystalIntro:
 @ de exit operands n & l & p zijn voor wat de VOLGENDE tekstbox moet doen
-	.string "LET'S GET READY TO R-R-R-R-\l"
-    .string "RRRUUUMMMBBLLEE!$"
+	.string "Kanto, man.\n"
+    .string "All those fucking routes, encounters,\p"
+    .string "encounterrates.\l"
+    .string "If we go here we can gaurantee oddish.\n"
+    .string "If we go here, with a level 8 pokemon, we\p"
+    .string "can repel manip so we can catch Abra.\n"
+    .string "And for what?? He fucking knew roar, \p"
+    .string "ROAR!!\l"
+    .string "A Johto mon not even found\n"
+    .string "in his own region, utter bullshit!$"
 
 SSTidalRooms_Text_Crystal_Vraag:
-	.string "LET'S GET READY TO R-R-R-R-\l"
-    .string "RRRUUUMMMBBLLEE!$"
+	.string "You wanna battle?$"
 
 SSTidalRooms_Text_Crystalb4Battle:
-	.string "Nu begint de fight.$"
+	.string "Muk and Murkrow will destroy you.$"
 
 SSTidalRooms_Text_CrystalNo:
-	.string "Kom later terug.$"
-
+    .string "Yeah, piss off. Just found a way to\n"
+	.string "guarantee Slugma$"
 
 SSTidalRooms_Text_Crystal_Defeat:
 @Tekst in battle na winst
-	.string "I lost.$"
+    .string "If only I had a Houndoom, you would\n"
+	.string "have been toast.$"
 
 SSTidalRooms_Text_Crystal_Post:
 @Tekst post battle
-	.string "Ik ga,\n"
-	.string "Doei!$"
+	.string "I hope your next encounter uses roar$"
 
 SSTidalRooms_Text_Crystal_Ignore:
-	.string "...$"
+	.string "Didn't even get to bring Electabuzz$"
 
 SSTidalRooms_EventScript_Colton::
 	trainerbattle_single TRAINER_COLTON, SSTidalRooms_Text_ColtonIntro, SSTidalRooms_Text_ColtonDefeat
