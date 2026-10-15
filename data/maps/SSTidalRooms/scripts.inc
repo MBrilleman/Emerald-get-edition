@@ -80,8 +80,10 @@ SSTidalRooms_EventScript_CrystalNo::
 
 SSTidalRooms_Text_CrystalIntro:
 @ de exit operands n & l & p zijn voor wat de VOLGENDE tekstbox moet doen
-	.string "LET'S GET READY TO R-R-R-R-\n"
-    .string "RRRUUUMMMBBLLEE!$"
+	.string "You dare challenge me? I've killed more\n"
+    .string "Pokémon than you can count, what \p"
+    .string "chance do you have?$"
+    
 
 SSTidalRooms_Text_Crystal_Vraag:
 	.string "LET'S GET READY TO R-R-R-R-\n"
@@ -93,8 +95,8 @@ SSTidalRooms_Text_Crystalb4Battle:
 	.string "happened to it....$"
 
 SSTidalRooms_Text_CrystalNo:
-    .string "What the fuck do you want? \n"
-	.string "Go away, I'm masturbating.$"
+    .string "Fine have it your way.\n"
+	.string "You couldn't handle all this anyway.$"
 
 
 SSTidalRooms_Text_Crystal_Defeat:

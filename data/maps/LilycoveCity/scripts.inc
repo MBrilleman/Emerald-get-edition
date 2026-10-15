@@ -103,22 +103,22 @@ LilycoveCity_Text_YellowIntro:
 @ de exit operands n & l & p zijn voor wat de VOLGENDE tekstbox moet doen
 	.string "Oh it's you again. \l" @ n plaatst volgende line specifiek op regel 2. Enkel gebruiken na een p of in nieuwe tekstbox
 	.string "You think you can defeat me a second \n" @ l is voor scroll newline, line 1 schuift uit beeld en line 2 gaat naar 1. Gebruik na een n of l 
-	.string "time? Think again, buttface!$" @ p begint een blanco tekstbox
+	.string "time?$" @ p begint een blanco tekstbox
 
 LilycoveCity_Text_Vraag:
-	.string "Vechten?$"
+	.string "Come on then, conqueryoung.$"
 
 LilycoveCity_Text_Yellowb4Battle:
     .string "Now we shall see, who will get who.\n"
 	.string "Witness meeeeee$"
 
 LilycoveCity_Text_YellowNo:
-    .string "What are you doing here, puny little \n"
-	.string "man? Get lost!$"
+    .string "Pff, typical. Now get lost, I'm going\n"
+	.string "back to masturbating.$"
 
 LilycoveCity_Text_Yellow_Defeat:
 @Tekst in battle na winst
-	.string "Alas, you have bested me. You truly are, \n"
+	.string "Alas, you have bested me. You truly are,\n"
     .string "lord of the get.$"
 
 LilycoveCity_Text_Yellow_Post:
@@ -851,4 +851,3 @@ LilycoveCity_Text_HoneymoonVowToSeeRarePokemon:
 	.string "So we were delighted to see a rare\n"
 	.string "POKéMON as soon as we arrived.\p"
 	.string "I mean, we are totally happy!$"
-
